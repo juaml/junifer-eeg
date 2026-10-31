@@ -1,0 +1,1 @@
+Add the `EEG` data type, `EEGDataReader`, the EEG preprocessors and the NICE markers (PSD, PE, KC and wSMI as scalars, topographies and timeseries), with the ICM resting-state example configuration, by `Fede Raimondo`

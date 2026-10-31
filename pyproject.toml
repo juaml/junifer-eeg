@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "junifer_eeg"
 description = "Junifer EEG extension"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = {text = "AGPL-3.0-only"}
 authors = [
     { name = "Synchon Mandal", email = "s.mandal@fz-juelich.de" },
@@ -25,7 +25,6 @@ classifiers = [
     "License :: OSI Approved",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
@@ -35,10 +34,14 @@ classifiers = [
     "Topic :: Utilities",
 ]
 dependencies = [
-    "click>=8.1.3,<8.2",
-    "datalad>=1.0.0,<1.3.0",
-    "lazy_loader==0.4",
-    "structlog>=25.0.0,<26.0.0",
+    "junifer>=0.0.8",
+    "mne>=1.8.0",
+    "mffpy>=0.10.0",
+    "numpy>=1.26.0",
+    "scipy>=1.10.0",
+    "pydantic>=2.11.4",
+    "lazy_loader>=0.4,<0.7",
+    "structlog>=25.0.0,<27.0.0",
 ]
 dynamic = ["version"]
 
@@ -47,6 +50,8 @@ Source = "https://github.com/juaml/junifer-eeg"
 
 [project.optional-dependencies]
 dev = [
+    "pytest",
+    "pytest-cov",
     "tox",
     "pre-commit",
     "ruff",
@@ -57,8 +62,11 @@ dev = [
 # Tool configs #
 ################
 
-[tool.setuptools]
-packages = ["junifer_eeg"]
+[tool.setuptools.packages.find]
+include = ["junifer_eeg*"]
+
+[tool.setuptools.package-data]
+junifer_eeg = ["data/rois/*.yaml"]
 
 [tool.setuptools_scm]
 version_scheme = "only-version"
@@ -70,6 +78,8 @@ line-length = 79
 extend-exclude = [
     "__init__.py",
     "_version.py",
+    # Kept as close as possible to the original NICE code
+    "junifer_eeg/tests/_nice_reference.py",
 ]
 
 [tool.ruff.lint]
@@ -115,9 +125,12 @@ ignore = [
 [tool.ruff.lint.isort]
 lines-after-imports = 2
 known-first-party = ["junifer_eeg"]
-known-third-party =[
-    "click",
-    "datalad",
+known-third-party = [
+    "junifer",
+    "mne",
+    "numpy",
+    "scipy",
+    "pydantic",
     "structlog",
     "pytest",
 ]
@@ -198,3 +211,7 @@ exclude_lines = [
     "if __name__ == .__main__.:",
 ]
 precision = 2
+
+# Until the configurable DataReader (feat/configurable-datareader) is released
+[tool.uv.sources]
+junifer = { path = "../junifer", editable = true }

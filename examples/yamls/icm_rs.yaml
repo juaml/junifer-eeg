@@ -1,0 +1,232 @@
+# ICM resting state (port of nice-icm `icm/rs/raw/egi` + `icm/rs` +
+# `icm/rs/egi256{,gfp}/{trim_mean80,std}` scalars and topographies).
+#
+# Every parameter of the NICE pipeline lives here, nothing in the code.
+# Shared blocks are defined once under `definitions` (ignored by junifer)
+# with YAML anchors (&), and reused with aliases (*) and merge keys (<<:).
+#
+# Each marker comes in three kinds, which set the dimensionality of the
+# output and thus the axes that each aggregation must reduce:
+#   <Marker>Scalar      : channels_y, channels, epochs  (one value)
+#   <Marker>Topography  : channels_y, epochs            (one per channel)
+#   <Marker>Timeseries  : channels_y, channels          (one per epoch)
+# The axes are always reduced in that order. Only the connectivity markers
+# (wSMI) have the channels_y axis.
+#
+# `aggregations` maps a name to the list of steps (one for each axis) to
+# compute it. Each aggregation is stored as `<marker name>_<aggregation>`,
+# e.g., `PSD_gfp_std`.
+
+with: junifer_eeg
+
+workdir: /tmp/junifer-eeg
+
+definitions:
+  # Marker parameters
+  psd_params: &psd_params
+    # All the spectral features from a single Welch PSD. The PSD is cached,
+    # so the markers with the same estimator compute it once per element.
+    estimator:
+      method: welch
+      tmin: null
+      tmax: 0.6
+      fmin: 1.0
+      fmax: 45.0
+      method_params:
+        n_fft: 4096
+        n_overlap: 100
+        nperseg: 128
+    # Each spectral feature reduces the frequency axis in its own way:
+    #   <band>  : sum of the PSD in the band, in dB (`dB`)
+    #   <band>n : sum of the normalized PSD in the band (`normalized`)
+    #   se      : spectral entropy of the normalized PSD
+    #   <edge>  : frequency below which this fraction of the power lies
+    bands:
+      delta: [1.0, 4.0]
+      theta: [4.0, 8.0]
+      alpha: [8.0, 12.0]
+      beta: [12.0, 30.0]
+      gamma: [30.0, 45.0]
+    dB: true
+    normalized: true
+    spectral_entropy: true
+    spectral_edges:
+      msf: 0.5
+      sef90: 0.9
+      sef95: 0.95
+  pe_params: &pe_params
+    tmin: null
+    tmax: 0.6
+    kernel: 3
+    tau: 8
+  wsmi_params: &wsmi_params
+    tmin: null
+    tmax: 0.6
+    kernel: 3
+    tau: 8
+    method: weighted
+    csd: true
+  kc_params: &kc_params
+    tmin: null
+    tmax: 0.6
+    nbins: 32
+
+  # Aggregation steps
+  scalp_mean: &scalp_mean
+    axis: channels
+    method: mean
+    picks: scalp
+  scalp_std: &scalp_std
+    axis: channels
+    method: std
+    picks: scalp
+  trim_mean80: &trim_mean80
+    axis: epochs
+    method: trim_mean
+    method_params:
+      proportiontocut: 0.1
+  epochs_std: &epochs_std
+    axis: epochs
+    method: std
+  # Median over the scalp channels each channel is connected to
+  connected_median: &connected_median
+    axis: channels_y
+    method: median
+    picks: scalp
+
+datagrabber:
+  kind: PatternDataGrabber
+  datadir: /path/to/icm/subjects
+  types:
+    - EEG
+  patterns:
+    EEG:
+      pattern: "{subject}/*icm-rs-egi.raw"
+      # Like `space` for MRI: the montage of the recording. ROIs (e.g.,
+      # `scalp`) are defined for each montage.
+      montage: GSN-HydroCel-256
+      # `.raw` is ambiguous (several vendors use it). Not needed for the
+      # MFF files (`.mff` or zipped `.mff.zip`).
+      format: egi
+  replacements:
+    - subject
+
+datareader:
+  kind: EEGDataReader
+
+preprocess:
+  # Keep the 256 EEG channels: drops the reference (E257 in .raw files,
+  # "Vertex Reference" in MFF files) and the non-EEG channels
+  - kind: EEGPickChannels
+    picks: eeg
+    exclude: [E257, Vertex Reference]
+  - kind: EEGSetMontage
+  # nice_ext `_egi_filter`
+  - kind: EEGFilter
+    l_freq: 0.5
+    h_freq: null
+    method: iir
+    iir_params:
+      ftype: butter
+      order: 6
+  - kind: EEGFilter
+    l_freq: null
+    h_freq: 45.0
+    method: iir
+    iir_params:
+      ftype: butter
+      order: 8
+  - kind: EEGNotchFilter
+    freqs: [50.0, 100.0]
+    method: fft
+  - kind: EEGResample
+    sfreq: 250.0
+  # Pseudo-epochs of 800 ms (-200 to 600 ms), separated by 550 to 850 ms
+  - kind: EEGFixedLengthEpochs
+    duration: 0.8
+    tmin: -0.2
+    onset: 0.0
+    jitter: [0.55, 0.85]
+    baseline: null
+    seed: 42
+  # nice_ext `_adaptive_egi`, then the quality gates
+  - kind: EEGAdaptiveRejection
+    reject:
+      eeg: 100.0e-6
+    n_epochs_bad_ch: 0.5
+    n_channels_bad_epoch: 0.1
+    zscore_thresh: 4
+    max_iter: 4
+    min_channels: 0.7
+    min_epochs: 200
+  - kind: EEGAverageReference
+  - kind: EEGInterpolateBads
+    reset_bads: true
+
+markers:
+  # The 4 NICE reductions for the scalars: the epochs reduced with
+  # trim_mean80 or std, after reducing the scalp channels with the mean or
+  # the std ("gfp"). Topographies keep the channels (all of them).
+  - name: PSD
+    kind: EEGPowerSpectralDensityScalar
+    <<: *psd_params
+    aggregations:
+      trim_mean80: [*scalp_mean, *trim_mean80]
+      std: [*scalp_mean, *epochs_std]
+      gfp_trim_mean80: [*scalp_std, *trim_mean80]
+      gfp_std: [*scalp_std, *epochs_std]
+  - name: PSD_topo
+    kind: EEGPowerSpectralDensityTopography
+    <<: *psd_params
+    aggregations:
+      trim_mean80: [*trim_mean80]
+      std: [*epochs_std]
+
+  - name: PE
+    kind: EEGPermutationEntropyScalar
+    <<: *pe_params
+    aggregations:
+      trim_mean80: [*scalp_mean, *trim_mean80]
+      std: [*scalp_mean, *epochs_std]
+      gfp_trim_mean80: [*scalp_std, *trim_mean80]
+      gfp_std: [*scalp_std, *epochs_std]
+  - name: PE_topo
+    kind: EEGPermutationEntropyTopography
+    <<: *pe_params
+    aggregations:
+      trim_mean80: [*trim_mean80]
+      std: [*epochs_std]
+
+  - name: wSMI
+    kind: EEGSymbolicMutualInformationScalar
+    <<: *wsmi_params
+    aggregations:
+      trim_mean80: [*connected_median, *scalp_mean, *trim_mean80]
+      std: [*connected_median, *scalp_mean, *epochs_std]
+      gfp_trim_mean80: [*connected_median, *scalp_std, *trim_mean80]
+      gfp_std: [*connected_median, *scalp_std, *epochs_std]
+  - name: wSMI_topo
+    kind: EEGSymbolicMutualInformationTopography
+    <<: *wsmi_params
+    aggregations:
+      trim_mean80: [*connected_median, *trim_mean80]
+      std: [*connected_median, *epochs_std]
+
+  - name: KC
+    kind: EEGKolmogorovComplexityScalar
+    <<: *kc_params
+    aggregations:
+      trim_mean80: [*scalp_mean, *trim_mean80]
+      std: [*scalp_mean, *epochs_std]
+      gfp_trim_mean80: [*scalp_std, *trim_mean80]
+      gfp_std: [*scalp_std, *epochs_std]
+  - name: KC_topo
+    kind: EEGKolmogorovComplexityTopography
+    <<: *kc_params
+    aggregations:
+      trim_mean80: [*trim_mean80]
+      std: [*epochs_std]
+
+storage:
+  kind: HDF5FeatureStorage
+  uri: /path/to/results/icm_rs.hdf5
