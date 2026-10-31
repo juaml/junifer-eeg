@@ -1,35 +1,73 @@
 name: Run Tests
 
 on:
-  - push
-  - pull_request
+  push:
+    # Branches are tested through their pull requests
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch: {}
+
+# Cancel superseded runs of the same branch / PR, except on main
+concurrency:
+  group: tests-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
-  test:
+  # Check whether the library changed, to skip the tests otherwise
+  # (e.g. on docs-only changes)
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      code: ${{ steps.filter.outputs.code }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        if: github.event_name != 'pull_request'
+      - name: Check for library changes
+        uses: dorny/paths-filter@v4
+        id: filter
+        with:
+          filters: |
+            code:
+              - 'junifer_eeg/**'
+              - '.github/workflows/ci.yml'
+              - 'tox.ini'
+              - 'pyproject.toml'
+              - 'uv.lock'
+              - 'codecov.yml'
+
+  # The tests
+  run-tests:
+    needs: changes
+    if: needs.changes.outputs.code == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        python-version:
-          - "3.11"
-          - "3.12"
-          - "3.13"
-          - "3.14"
-
+        python-version: ['3.11', '3.12', '3.13', '3.14']
     steps:
-      - uses: actions/checkout@v6
-      - name: Set up git-annex
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          submodules: true
+      - name: Install git-annex
         run: |
           sudo apt-get update
           sudo apt-get install -y git-annex
-      - name: Install Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v6
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install Python dependencies
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v10.3.0
+      - name: Install tox
+        # tox-uv makes tox create the test environments with uv
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          python -m pip install tox tox-gh-actions
+          uv tool install tox --with tox-uv --with tox-gh-actions
       - name: Configure Git for DataLad
         run: |
           git config --global user.email "junifer-eeg-runner@github.com"
@@ -38,8 +76,25 @@ jobs:
         run: |
           tox
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           flags: junifer_eeg
-        if: success() && matrix.python-version == 3.13
+        if: success() && matrix.python-version == '3.13'
+
+  # Single status to require in branch protection: passes when the tests
+  # passed or were skipped because the library did not change
+  tests:
+    needs: [changes, run-tests]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check test results
+        if: >-
+          contains(needs.*.result, 'failure') ||
+          contains(needs.*.result, 'cancelled')
+        run: |
+          echo "Some test jobs failed or were cancelled"
+          exit 1
+      - run: echo "Tests passed or were not needed"
