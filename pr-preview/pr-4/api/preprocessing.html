@@ -610,6 +610,38 @@ validated to form a valid model.</p>
 </dd></dl>
 
 <dl class="py class pydantic_model">
+<dt class="sig sig-object py" id="junifer_eeg.preprocess.EEGRenameChannels">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">junifer_eeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">EEGRenameChannels</span></span><a class="headerlink" href="#junifer_eeg.preprocess.EEGRenameChannels" title="Link to this definition">¶</a></dt>
+<dd><p>Class for renaming the EEG channels.</p>
+<p>In order: the regular expression <code class="docutils literal notranslate"><span class="pre">pattern</span></code> is replaced by
+<code class="docutils literal notranslate"><span class="pre">replacement</span></code> in the names that match it (e.g., <code class="docutils literal notranslate"><span class="pre">EEG</span> <span class="pre">FP1-REF</span></code> to
+<code class="docutils literal notranslate"><span class="pre">FP1</span></code>), the names in <code class="docutils literal notranslate"><span class="pre">mapping</span></code> are renamed, and, with
+<code class="docutils literal notranslate"><span class="pre">montage_case</span></code>, the names are written as in the montage of the EEG
+data type, ignoring the case (e.g., <code class="docutils literal notranslate"><span class="pre">FP1</span></code> to <code class="docutils literal notranslate"><span class="pre">Fp1</span></code>).</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>pattern</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The regular expression to replace (see <a class="reference external" href="https://docs.python.org/3/library/re.html#re.sub" title="(in Python v3.15)"><code class="xref py py-func docutils literal notranslate"><span class="pre">re.sub()</span></code></a>). If None, no
+replacement (default None).</p>
+</dd>
+<dt><strong>replacement</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, optional</span></dt><dd><p>The replacement of <code class="docutils literal notranslate"><span class="pre">pattern</span></code>, with its groups as <code class="docutils literal notranslate"><span class="pre">\1</span></code>
+(default <code class="docutils literal notranslate"><span class="pre">&quot;\1&quot;</span></code>).</p>
+</dd>
+<dt><strong>mapping</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> and <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The new name of some channels (default None).</p>
+</dd>
+<dt><strong>montage_case</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bltin-boolean-values" title="(in Python v3.15)"><span class="xref std std-ref">bool</span></a>, optional</span></dt><dd><p>Whether to use the case of the channel names of the montage
+(default False).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><cite>self</cite> is explicitly positional-only to allow <cite>self</cite> as a field name.</p>
+</dd></dl>
+
+<dl class="py class pydantic_model">
 <dt class="sig sig-object py" id="junifer_eeg.preprocess.EEGRenameEvents">
 <em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">junifer_eeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">EEGRenameEvents</span></span><a class="headerlink" href="#junifer_eeg.preprocess.EEGRenameEvents" title="Link to this definition">¶</a></dt>
 <dd><p>Class for renaming the events (annotations) of continuous EEG data.</p>
@@ -777,6 +809,7 @@ validated to form a valid model.</p>
 <li><a class="reference internal" href="#junifer_eeg.preprocess.EEGInterpolateBads"><code class="docutils literal notranslate"><span class="pre">EEGInterpolateBads</span></code></a></li>
 <li><a class="reference internal" href="#junifer_eeg.preprocess.EEGNotchFilter"><code class="docutils literal notranslate"><span class="pre">EEGNotchFilter</span></code></a></li>
 <li><a class="reference internal" href="#junifer_eeg.preprocess.EEGPickChannels"><code class="docutils literal notranslate"><span class="pre">EEGPickChannels</span></code></a></li>
+<li><a class="reference internal" href="#junifer_eeg.preprocess.EEGRenameChannels"><code class="docutils literal notranslate"><span class="pre">EEGRenameChannels</span></code></a></li>
 <li><a class="reference internal" href="#junifer_eeg.preprocess.EEGRenameEvents"><code class="docutils literal notranslate"><span class="pre">EEGRenameEvents</span></code></a></li>
 <li><a class="reference internal" href="#junifer_eeg.preprocess.EEGResample"><code class="docutils literal notranslate"><span class="pre">EEGResample</span></code></a></li>
 <li><a class="reference internal" href="#junifer_eeg.preprocess.EEGSetMontage"><code class="docutils literal notranslate"><span class="pre">EEGSetMontage</span></code></a></li>
@@ -792,7 +825,7 @@ validated to form a valid model.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=2dd80c9b"></script>
+</div><script src="../_static/documentation_options.js?v=1a2086f1"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

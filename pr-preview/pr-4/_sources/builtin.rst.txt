@@ -28,6 +28,7 @@ On the continuous data:
 .. autosummary::
    :nosignatures:
 
+   EEGRenameChannels
    EEGPickChannels
    EEGSetMontage
    EEGFilter
