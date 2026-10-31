@@ -14,16 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Install Python
-        uses: actions/setup-python@v7
-        with:
-          python-version: "3.x"
       - name: Set up uv
         uses: astral-sh/setup-uv@v10.3.0
-      - name: Install tox
-        run: |
-          uv tool install tox --with tox-uv
       - name: Run ruff
         run: uvx "ruff>=0.1.0" check --output-format=github .
       - name: Run codespell
-        run: tox -e codespell
+        run: |
+          uvx --with tomli codespell --toml pyproject.toml docs/ junifer_eeg/ README.md

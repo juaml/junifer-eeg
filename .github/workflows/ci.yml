@@ -49,6 +49,9 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ['3.11', '3.12', '3.13', '3.14']
+    env:
+      # The Python of uv sync and uv run (instead of .python-version)
+      UV_PYTHON: ${{ matrix.python-version }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -58,23 +61,20 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y git-annex
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v7
-        with:
-          python-version: ${{ matrix.python-version }}
       - name: Set up uv
         uses: astral-sh/setup-uv@v10.3.0
-      - name: Install tox
-        # tox-uv makes tox create the test environments with uv
+      - name: Install Python ${{ matrix.python-version }} and the dependencies
+        # The locked dependencies (uv.lock)
         run: |
-          uv tool install tox --with tox-uv --with tox-gh-actions
+          uv sync --locked --extra dev
       - name: Configure Git for DataLad
         run: |
           git config --global user.email "junifer-eeg-runner@github.com"
           git config --global user.name "GitHub Runner"
-      - name: Test with tox
+      - name: Run the tests
         run: |
-          tox
+          uv run --locked --extra dev python --version
+          uv run --locked --extra dev pytest --cov=junifer_eeg --cov-report=xml --cov-report=term
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v7
         with:
