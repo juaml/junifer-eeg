@@ -14,11 +14,11 @@ Importing `junifer_eeg` (`with: junifer_eeg` in the YAML) registers:
   files).
 * `EEGDataReader`: reads the `EEG` data type with MNE, including zipped EGI
   MFF directories (`.mff.zip`).
-* Preprocessors: `EEGPickChannels`, `EEGSetMontage`, `EEGFilter`,
-  `EEGNotchFilter`, `EEGResample`, `EEGRenameEvents`, `EEGDropEvents`,
-  `EEGFixedLengthEpochs`, `EEGEventEpochs`, `EEGAdaptiveRejection`,
-  `EEGAutoReject`,
-  `EEGAverageReference` and `EEGInterpolateBads`.
+* Preprocessors: `EEGRenameChannels`, `EEGPickChannels`, `EEGSetMontage`,
+  `EEGFilter`, `EEGNotchFilter`, `EEGResample`, `EEGRenameEvents`,
+  `EEGDropEvents`, `EEGFixedLengthEpochs`, `EEGEventEpochs`,
+  `EEGAdaptiveRejection`, `EEGAutoReject`, `EEGAverageReference` and
+  `EEGInterpolateBads`.
 * Markers: power spectral density (band power, spectral entropy and edges),
   permutation entropy, Kolmogorov complexity, (weighted) symbolic mutual
   information, phase locking value and weighted phase lag index, contingent negative variation, event-related

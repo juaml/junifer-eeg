@@ -8,6 +8,7 @@ from .channels import (
     EEGAverageReference,
     EEGInterpolateBads,
     EEGPickChannels,
+    EEGRenameChannels,
     EEGSetMontage,
 )
 from .autorejection import EEGAutoReject
@@ -29,6 +30,7 @@ __all__ = [
     "EEGInterpolateBads",
     "EEGNotchFilter",
     "EEGPickChannels",
+    "EEGRenameChannels",
     "EEGRenameEvents",
     "EEGResample",
     "EEGSetMontage",

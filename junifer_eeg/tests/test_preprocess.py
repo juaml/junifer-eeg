@@ -18,6 +18,7 @@ from junifer_eeg.preprocess import (
     EEGInterpolateBads,
     EEGNotchFilter,
     EEGPickChannels,
+    EEGRenameChannels,
     EEGResample,
     EEGSetMontage,
 )
@@ -45,6 +46,27 @@ def test_pick_channels_and_montage() -> None:
     assert len(raw.ch_names) == 20
     raw = _run(EEGSetMontage(), raw)
     assert raw.get_montage() is not None
+
+
+def test_rename_channels() -> None:
+    """Test renaming the channels to the names of the montage."""
+    raw = make_raw(duration=5)
+    # As in clinical EDF files (e.g., TUEG)
+    raw.rename_channels({x: f"EEG {x.upper()}-REF" for x in raw.ch_names})
+    raw = _run(
+        EEGRenameChannels(
+            pattern=r"^EEG (\w+)-REF$",
+            mapping={"OZ": "Oz2"},
+            montage_case=True,
+        ),
+        raw,
+    )
+    assert raw.ch_names[:3] == ["Fp1", "Fp2", "F7"]
+    # The mapping is applied before the case of the montage
+    assert "Oz2" in raw.ch_names
+    raw.rename_channels({"Fp2": "x", "F7": "X"})
+    with pytest.raises(ValueError, match="same names"):
+        _run(EEGRenameChannels(mapping={"x": "X"}), raw)
 
 
 def test_filters_and_resample() -> None:
