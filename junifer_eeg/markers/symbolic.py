@@ -2,6 +2,10 @@
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
+#
+# Ported from NICE (https://github.com/nice-tools/nice):
+# Copyright (C) 2014-2018 Federico Raimondo, Denis A. Engemann and
+# Jacobo D. Sitt
 
 import math
 from functools import cache

@@ -208,3 +208,10 @@ __marimo__/
 
 # Setuptools SCM
 _version.py
+
+# Example configurations (local, not versioned)
+examples/yamls/
+
+# Sphinx documentation
+docs/_build/
+docs/api/generated/

@@ -2,12 +2,17 @@
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
+#
+# Ported from NICE (https://github.com/nice-tools/nice):
+# Copyright (C) 2014-2018 Federico Raimondo, Denis A. Engemann and
+# Jacobo D. Sitt
 
 from typing import Any, ClassVar, Literal
 
 import numpy as np
 from junifer.api.decorators import register_marker
 
+from ..aggregation import Axis
 from ..base import EEGBaseMarker, ScalarMixin, TimeseriesMixin, TopographyMixin
 from ..utils import get_epochs
 from ._smi_estimator import SMIEstimator, SMIEstimatorParams
@@ -62,7 +67,7 @@ class EEGSymbolicMutualInformation(EEGBaseMarker):
 
     """
 
-    _CONNECTIVITY: ClassVar[bool] = True
+    _AXES: ClassVar[tuple[Axis, ...]] = ("epochs", "channels", "channels_y")
 
     tmin: float | None = None
     tmax: float | None = None

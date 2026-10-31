@@ -52,14 +52,29 @@ class EEGDataReader(DefaultDataReader):
 
     The ``EEG`` data type is read with MNE as a :class:`mne.io.Raw`, with the
     data loaded in memory. The format is given by the ``format`` key of the
-    data type (see :data:`_format_readers`), or by the file extension if it is
-    not ambiguous. Zipped MFF directories (``.mff.zip``) are extracted to the
-    element directory before reading. Other data types are read by
+    data type (``egi``, ``fif``, ``edf``, ``bdf``, ``brainvision``,
+    ``eeglab`` or ``cnt``), or by the file extension if it is not ambiguous.
+    Zipped MFF directories (``.mff.zip``) are extracted to the element
+    directory before reading. Other data types are read by
     :class:`junifer.datareader.DefaultDataReader`.
+
+    If the data type has the ``files`` key, its path is a directory, and all
+    the files in it matching the ``files`` glob pattern are read, sorted by
+    recording date and concatenated (see :func:`mne.concatenate_raws`, which
+    annotates the boundaries between them).
+
+    Parameters
+    ----------
+    drop_channel_types : list of str or None, optional
+        When concatenating several files, the channel types (e.g., ``stim``)
+        to drop from each file first, so they have the same channels
+        (default None).
 
     """
 
     _DEPENDENCIES: ClassVar[Dependencies] = {"mne", "junifer_eeg"}
+
+    drop_channel_types: list[str] | None = None
 
     def _fit_transform(
         self,
@@ -91,11 +106,21 @@ class EEGDataReader(DefaultDataReader):
             eeg = input["EEG"].copy()
             eeg["path"] = Path(eeg["path"])
             logger.info(f"Reading EEG from {eeg['path'].absolute()!s}")
-            eeg["data"] = _read_eeg(
-                path=eeg["path"],
-                format=eeg.get("format"),
-                read_params=params.get("EEG", {}),
-            )
+            read_params = params.get("EEG", {})
+            if "files" in eeg:
+                eeg["data"] = _read_eeg_files(
+                    path=eeg["path"],
+                    files=eeg["files"],
+                    format=eeg.get("format"),
+                    read_params=read_params,
+                    drop_channel_types=self.drop_channel_types,
+                )
+            else:
+                eeg["data"] = _read_eeg(
+                    path=eeg["path"],
+                    format=eeg.get("format"),
+                    read_params=read_params,
+                )
             self.update_meta(eeg, "datareader")
             out["EEG"] = eeg
         return out
@@ -208,3 +233,61 @@ def _read_eeg(
     reader = _format_readers[format]
     logger.info(f"EEG is of format {format}")
     return reader(path, preload=True, verbose="error", **read_params)
+
+
+def _read_eeg_files(
+    path: Path,
+    files: str,
+    format: str | None,
+    read_params: dict,
+    drop_channel_types: list[str] | None,
+) -> mne.io.BaseRaw:
+    """Read and concatenate the EEG files of a directory.
+
+    Parameters
+    ----------
+    path : pathlib.Path
+        The path to the directory.
+    files : str
+        The glob pattern of the files in the directory.
+    format : str or None
+        The format, if given by the DataGrabber.
+    read_params : dict
+        Extra parameters for the MNE reader function.
+    drop_channel_types : list of str or None
+        The channel types to drop from each file before concatenating.
+
+    Returns
+    -------
+    mne.io.BaseRaw
+        The concatenated data, sorted by recording date, loaded in memory.
+
+    Raises
+    ------
+    RuntimeError
+        If no file matches.
+
+    """
+    fnames = sorted(path.glob(files))
+    if len(fnames) == 0:
+        raise_error(
+            f"No EEG files matching {files} in {path!s}", klass=RuntimeError
+        )
+    logger.info(f"Reading {len(fnames)} EEG files from {path!s}")
+    raws = []
+    for fname in fnames:
+        raw = _read_eeg(fname, format, read_params)
+        if drop_channel_types:
+            to_drop = [
+                raw.ch_names[i]
+                for i, ch_type in enumerate(raw.get_channel_types())
+                if ch_type in drop_channel_types
+            ]
+            raw.drop_channels(to_drop)
+        raws.append(raw)
+    # Sort by recording date (stable, so the names break the ties)
+    raws = sorted(
+        raws,
+        key=lambda x: (x.info["meas_date"] is None, x.info["meas_date"] or 0),
+    )
+    return mne.concatenate_raws(raws, verbose="error")

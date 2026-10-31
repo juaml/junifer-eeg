@@ -2,6 +2,9 @@
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
+#
+# Ported from nice-extensions:
+# Copyright (C) 2017-2018 Federico Raimondo
 
 import math
 from typing import Any, ClassVar
@@ -17,7 +20,7 @@ from scipy.stats import zscore
 from .base import EEGBasePreprocessor
 
 
-__all__ = ["EEGAdaptiveRejection"]
+__all__ = ["EEGAdaptiveRejection", "check_min_epochs"]
 
 _log = structlog.get_logger("junifer")
 logger = _log.bind(pkg="preprocess", step="preprocessing")
@@ -138,17 +141,40 @@ class EEGAdaptiveRejection(EEGBasePreprocessor):
 
     def _check_min_epochs(self, inst: mne.BaseEpochs, n_epochs: int) -> None:
         """Check the number of epochs remaining."""
-        if self.min_epochs is None:
-            return
-        min_epochs = self.min_epochs
-        if isinstance(min_epochs, float):
-            min_epochs = int(n_epochs * min_epochs)
-        if len(inst) < min_epochs:
-            raise_error(
-                f"Cannot clean data: only {len(inst)} out of {n_epochs} "
-                f"epochs remain (minimum {min_epochs}).",
-                klass=RuntimeError,
-            )
+        check_min_epochs(inst, n_epochs, self.min_epochs)
+
+
+def check_min_epochs(
+    inst: mne.BaseEpochs, n_epochs: int, min_epochs: float | int | None
+) -> None:
+    """Check the number of epochs remaining after a rejection.
+
+    Parameters
+    ----------
+    inst : mne.BaseEpochs
+        The epochs remaining.
+    n_epochs : int
+        The number of epochs before the rejection.
+    min_epochs : float or int or None
+        The minimum number (int) or proportion (float) of epochs remaining.
+        If None, it is not checked.
+
+    Raises
+    ------
+    RuntimeError
+        If fewer than ``min_epochs`` epochs remain.
+
+    """
+    if min_epochs is None:
+        return
+    if isinstance(min_epochs, float):
+        min_epochs = int(n_epochs * min_epochs)
+    if len(inst) < min_epochs:
+        raise_error(
+            f"Cannot clean data: only {len(inst)} out of {n_epochs} "
+            f"epochs remain (minimum {min_epochs}).",
+            klass=RuntimeError,
+        )
 
 
 def _picks_excluding(inst: mne.BaseEpochs, exclude: set[str]) -> np.ndarray:

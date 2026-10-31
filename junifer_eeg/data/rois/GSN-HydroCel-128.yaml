@@ -1,5 +1,6 @@
 # ROIs (channel names) for the GSN-HydroCel-128 montage.
-# Ported from nice-extensions (nice_ext.equipments.egi).
+# Ported from nice-extensions (nice_ext.equipments.egi):
+# Copyright (C) 2017-2018 Federico Raimondo
 p3a: [E4, E5, E11, E12, E16, E19, E7, E31, E55, E80, E106]
 p3b: [E7, E31, E55, E80, E106, E61, E62, E72, E78]
 mmn: [E4, E5, E11, E12, E16, E19, E7, E31, E55, E80, E106]

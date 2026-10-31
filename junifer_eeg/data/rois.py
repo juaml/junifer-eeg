@@ -2,6 +2,9 @@
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
+#
+# Ported from nice-extensions:
+# Copyright (C) 2017-2018 Federico Raimondo
 
 from pathlib import Path
 from typing import Any

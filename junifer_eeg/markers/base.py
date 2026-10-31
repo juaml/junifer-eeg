@@ -26,18 +26,14 @@ __all__ = [
 ]
 
 
-# The order in which the axes are reduced
-_AGGREGATION_ORDER: tuple[Axis, ...] = ("channels_y", "channels", "epochs")
-
-
 class EEGBaseMarker(BaseMarker):
     """Base class for EEG markers.
 
-    A marker computes its values for each epoch and channel (and connected
-    channel, for connectivity markers), for one or more features (e.g., the
-    power in each frequency band). The values are then reduced with each of
-    the ``aggregations``, to the dimensionality set by the kind of marker
-    (see :class:`ScalarMixin`, :class:`TopographyMixin` and
+    A marker computes its values along its axes (``_AXES``, e.g., for each
+    epoch and channel), for one or more features (e.g., the power in each
+    frequency band). The values are then reduced with each of the
+    ``aggregations``, to the dimensionality set by the kind of marker (see
+    :class:`ScalarMixin`, :class:`TopographyMixin` and
     :class:`TimeseriesMixin`). Each aggregation is stored as a feature of the
     marker (``<name>_<aggregation>``).
 
@@ -48,9 +44,9 @@ class EEGBaseMarker(BaseMarker):
     ----------
     aggregations : dict of str and list of AggregationStep
         The aggregations to compute: a name and the list of steps, one for
-        each axis to reduce. The axes are reduced in the order
-        ``channels_y``, ``channels`` and ``epochs``, regardless of the order
-        of the steps.
+        each axis to reduce. The axes are reduced in the order of the steps
+        (e.g., first across epochs and then across channels, as in Sitt et
+        al. 2014). The order matters unless all the steps are means.
     on : ``DataType.EEG`` or None, optional
         The data type to compute the marker on (default None).
     name : str or None, optional
@@ -60,10 +56,10 @@ class EEGBaseMarker(BaseMarker):
     """
 
     _DEPENDENCIES: ClassVar[Dependencies] = {"mne", "numpy", "junifer_eeg"}
-    # Whether the marker has the connected channels axis
-    _CONNECTIVITY: ClassVar[bool] = False
+    # The axes of the values, before the features
+    _AXES: ClassVar[tuple[Axis, ...]] = ("epochs", "channels")
     # Set by the mixins
-    _REDUCED_AXES: ClassVar[tuple[Axis, ...]]
+    _KEPT_AXES: ClassVar[tuple[Axis, ...]]
     _STORAGE_TYPE: ClassVar[StorageType]
 
     aggregations: dict[str, list[AggregationStep]]
@@ -71,14 +67,16 @@ class EEGBaseMarker(BaseMarker):
     @classmethod
     def _reduced_axes(cls) -> list[Axis]:
         """Get the axes that each aggregation must reduce."""
-        return [
-            x
-            for x in cls._REDUCED_AXES
-            if x != "channels_y" or cls._CONNECTIVITY
-        ]
+        return [x for x in cls._AXES if x not in cls._KEPT_AXES]
 
     def validate_marker_params(self) -> None:
         """Run extra logical validation for marker."""
+        not_kept = [x for x in self._KEPT_AXES if x not in self._AXES]
+        if not_kept:
+            raise_error(
+                f"{self.__class__.__name__} cannot keep the axes {not_kept}, "
+                f"its axes are {list(self._AXES)}"
+            )
         if len(self.aggregations) == 0:
             raise_error("At least one aggregation is needed")
         required = self._reduced_axes()
@@ -97,7 +95,10 @@ class EEGBaseMarker(BaseMarker):
             for step in steps:
                 # Check the function exists
                 get_aggregation_function(step.method, step.method_params)
-                if step.picks is not None and step.axis == "epochs":
+                if step.picks is not None and step.axis not in (
+                    "channels",
+                    "channels_y",
+                ):
                     raise_error(
                         f"Aggregation {agg_name}: `picks` is only valid for "
                         "the channels"
@@ -128,7 +129,7 @@ class EEGBaseMarker(BaseMarker):
 
     def compute_values(
         self, input: dict[str, Any]
-    ) -> tuple[np.ndarray, list[str], list[str]]:
+    ) -> tuple[np.ndarray | list[np.ndarray], list[str], list[str]]:
         """Compute the values of the marker.
 
         Parameters
@@ -138,10 +139,11 @@ class EEGBaseMarker(BaseMarker):
 
         Returns
         -------
-        numpy.ndarray
-            The values, shape (n_epochs, n_channels, n_features) or, for the
-            connectivity markers, (n_epochs, n_channels, n_channels,
-            n_features).
+        numpy.ndarray or list of numpy.ndarray
+            The values, shape ``(*axes, n_features)``, with the axes of the
+            marker (``_AXES``). If the features have different shapes (e.g.,
+            different time windows), a list with the values of each feature,
+            each of shape ``(*axes, 1)``.
         list of str
             The names of the features.
         list of str
@@ -175,30 +177,61 @@ class EEGBaseMarker(BaseMarker):
 
         """
         values, features, ch_names = self.compute_values(input)
-        axes: list[str] = ["epochs", "channels"]
-        if self._CONNECTIVITY:
-            axes.append("channels_y")
-        axes.append("features")
+        if not isinstance(values, list):
+            values = [values]
         out = {}
         for agg_name, steps in self.aggregations.items():
-            by_axis = {step.axis: step for step in steps}
-            data = values
-            t_axes = list(axes)
-            for axis in _AGGREGATION_ORDER:
-                if axis not in by_axis:
-                    continue
-                step = by_axis[axis]
-                idx = t_axes.index(axis)
-                if step.picks is not None:
-                    picks = _get_channel_indices(step.picks, input, ch_names)
-                    data = np.take(data, picks, axis=idx)
-                func = get_aggregation_function(
-                    step.method, step.method_params
-                )
-                data = np.asarray(func(data, axis=idx))
-                t_axes.pop(idx)
+            data = np.concatenate(
+                [self._aggregate(x, steps, input, ch_names) for x in values],
+                axis=-1,
+            )
             out[agg_name] = self._format_output(data, features, ch_names)
         return out
+
+    def _aggregate(
+        self,
+        values: np.ndarray,
+        steps: list[AggregationStep],
+        input: dict[str, Any],
+        ch_names: list[str],
+        channel_picks: str | list[str] | None = None,
+    ) -> np.ndarray:
+        """Reduce the values with the steps of an aggregation.
+
+        Parameters
+        ----------
+        values : numpy.ndarray
+            The values, shape ``(*axes, n_features)``.
+        steps : list of AggregationStep
+            The steps of the aggregation.
+        input : dict
+            The ``EEG`` item of the data object, with the ``montage``.
+        ch_names : list of str
+            The names of the channels of the values.
+        channel_picks : str or list of str or None, optional
+            The channels to aggregate in the ``channels`` step, instead of
+            the picks of the step (default None).
+
+        Returns
+        -------
+        numpy.ndarray
+            The reduced values, shape (*kept axes, n_features).
+
+        """
+        data = values
+        t_axes = [*self._AXES, "features"]
+        for step in steps:
+            idx = t_axes.index(step.axis)
+            picks = step.picks
+            if step.axis == "channels" and channel_picks is not None:
+                picks = channel_picks
+            if picks is not None:
+                indices = _get_channel_indices(picks, input, ch_names)
+                data = np.take(data, indices, axis=idx)
+            func = get_aggregation_function(step.method, step.method_params)
+            data = np.asarray(func(data, axis=idx))
+            t_axes.pop(idx)
+        return data
 
     def _format_output(
         self, data: np.ndarray, features: list[str], ch_names: list[str]
@@ -249,17 +282,12 @@ def _get_channel_indices(
 class ScalarMixin:
     """Mixin for markers reduced to one value for each feature.
 
-    Each aggregation reduces the connected channels (if any), the channels
-    and the epochs, and is stored as a vector with one column for each
-    feature.
+    Each aggregation reduces all the axes of the marker, and is stored as a
+    vector with one column for each feature.
 
     """
 
-    _REDUCED_AXES: ClassVar[tuple[Axis, ...]] = (
-        "channels_y",
-        "channels",
-        "epochs",
-    )
+    _KEPT_AXES: ClassVar[tuple[Axis, ...]] = ()
     _STORAGE_TYPE: ClassVar[StorageType] = StorageType.Vector
     _MARKER_INOUT_MAPPINGS: ClassVar[MarkerInOutMappings] = {
         EEG: {"scalar": StorageType.Vector},
@@ -274,13 +302,13 @@ class ScalarMixin:
 class TopographyMixin:
     """Mixin for markers reduced to one value for each channel and feature.
 
-    Each aggregation reduces the connected channels (if any) and the epochs,
-    and is stored as a scalar table with one row for each channel and one
-    column for each feature.
+    Each aggregation reduces all the axes of the marker but the channels, and
+    is stored as a scalar table with one row for each channel and one column
+    for each feature.
 
     """
 
-    _REDUCED_AXES: ClassVar[tuple[Axis, ...]] = ("channels_y", "epochs")
+    _KEPT_AXES: ClassVar[tuple[Axis, ...]] = ("channels",)
     _STORAGE_TYPE: ClassVar[StorageType] = StorageType.ScalarTable
     _MARKER_INOUT_MAPPINGS: ClassVar[MarkerInOutMappings] = {
         EEG: {"topography": StorageType.ScalarTable},
@@ -300,13 +328,13 @@ class TopographyMixin:
 class TimeseriesMixin:
     """Mixin for markers reduced to one value for each epoch and feature.
 
-    Each aggregation reduces the connected channels (if any) and the
-    channels, and is stored as a timeseries with one row for each epoch and
-    one column for each feature.
+    Each aggregation reduces all the axes of the marker but the epochs, and
+    is stored as a timeseries with one row for each epoch and one column for
+    each feature.
 
     """
 
-    _REDUCED_AXES: ClassVar[tuple[Axis, ...]] = ("channels_y", "channels")
+    _KEPT_AXES: ClassVar[tuple[Axis, ...]] = ("epochs",)
     _STORAGE_TYPE: ClassVar[StorageType] = StorageType.Timeseries
     _MARKER_INOUT_MAPPINGS: ClassVar[MarkerInOutMappings] = {
         EEG: {"timeseries": StorageType.Timeseries},

@@ -1,13 +1,17 @@
 """Reference implementations from NICE, to test the ports.
 
-Pure-Python implementations of ``nice.algorithms`` (nice-tools/nice,
-AGPL-3.0), kept as close as possible to the original code. Only removed NumPy
-aliases and private MNE functions were updated.
+Pure-Python implementations of ``nice.algorithms`` and ``nice.recipes``
+(nice-tools/nice, AGPL-3.0), kept as close as possible to the original code.
+Only removed NumPy aliases and private MNE functions were updated.
 
 """
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
+#
+# Ported from NICE (https://github.com/nice-tools/nice):
+# Copyright (C) 2014-2018 Federico Raimondo, Denis A. Engemann and
+# Jacobo D. Sitt
 
 import math
 import zlib
@@ -179,3 +183,38 @@ def komplexity(data, nbins):
             cstring = zlib.compress(string)
             k[channel, trial] = float(len(cstring)) / float(len(string))
     return k
+
+
+def epochs_compute_cnv(epochs, tmin=None, tmax=None):
+    """``nice.recipes.time_locked.epochs_compute_cnv`` (EEG only)."""
+    import mne
+    from scipy import linalg
+
+    picks = mne.pick_types(epochs.info, meg=True, eeg=True)
+    n_epochs = len(epochs.events)
+    n_channels = len(picks)
+    # we reduce over time samples
+    slopes = np.zeros((n_epochs, n_channels))
+    intercepts = np.zeros((n_epochs, n_channels))
+    if tmax is None:
+        tmax = epochs.times[-1]
+    if tmin is None:
+        tmin = epochs.times[0]
+
+    fit_range = np.where(
+        (epochs.times >= tmin) & (epochs.times <= tmax))[0]
+
+    # design: intercept + increasing time
+    design_matrix = np.c_[np.ones(len(fit_range)),
+                          epochs.times[fit_range] - tmin]
+
+    # estimate single trial regression over time samples
+    scales = np.full(n_channels, 1e6)  # EEG scaling
+
+    for ii, epoch in enumerate(epochs):
+        y = epoch[picks][:, fit_range].T  # time is samples
+        betas, _, _, _ = linalg.lstsq(a=design_matrix, b=y * scales)
+        intercepts[ii] = betas[0]
+        slopes[ii] = betas[1]
+
+    return slopes, intercepts

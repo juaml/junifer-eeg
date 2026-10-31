@@ -2,6 +2,10 @@
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
+#
+# Ported from NICE (https://github.com/nice-tools/nice):
+# Copyright (C) 2014-2018 Federico Raimondo, Denis A. Engemann and
+# Jacobo D. Sitt
 
 from collections.abc import Callable
 from typing import Any, Literal
@@ -15,7 +19,7 @@ from pydantic import BaseModel, ConfigDict
 __all__ = ["AggregationStep", "Axis", "get_aggregation_function"]
 
 
-Axis = Literal["epochs", "channels", "channels_y"]
+Axis = Literal["epochs", "channels", "channels_y", "times", "folds"]
 
 
 class AggregationStep(BaseModel):
@@ -23,7 +27,7 @@ class AggregationStep(BaseModel):
 
     Parameters
     ----------
-    axis : {"epochs", "channels", "channels_y"}
+    axis : {"epochs", "channels", "channels_y", "times", "folds"}
         The axis to reduce.
     method : str
         The aggregation function. See :func:`get_aggregation_function`.

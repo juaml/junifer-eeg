@@ -10,11 +10,13 @@
 #   <Marker>Scalar      : channels_y, channels, epochs  (one value)
 #   <Marker>Topography  : channels_y, epochs            (one per channel)
 #   <Marker>Timeseries  : channels_y, channels          (one per epoch)
-# The axes are always reduced in that order. Only the connectivity markers
-# (wSMI) have the channels_y axis.
+# Only the connectivity markers (wSMI) have the channels_y axis.
 #
 # `aggregations` maps a name to the list of steps (one for each axis) to
-# compute it. Each aggregation is stored as `<marker name>_<aggregation>`,
+# compute it, applied in the listed order. As in NICE (Engemann et al.
+# 2018, following Sitt et al. 2014), the epochs are reduced first, then the
+# channels, then the other axes. The order matters for every method but the
+# mean. Each aggregation is stored as `<marker name>_<aggregation>`,
 # e.g., `PSD_gfp_std`.
 
 with: junifer_eeg
@@ -165,16 +167,16 @@ preprocess:
 
 markers:
   # The 4 NICE reductions for the scalars: the epochs reduced with
-  # trim_mean80 or std, after reducing the scalp channels with the mean or
+  # trim_mean80 or std, then the scalp channels reduced with the mean or
   # the std ("gfp"). Topographies keep the channels (all of them).
   - name: PSD
     kind: EEGPowerSpectralDensityScalar
     <<: *psd_params
     aggregations:
-      trim_mean80: [*scalp_mean, *trim_mean80]
-      std: [*scalp_mean, *epochs_std]
-      gfp_trim_mean80: [*scalp_std, *trim_mean80]
-      gfp_std: [*scalp_std, *epochs_std]
+      trim_mean80: [*trim_mean80, *scalp_mean]
+      std: [*epochs_std, *scalp_mean]
+      gfp_trim_mean80: [*trim_mean80, *scalp_std]
+      gfp_std: [*epochs_std, *scalp_std]
   - name: PSD_topo
     kind: EEGPowerSpectralDensityTopography
     <<: *psd_params
@@ -186,10 +188,10 @@ markers:
     kind: EEGPermutationEntropyScalar
     <<: *pe_params
     aggregations:
-      trim_mean80: [*scalp_mean, *trim_mean80]
-      std: [*scalp_mean, *epochs_std]
-      gfp_trim_mean80: [*scalp_std, *trim_mean80]
-      gfp_std: [*scalp_std, *epochs_std]
+      trim_mean80: [*trim_mean80, *scalp_mean]
+      std: [*epochs_std, *scalp_mean]
+      gfp_trim_mean80: [*trim_mean80, *scalp_std]
+      gfp_std: [*epochs_std, *scalp_std]
   - name: PE_topo
     kind: EEGPermutationEntropyTopography
     <<: *pe_params
@@ -201,25 +203,25 @@ markers:
     kind: EEGSymbolicMutualInformationScalar
     <<: *wsmi_params
     aggregations:
-      trim_mean80: [*connected_median, *scalp_mean, *trim_mean80]
-      std: [*connected_median, *scalp_mean, *epochs_std]
-      gfp_trim_mean80: [*connected_median, *scalp_std, *trim_mean80]
-      gfp_std: [*connected_median, *scalp_std, *epochs_std]
+      trim_mean80: [*trim_mean80, *connected_median, *scalp_mean]
+      std: [*epochs_std, *connected_median, *scalp_mean]
+      gfp_trim_mean80: [*trim_mean80, *connected_median, *scalp_std]
+      gfp_std: [*epochs_std, *connected_median, *scalp_std]
   - name: wSMI_topo
     kind: EEGSymbolicMutualInformationTopography
     <<: *wsmi_params
     aggregations:
-      trim_mean80: [*connected_median, *trim_mean80]
-      std: [*connected_median, *epochs_std]
+      trim_mean80: [*trim_mean80, *connected_median]
+      std: [*epochs_std, *connected_median]
 
   - name: KC
     kind: EEGKolmogorovComplexityScalar
     <<: *kc_params
     aggregations:
-      trim_mean80: [*scalp_mean, *trim_mean80]
-      std: [*scalp_mean, *epochs_std]
-      gfp_trim_mean80: [*scalp_std, *trim_mean80]
-      gfp_std: [*scalp_std, *epochs_std]
+      trim_mean80: [*trim_mean80, *scalp_mean]
+      std: [*epochs_std, *scalp_mean]
+      gfp_trim_mean80: [*trim_mean80, *scalp_std]
+      gfp_std: [*epochs_std, *scalp_std]
   - name: KC_topo
     kind: EEGKolmogorovComplexityTopography
     <<: *kc_params
