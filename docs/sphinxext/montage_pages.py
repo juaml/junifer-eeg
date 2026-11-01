@@ -170,7 +170,7 @@ def generate(outdir: Path) -> None:
                 f"     - {desc[0].upper()}{desc[1:]}",
                 "     - "
                 + ", ".join(
-                    f":ref:`{x} <montage_{fname.stem}_{x}>`" for x in rois
+                    f"``{x}`` :ref:`→ <montage_{fname.stem}_{x}>`" for x in rois
                 ),
             ]
     (outdir / "table.inc").write_text("\n".join(table) + "\n")
