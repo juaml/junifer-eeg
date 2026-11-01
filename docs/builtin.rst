@@ -139,12 +139,6 @@ several montages (e.g., the 10-20 system):
 
 .. include:: montages/table.inc
 
-.. toctree::
-   :hidden:
-   :glob:
-
-   montages/*
-
 The ``Fz``, ``Cz`` and ``Pz`` ROIs are the channels around these positions.
 The ``cnv``, ``mmn``, ``p3a`` and ``p3b`` ROIs are the channels where these
 components are measured (in NICE, the contingent negative variation, the

@@ -123,7 +123,10 @@ def generate(outdir: Path) -> None:
         _plot_rois(info, rois, outdir / "images" / f"{fname.stem}.png")
         # The name of the system, and the details in parentheses
         title = system.partition(" (")[0]
+        # Linked from the table, not in the navigation
         lines = [
+            ":orphan:",
+            "",
             f".. _montage_{fname.stem}:",
             "",
             title,
