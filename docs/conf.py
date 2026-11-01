@@ -47,6 +47,7 @@ extensions = [
     "sphinxcontrib.autodoc_pydantic",  # autodoc support for pydantic models
     "myst_parser",  # include the Markdown changelog
     "enum_tools.autoenum",  # enum support
+    "sphinx_gallery.gen_gallery",  # the examples
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -179,6 +180,15 @@ intersphinx_mapping = {
     "numpy": ("https://numpy.org/doc/stable/", None),
     "scipy": ("https://docs.scipy.org/doc/scipy/", None),
     "pydantic": ("https://docs.pydantic.dev/latest/", None),
+}
+
+# -- Sphinx-Gallery configuration --------------------------------------------
+
+sphinx_gallery_conf = {
+    "examples_dirs": ["../examples"],
+    "gallery_dirs": ["auto_examples"],
+    "filename_pattern": "/(plot|run)_",
+    "backreferences_dir": "generated",
 }
 
 # -- sphinx.ext.extlinks configuration ---------------------------------------

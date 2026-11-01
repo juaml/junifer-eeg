@@ -71,6 +71,7 @@ docs = [
     # enum-tools fails with Sphinx 9 (see juaml/junifer#519)
     "enum-tools[sphinx]>=0.13.0,<0.14.0",
     "sphinx-polyversion>=2.0.0",
+    "sphinx-gallery>=0.17.0,<0.23.0",
     "beautifulsoup4>=4.12.0",
     "setuptools-scm>=8",
 ]
@@ -91,7 +92,7 @@ local_scheme = "no-local-version"
 write_to = "junifer_eeg/_version.py"
 
 [tool.codespell]
-skip = "*.html,.git/,*.pyc,*/_build/*,uv.lock"
+skip = "*/auto_examples/*,*.html,.git/,*.pyc,*/_build/*,uv.lock"
 count = ""
 quiet-level = 3
 ignore-words = "ignore_words.txt"
@@ -104,6 +105,7 @@ extend-exclude = [
     "__init__.py",
     "_version.py",
     "docs",
+    "examples",
     # Kept as close as possible to the original NICE code
     "junifer_eeg/tests/_nice_reference.py",
 ]

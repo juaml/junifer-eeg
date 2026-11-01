@@ -20,6 +20,7 @@ help:
 
 clean:
 	rm -rf $(BUILDDIR)/*
+	rm -rf auto_examples/
 	rm -rf api/generated/
 
 # Build the docs of the working tree only

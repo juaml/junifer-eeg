@@ -20,6 +20,7 @@ at Forschungszentrum Juelich, Germany.
    understanding
    configuring
    builtin
+   auto_examples/index
    api/index
    credits
    whats_new
