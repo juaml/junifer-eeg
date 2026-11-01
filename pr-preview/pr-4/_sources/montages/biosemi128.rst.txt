@@ -3,12 +3,14 @@
 BioSemi ActiveTwo, 128 channels
 ===============================
 
+System: BioSemi ActiveTwo, 128 channels.
+
 Montages: ``biosemi128``.
 
-The channels of each ROI (in red), on the positions of ``biosemi128``. The ``picks`` keep the channels of the ROI that are in the data.
+The channels of each ROI (highlighted), on the positions of ``biosemi128``. The ``picks`` keep the channels of the ROI that are in the data.
 
 .. image:: images/biosemi128.png
-   :alt: The ROIs of BioSemi ActiveTwo, 128 channels
+   :alt: The ROIs of the BioSemi ActiveTwo, 128 channels
 
 Channels
 --------

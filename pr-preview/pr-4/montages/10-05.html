@@ -7,7 +7,7 @@
         <link rel="prefetch" href="../_static/junifer_eeg_logo.svg" as="image">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
-        <title>4.4.1. 10-20, 10-10 and 10-05 caps - junifer-eeg documentation</title>
+        <title>4.4.1. 10-20 system, and its 10-10 and 10-05 extensions - junifer-eeg documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -208,7 +208,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../understanding.html">2. Understanding junifer-eeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuring.html">3. Configuring a pipeline</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../builtin.html">4. Built-in components</a><input aria-label="Toggle navigation of 4. Built-in components" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">4.4.1. 10-20, 10-10 and 10-05 caps</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">4.4.1. 10-20 system, and its 10-10 and 10-05 extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GSN-HydroCel-128.html">4.4.2. EGI HydroCel Geodesic Sensor Net, 128 channels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GSN-HydroCel-256.html">4.4.3. EGI HydroCel Geodesic Sensor Net, 256 channels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GSN-HydroCel-64.html">4.4.4. EGI HydroCel Geodesic Sensor Net, 64 channels</a></li>
@@ -276,12 +276,13 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="and-10-05-caps">
-<span id="montage-10-05"></span><h1><span class="section-number">4.4.1. </span>10-20, 10-10 and 10-05 caps<a class="headerlink" href="#and-10-05-caps" title="Link to this heading">¶</a></h1>
+          <section id="system-and-its-10-10-and-10-05-extensions">
+<span id="montage-10-05"></span><h1><span class="section-number">4.4.1. </span>10-20 system, and its 10-10 and 10-05 extensions<a class="headerlink" href="#system-and-its-10-10-and-10-05-extensions" title="Link to this heading">¶</a></h1>
+<p>System: 10-20 system, and its 10-10 and 10-05 extensions (e.g., ANT Neuro waveguard, Brain Products actiCAP, EasyCap, BioSemi ActiveTwo up to 64 channels, Compumedics Neuroscan Quik-Cap, g.tec g.GAMMAcap, Nexstim eXimia, and the clinical 10-20 systems, as Natus, Nihon Kohden or Micromed).</p>
 <p>Montages: <code class="docutils literal notranslate"><span class="pre">colin27_1005</span></code>, <code class="docutils literal notranslate"><span class="pre">colin27_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">standard_1005</span></code>, <code class="docutils literal notranslate"><span class="pre">standard_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">fsaverage_1005</span></code>, <code class="docutils literal notranslate"><span class="pre">fsaverage_1010</span></code>, <code class="docutils literal notranslate"><span class="pre">fsaverage_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">spherical_1010</span></code>, <code class="docutils literal notranslate"><span class="pre">spherical_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">biosemi16</span></code>, <code class="docutils literal notranslate"><span class="pre">biosemi32</span></code>, <code class="docutils literal notranslate"><span class="pre">biosemi64</span></code>, <code class="docutils literal notranslate"><span class="pre">easycap-M1</span></code>, <code class="docutils literal notranslate"><span class="pre">brainproducts-RNP-BA-128</span></code>.</p>
 <p>Each ROI is the 10-05 positions in the region (the convex hull, on the topomap) of the union of the ROIs of the ANT 32, BrainVision 32, eximia 60 and g.tec 12 caps (the indices of the ANT 63 and 124 ROIs do not match their channels). The picks keep the channels in the data.</p>
-<p>The channels of each ROI (in red), on the positions of <code class="docutils literal notranslate"><span class="pre">colin27_1005</span></code>. The <code class="docutils literal notranslate"><span class="pre">picks</span></code> keep the channels of the ROI that are in the data.</p>
-<img alt="The ROIs of 10-20, 10-10 and 10-05 caps" src="../_images/10-05.png" />
+<p>The channels of each ROI (highlighted), on the positions of <code class="docutils literal notranslate"><span class="pre">colin27_1005</span></code>. The <code class="docutils literal notranslate"><span class="pre">picks</span></code> keep the channels of the ROI that are in the data.</p>
+<img alt="The ROIs of the 10-20 system, and its 10-10 and 10-05 extensions" src="../_images/10-05.png" />
 <section id="channels">
 <h2>Channels<a class="headerlink" href="#channels" title="Link to this heading">¶</a></h2>
 <dl class="simple">
@@ -362,7 +363,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">4.4.1. 10-20, 10-10 and 10-05 caps</a><ul>
+<li><a class="reference internal" href="#">4.4.1. 10-20 system, and its 10-10 and 10-05 extensions</a><ul>
 <li><a class="reference internal" href="#channels">Channels</a></li>
 </ul>
 </li>
@@ -375,7 +376,7 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=c70093bf"></script>
+</div><script src="../_static/documentation_options.js?v=637817a6"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

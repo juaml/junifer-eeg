@@ -3,12 +3,14 @@
 EGI HydroCel Geodesic Sensor Net, 256 channels
 ==============================================
 
+System: EGI HydroCel Geodesic Sensor Net, 256 channels.
+
 Montages: ``GSN-HydroCel-256``, ``GSN-HydroCel-257``.
 
-The channels of each ROI (in red), on the positions of ``GSN-HydroCel-256``. The ``picks`` keep the channels of the ROI that are in the data.
+The channels of each ROI (highlighted), on the positions of ``GSN-HydroCel-256``. The ``picks`` keep the channels of the ROI that are in the data.
 
 .. image:: images/GSN-HydroCel-256.png
-   :alt: The ROIs of EGI HydroCel Geodesic Sensor Net, 256 channels
+   :alt: The ROIs of the EGI HydroCel Geodesic Sensor Net, 256 channels
 
 Channels
 --------
