@@ -207,20 +207,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">1. Installing <code class="docutils literal notranslate"><span class="pre">junifer-eeg</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../understanding.html">2. Understanding junifer-eeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuring.html">3. Configuring a pipeline</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../builtin.html">4. Built-in components</a><input aria-label="Toggle navigation of 4. Built-in components" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../montages/10-05.html">4.4.1. 10-20 system, and its 10-10 and 10-05 extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../montages/GSN-HydroCel-128.html">4.4.2. EGI HydroCel Geodesic Sensor Net, 128 channels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../montages/GSN-HydroCel-256.html">4.4.3. EGI HydroCel Geodesic Sensor Net, 256 channels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../montages/GSN-HydroCel-64.html">4.4.4. EGI HydroCel Geodesic Sensor Net, 64 channels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../montages/biosemi128.html">4.4.5. BioSemi ActiveTwo, 128 channels</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">5. Examples</a><input aria-label="Toggle navigation of 5. Examples" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../builtin.html">4. Built-in components</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">5. Examples</a><input aria-label="Toggle navigation of 5. Examples" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">5.1. Preprocess a TUEG recording with autoreject.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="run_tueg_spectral.html">5.2. Compute the spectral markers of TUEG recordings.</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api/index.html">6. API Reference</a><input aria-label="Toggle navigation of 6. API Reference" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/index.html">6. API Reference</a><input aria-label="Toggle navigation of 6. API Reference" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/datatypes.html">6.1. Data types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/datareaders.html">6.2. DataReaders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/preprocessing.html">6.3. Pre-processing</a></li>
@@ -311,19 +304,19 @@ pseudo-epochs of the resting state are repaired or rejected with
 <p>Set the logging level to info to see extra information</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-junifer-utils sphx-glr-backref-type-py-function reference external" href="https://juaml.github.io/junifer/main/api/utils.html#junifer.utils.configure_logging" title="junifer.utils.configure_logging"><span class="n">configure_logging</span></a><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">INFO</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:05:49 [info     ] ===== Lib Versions =====       [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] numpy: 2.4.6                   [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] scipy: 1.17.1                  [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] datalad: 1.2.3                 [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] pandas: 3.0.6                  [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] nibabel: 5.4.2                 [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] nilearn: 0.14.1                [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] ruamel.yaml: 0.19.1            [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] tqdm: 4.67.1                   [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] templateflow: 25.1.2           [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] junifer_data: 1.6.1            [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] junifer: 0.0.9.dev6            [junifer] pkg=utils
-2026-11-01 22:05:49 [info     ] ========================       [junifer] pkg=utils
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:11:08 [info     ] ===== Lib Versions =====       [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] numpy: 2.4.6                   [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] scipy: 1.17.1                  [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] datalad: 1.2.3                 [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] pandas: 3.0.6                  [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] nibabel: 5.4.2                 [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] nilearn: 0.14.1                [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] ruamel.yaml: 0.19.1            [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] tqdm: 4.67.1                   [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] templateflow: 25.1.2           [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] junifer_data: 1.6.1            [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] junifer: 0.0.9.dev6            [junifer] pkg=utils
+2026-11-01 22:11:08 [info     ] ========================       [junifer] pkg=utils
 </pre></div>
 </div>
 <p>Download the first recording of a subject. The recordings keep the layout of
@@ -342,8 +335,8 @@ the corpus: <code class="docutils literal notranslate"><span class="pre">&lt;gro
 </span>    <span class="n">replacements</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">subject</span><span class="s2">&quot;</span><span class="p">]</span><span class="p">,</span><span class="w">
 </span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:05:50 [info     ] Downloading https://isip.piconepress.com/projects/nedc/data/tuh_eeg/tuh_eeg/v2.0.2/edf/000/aaaaaaai/s001_2002/02_tcp_le/aaaaaaai_s001_t000.edf [junifer] pkg=utils
-2026-11-01 22:05:50 [info     ] Parameters: {'types': ['EEG'], 'datadir': '/home/runner/junifer_eeg_data/tueg/v2.0.2/edf', 'patterns': {'EEG': {'pattern': '000/{subject}/*/*/{subject}_*.edf', 'montage': 'colin27_1020'}}, 'replacements': ['subject'], 'confounds_format': None, 'partial_pattern_ok': False} [junifer] component=PatternDataGrabber pkg=datagrabber step=datagrabber
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:11:08 [info     ] Downloading https://isip.piconepress.com/projects/nedc/data/tuh_eeg/tuh_eeg/v2.0.2/edf/000/aaaaaaai/s001_2002/02_tcp_le/aaaaaaai_s001_t000.edf [junifer] pkg=utils
+2026-11-01 22:11:09 [info     ] Parameters: {'types': ['EEG'], 'datadir': '/home/runner/junifer_eeg_data/tueg/v2.0.2/edf', 'patterns': {'EEG': {'pattern': '000/{subject}/*/*/{subject}_*.edf', 'montage': 'colin27_1020'}}, 'replacements': ['subject'], 'confounds_format': None, 'partial_pattern_ok': False} [junifer] component=PatternDataGrabber pkg=datagrabber step=datagrabber
 </pre></div>
 </div>
 <p>Read the recording. The EEG channels are named as <code class="docutils literal notranslate"><span class="pre">EEG</span> <span class="pre">FP1-REF</span></code> (or
@@ -354,10 +347,10 @@ channels (e.g., the ECG)</p>
 </span><span class="n">raw</span> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">element_data</span></a><span class="p">[</span><span class="s2">&quot;</span><span class="s2">EEG</span><span class="s2">&quot;</span><span class="p">]</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">data</span><span class="s2">&quot;</span><span class="p">]</span><span class="w">
 </span><span class="nb">print</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">ch_names</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:05:50 [info     ] Getting element ('aaaaaaai',)  [junifer] pkg=datagrabber step=datagrabber
-2026-11-01 22:05:50 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
-2026-11-01 22:05:50 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaai/s001_2002/02_tcp_le/aaaaaaai_s001_t000.edf [junifer] pkg=datareader step=datareader
-2026-11-01 22:05:50 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:11:09 [info     ] Getting element ('aaaaaaai',)  [junifer] pkg=datagrabber step=datagrabber
+2026-11-01 22:11:09 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
+2026-11-01 22:11:09 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaai/s001_2002/02_tcp_le/aaaaaaai_s001_t000.edf [junifer] pkg=datareader step=datareader
+2026-11-01 22:11:09 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
 ['EEG FP1-LE', 'EEG FP2-LE', 'EEG F3-LE', 'EEG F4-LE', 'EEG C3-LE', 'EEG C4-LE', 'EEG A1-LE', 'EEG A2-LE', 'EEG P3-LE', 'EEG P4-LE', 'EEG O1-LE', 'EEG O2-LE', 'EEG F7-LE', 'EEG F8-LE', 'EEG T3-LE', 'EEG T4-LE', 'EEG T5-LE', 'EEG T6-LE', 'EEG FZ-LE', 'EEG CZ-LE', 'EEG PZ-LE', 'EEG OZ-LE', 'EEG PG1-LE', 'EEG PG2-LE', 'EEG EKG-LE', 'EEG SP2-LE', 'EEG SP1-LE', 'EEG RLC-LE', 'EEG LUC-LE', 'EEG 30-LE', 'EEG T1-LE', 'EEG T2-LE', 'PHOTIC PH']
 </pre></div>
 </div>
@@ -374,12 +367,12 @@ channels (e.g., the ECG)</p>
 </span><a class="sphx-glr-backref-module-junifer_eeg-preprocess sphx-glr-backref-type-py-pydantic_model reference internal" href="../api/preprocessing.html#junifer_eeg.preprocess.EEGSetMontage" title="junifer_eeg.preprocess.EEGSetMontage"><span class="n">EEGSetMontage</span></a><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">element_data</span></a><span class="p">)</span><span class="w">
 </span><span class="nb">print</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">element_data</span></a><span class="p">[</span><span class="s2">&quot;</span><span class="s2">EEG</span><span class="s2">&quot;</span><span class="p">]</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">data</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">ch_names</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:05:50 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'pattern': '^EEG (\\w+)-(REF|LE)$', 'replacement': '\\1', 'mapping': None, 'montage_case': True} [junifer] component=EEGRenameChannels pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'picks': ['Fp1', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'T3', 'C3', 'Cz', 'C4', 'T4', 'T5', 'P3', 'Pz', 'P4', 'T6', 'O1', 'O2'], 'exclude': None} [junifer] component=EEGPickChannels pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'on_missing': 'raise'} [junifer] component=EEGSetMontage pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:11:09 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'pattern': '^EEG (\\w+)-(REF|LE)$', 'replacement': '\\1', 'mapping': None, 'montage_case': True} [junifer] component=EEGRenameChannels pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'picks': ['Fp1', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'T3', 'C3', 'Cz', 'C4', 'T4', 'T5', 'P3', 'Pz', 'P4', 'T6', 'O1', 'O2'], 'exclude': None} [junifer] component=EEGPickChannels pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'on_missing': 'raise'} [junifer] component=EEGSetMontage pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
 ['Fp1', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'T3', 'C3', 'Cz', 'C4', 'T4', 'T5', 'P3', 'Pz', 'P4', 'T6', 'O1', 'O2']
 </pre></div>
 </div>
@@ -414,16 +407,16 @@ pseudo-epochs of 800 ms, as in the ICM resting state</p>
 </span><a class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs" title="mne.Epochs"><span class="n">epochs</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">element_data</span></a><span class="p">[</span><span class="s2">&quot;</span><span class="s2">EEG</span><span class="s2">&quot;</span><span class="p">]</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">data</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="p">)</span><span class="w">
 </span><span class="nb">print</span><span class="p">(</span><a class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs" title="mne.Epochs"><span class="n">epochs</span></a><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:05:50 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': 0.5, 'h_freq': None, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 6}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': None, 'h_freq': 45.0, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 8}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'freqs': [60.0, 120.0], 'method': 'fft'} [junifer] component=EEGNotchFilter pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'sfreq': 250.0} [junifer] component=EEGResample pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'duration': 0.8, 'tmin': -0.2, 'onset': 0.0, 'jitter': [0.55, 0.85], 'baseline': None, 'seed': 42} [junifer] component=EEGFixedLengthEpochs pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:11:09 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': 0.5, 'h_freq': None, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 6}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': None, 'h_freq': 45.0, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 8}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'freqs': [60.0, 120.0], 'method': 'fft'} [junifer] component=EEGNotchFilter pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'sfreq': 250.0} [junifer] component=EEGResample pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'duration': 0.8, 'tmin': -0.2, 'onset': 0.0, 'jitter': [0.55, 0.85], 'baseline': None, 'seed': 42} [junifer] component=EEGFixedLengthEpochs pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
 &lt;Epochs | 130 events (all good), -0.2 – 0.6 s (baseline off), ~3.8 MiB, data loaded,
  '1': 130&gt;
 </pre></div>
@@ -435,14 +428,14 @@ interpolated, and the epochs with too many bad channels are dropped</p>
 </span><a class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs" title="mne.Epochs"><span class="n">cleaned</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="dict"><span class="n">element_data</span></a><span class="p">[</span><span class="s2">&quot;</span><span class="s2">EEG</span><span class="s2">&quot;</span><span class="p">]</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">data</span><span class="s2">&quot;</span><span class="p">]</span><span class="w">
 </span><span class="nb">print</span><span class="p">(</span><a class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs" title="mne.Epochs"><span class="n">cleaned</span></a><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:05:50 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'n_interpolate': None, 'consensus': None, 'cv': 10, 'thresh_method': 'bayesian_optimization', 'seed': 42, 'n_jobs': 1, 'min_epochs': 0.3} [junifer] component=EEGAutoReject pkg=preprocess step=preprocessing
-2026-11-01 22:05:50 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>2026-11-01 22:11:09 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'n_interpolate': None, 'consensus': None, 'cv': 10, 'thresh_method': 'bayesian_optimization', 'seed': 42, 'n_jobs': 1, 'min_epochs': 0.3} [junifer] component=EEGAutoReject pkg=preprocess step=preprocessing
+2026-11-01 22:11:09 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
 /home/runner/work/junifer-eeg/junifer-eeg/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3824: RuntimeWarning: Mean of empty slice
   return _methods._mean(a, axis=axis, dtype=dtype,
 /home/runner/work/junifer-eeg/junifer-eeg/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
   ret = ret.dtype.type(ret / rcount)
 Dropped 27 epochs: 6, 9, 15, 16, 18, 24, 34, 35, 43, 47, 49, 52, 67, 70, 82, 84, 85, 102, 104, 106, 107, 108, 109, 113, 114, 121, 127
-2026-11-01 22:05:51 [info     ] autoreject: 27 bad epochs, 296 channels interpolated in the epochs (n_interpolate 4, consensus 0.4) [junifer] pkg=preprocess step=preprocessing
+2026-11-01 22:11:10 [info     ] autoreject: 27 bad epochs, 296 channels interpolated in the epochs (n_interpolate 4, consensus 0.4) [junifer] pkg=preprocess step=preprocessing
 &lt;Epochs | 103 events (all good), -0.2 – 0.6 s (baseline off), ~3.0 MiB, data loaded,
  '1': 103&gt;
 </pre></div>
@@ -461,7 +454,7 @@ before and after autoreject</p>
 </span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">Epoch</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">Peak-to-peak (µV)</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img src="../_images/sphx_glr_run_tueg_autoreject_001.png" srcset="../_images/sphx_glr_run_tueg_autoreject_001.png" alt="run tueg autoreject" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x7ecb1d7bd550&gt;
+<img src="../_images/sphx_glr_run_tueg_autoreject_001.png" srcset="../_images/sphx_glr_run_tueg_autoreject_001.png" alt="run tueg autoreject" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x70b67ceed550&gt;
 </pre></div>
 </div>
 <p>Plot the PSD of the epochs, before and after autoreject</p>
@@ -480,7 +473,7 @@ Plotting power spectral density (dB=True).
 Averaging across epochs before plotting...
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 3.175 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 3.196 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-run-tueg-autoreject-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/7988da90d720c4c89f8d957bb6f2297e/run_tueg_autoreject.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">run_tueg_autoreject.ipynb</span></code></a></p>
@@ -544,7 +537,7 @@ Averaging across epochs before plotting...
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=9f090d01"></script>
+</div><script src="../_static/documentation_options.js?v=7713aec3"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

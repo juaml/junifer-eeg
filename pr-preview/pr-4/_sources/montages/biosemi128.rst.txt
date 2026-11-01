@@ -1,3 +1,5 @@
+:orphan:
+
 .. _montage_biosemi128:
 
 BioSemi ActiveTwo, 128 channels

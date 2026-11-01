@@ -1,3 +1,5 @@
+:orphan:
+
 .. _montage_10-05:
 
 10-20 system, and its 10-10 and 10-05 extensions

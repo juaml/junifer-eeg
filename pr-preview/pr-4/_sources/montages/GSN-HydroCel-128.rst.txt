@@ -1,3 +1,5 @@
+:orphan:
+
 .. _montage_GSN-HydroCel-128:
 
 EGI HydroCel Geodesic Sensor Net, 128 channels
