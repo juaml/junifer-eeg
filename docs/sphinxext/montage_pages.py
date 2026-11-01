@@ -125,12 +125,16 @@ def generate(outdir: Path) -> None:
         )
         info = _make_info(montages)
         _plot_rois(info, rois, outdir / "images" / f"{fname.stem}.png")
-        title = f"{system}"
+        # The name of the system, and the details in parentheses
+        title, _, details = system.partition(" (")
+        details = f" ({details}" if details else ""
         lines = [
             f".. _montage_{fname.stem}:",
             "",
             title,
             "=" * len(title),
+            "",
+            f"System: {system}.",
             "",
             f"Montages: {_literal(montages)}.",
             "",
@@ -138,12 +142,12 @@ def generate(outdir: Path) -> None:
         if notes:
             lines += [" ".join(notes), ""]
         lines += [
-            "The channels of each ROI (in red), on the positions of "
+            "The channels of each ROI (highlighted), on the positions of "
             f"``{montages[0]}``. The ``picks`` keep the channels of the ROI "
             "that are in the data.",
             "",
             f".. image:: images/{fname.stem}.png",
-            f"   :alt: The ROIs of {system}",
+            f"   :alt: The ROIs of the {title}",
             "",
             "Channels",
             "--------",
@@ -153,9 +157,8 @@ def generate(outdir: Path) -> None:
             lines += [f"``{name}``", f"    {_literal(ch_names)}", ""]
         (outdir / f"{fname.stem}.rst").write_text("\n".join(lines))
         table += [
-            f"   * - :ref:`{_literal(montages[:1])} <montage_{fname.stem}>`"
-            + (f", {_literal(montages[1:])}" if len(montages) > 1 else ""),
-            f"     - {system}",
+            f"   * - {_literal(montages)}",
+            f"     - :ref:`{title} <montage_{fname.stem}>`{details}",
             f"     - {_literal(list(rois))}",
         ]
     (outdir / "table.inc").write_text("\n".join(table) + "\n")

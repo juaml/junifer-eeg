@@ -7,7 +7,10 @@
 # topomap) of the union of the ROIs of the ANT 32, BrainVision 32, eximia
 # 60 and g.tec 12 caps (the indices of the ANT 63 and 124 ROIs do not
 # match their channels). The picks keep the channels in the data.
-system: 10-20, 10-10 and 10-05 caps
+system: 10-20 system, and its 10-10 and 10-05 extensions (e.g., ANT Neuro
+    waveguard, Brain Products actiCAP, EasyCap, BioSemi ActiveTwo up to 64
+    channels, Compumedics Neuroscan Quik-Cap, g.tec g.GAMMAcap, Nexstim eXimia,
+    and the clinical 10-20 systems, as Natus, Nihon Kohden or Micromed)
 montages: [colin27_1005, colin27_1020, standard_1005, standard_1020,
     fsaverage_1005, fsaverage_1010, fsaverage_1020, spherical_1010,
     spherical_1020, biosemi16, biosemi32, biosemi64, easycap-M1,
