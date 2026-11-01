@@ -105,11 +105,12 @@ def generate(outdir: Path) -> None:
     table = [
         ".. list-table::",
         "   :header-rows: 1",
-        "   :widths: 25 45 30",
+        "   :widths: 25 40 30 5",
         "",
         "   * - Montage",
         "     - System",
         "     - ROIs",
+        "     - Plots",
     ]
     for fname in sorted(_ROIS_DIR.glob("*.yaml")):
         content, notes = _read(fname)
@@ -168,10 +169,8 @@ def generate(outdir: Path) -> None:
             table += [
                 f"   * - ``{name}``",
                 f"     - {desc[0].upper()}{desc[1:]}",
-                "     - "
-                + ", ".join(
-                    f"``{x}`` :ref:`→ <montage_{fname.stem}_{x}>`" for x in rois
-                ),
+                f"     - {_literal(list(rois))}",
+                f"     - :ref:`→ <montage_{fname.stem}>`",
             ]
     (outdir / "table.inc").write_text("\n".join(table) + "\n")
 
