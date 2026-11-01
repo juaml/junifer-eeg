@@ -28,7 +28,7 @@ Importing ``junifer_eeg`` (``with: junifer_eeg`` in the YAML) registers the
 ``montage``
     The montage of the recording (e.g., ``GSN-HydroCel-256``), like the
     ``space`` of MRI data. The montage sets the channel positions and the
-    ROIs (named channel selections, e.g., ``scalp``).
+    ROIs defined on it (named channel selections, e.g., ``scalp``).
 ``format`` (optional)
     The format of the file, needed when the extension is ambiguous (e.g.,
     ``egi`` for EGI ``.raw`` files).
@@ -85,7 +85,7 @@ the stored output:
 The ``aggregations`` of a marker set how its axes are reduced. Each
 aggregation has a name and a list of steps, one per axis to reduce, with the
 function (e.g., ``mean``, ``std``, ``trim_mean`` or ``median``) and, for the
-channels, the ``picks`` (an ROI or a list of channel names). Each aggregation
+channels, the ``picks`` (an ROI of the montage or a list of channel names). Each aggregation
 is stored as a feature of the marker, named ``<marker name>_<aggregation>``.
 
 The steps are applied **in the order of the list**. The order matters for all

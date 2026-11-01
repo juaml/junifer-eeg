@@ -27,7 +27,8 @@ Importing `junifer_eeg` (`with: junifer_eeg` in the YAML) registers:
   `<Marker>Scalar`, `<Marker>Topography` and `<Marker>Timeseries`. The `aggregations` of a marker reduce its axes
   (e.g., the epochs' trimmed mean, then the scalp channels' mean), in the
   listed order.
-* The `eeg_roi` data registry: channel ROIs (e.g., `scalp`) for each montage.
+* The `eeg_roi` data registry: the montages with ROIs (named channel
+  selections, e.g., `scalp`) defined.
 
 ## Documentation
 
@@ -41,6 +42,7 @@ configure a pipeline.
 
 ## Credits
 
-The markers, the preprocessing and the ROIs are ported from NICE (Copyright
-(C) 2014-2018 Federico Raimondo, Denis A. Engemann and Jacobo D. Sitt, AGPL v3)
-and nice-extensions (Copyright (C) 2017-2018 Federico Raimondo).
+The markers, the preprocessing and the montages with ROIs defined are ported
+from NICE (Copyright (C) 2014-2018 Federico Raimondo, Denis A. Engemann and
+Jacobo D. Sitt, AGPL v3) and nice-extensions (Copyright (C) 2017-2018 Federico
+Raimondo).

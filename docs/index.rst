@@ -1,5 +1,9 @@
 .. include:: links.inc
 
+.. image:: images/junifer_eeg_logo.svg
+   :width: 300px
+   :alt: junifer-eeg logo
+
 Welcome to junifer-eeg's documentation!
 =======================================
 

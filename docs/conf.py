@@ -82,6 +82,7 @@ nitpick_ignore_regex = [
 
 html_theme = "furo"
 html_title = "junifer-eeg documentation"
+html_logo = "./images/junifer_eeg_logo.svg"
 
 # These paths are either relative to html_static_path
 # or fully qualified paths (eg. https://...)
