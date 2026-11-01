@@ -3,7 +3,6 @@
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
 
-import warnings
 from pathlib import Path
 
 import matplotlib
@@ -49,11 +48,7 @@ def _make_info(montages: list[str]) -> mne.Info:
     """
     ch_pos = {}
     for name in montages:
-        # The deprecated names are the colin27 montages
-        name = name.replace("standard_", "colin27_")
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            montage = mne.channels.make_standard_montage(name)
+        montage = mne.channels.make_standard_montage(name)
         for ch, pos in montage.get_positions()["ch_pos"].items():
             ch_pos.setdefault(ch, pos)
     info = mne.create_info(list(ch_pos), 1.0, "eeg")
@@ -158,14 +153,25 @@ def generate(outdir: Path) -> None:
             "",
         ]
         for name, ch_names in rois.items():
-            lines += [f"``{name}``", f"    {_literal(ch_names)}", ""]
+            lines += [
+                f".. _montage_{fname.stem}_{name}:",
+                "",
+                f"``{name}``",
+                "~" * (len(name) + 4),
+                "",
+                f"{_literal(ch_names)}.",
+                "",
+            ]
         (outdir / f"{fname.stem}.rst").write_text("\n".join(lines))
         # A row for each montage, with the ROIs of the system
         for name, desc in montages.items():
             table += [
                 f"   * - ``{name}``",
                 f"     - {desc[0].upper()}{desc[1:]}",
-                f"     - :ref:`{title} <montage_{fname.stem}>`",
+                "     - "
+                + ", ".join(
+                    f":ref:`{x} <montage_{fname.stem}_{x}>`" for x in rois
+                ),
             ]
     (outdir / "table.inc").write_text("\n".join(table) + "\n")
 

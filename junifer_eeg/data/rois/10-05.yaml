@@ -16,8 +16,6 @@ system: 10-20 system, and its 10-10 and 10-05 extensions (e.g., ANT Neuro
 montages:
   colin27_1005: 10-05 positions, on the Colin27 template head
   colin27_1020: 10-20 and 10-10 positions, on the Colin27 template head
-  standard_1005: deprecated MNE name of colin27_1005
-  standard_1020: deprecated MNE name of colin27_1020
   fsaverage_1005: 10-05 positions, on the fsaverage head
   fsaverage_1010: 10-10 positions, on the fsaverage head
   fsaverage_1020: 10-20 positions, on the fsaverage head

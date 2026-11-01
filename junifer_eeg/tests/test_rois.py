@@ -32,10 +32,9 @@ def test_builtin_rois(fname: Path) -> None:
     rois = content["rois"]
     for name in ["scalp", "Fz", "Cz", "Pz", "cnv", "mmn", "p3a", "p3b"]:
         assert name in rois
-    # The channels of all the montages (the deprecated names are the colin27)
+    # The channels of all the montages
     ch_names = set()
     for montage in content["montages"]:
-        montage = montage.replace("standard_", "colin27_")
         ch_names |= set(mne.channels.make_standard_montage(montage).ch_names)
     for name, channels in rois.items():
         assert len(channels) > 0
