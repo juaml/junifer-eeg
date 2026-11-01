@@ -124,11 +124,11 @@ Markers
      -
      -
 
-ROIs
-----
+Montages
+--------
 
-The ROIs (channel selections) of each montage, used by the ``picks`` of the
-aggregation steps:
+The montages with ROIs (named channel selections) defined, for the ``picks``
+of the aggregation steps:
 
 .. list-table::
    :header-rows: 1
@@ -140,4 +140,5 @@ aggregation steps:
    * - ``GSN-HydroCel-128``
      - ``scalp``, ``nonscalp``, ``cnv``, ``mmn``, ``p3a``, ``p3b``
 
-Other ROIs can be registered with :class:`.EEGROIRegistry`.
+Other montages, or other ROIs of a montage, can be registered with
+:class:`.EEGROIRegistry`.

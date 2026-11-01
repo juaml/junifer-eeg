@@ -4,7 +4,8 @@ Credits
 =======
 
 ``junifer-eeg`` is a port of `NICE`_ and of its extensions to the junifer
-pipeline. The markers, the preprocessing and the ROIs are reimplemented from:
+pipeline. The markers, the preprocessing and the montages with ROIs defined are
+reimplemented from:
 
 * NICE, Copyright (C) 2014-2018 Federico Raimondo, Denis A. Engemann and
   Jacobo D. Sitt, under the GNU Affero General Public License v3.

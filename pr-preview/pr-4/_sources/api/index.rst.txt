@@ -10,3 +10,4 @@ API Reference
    preprocessing
    markers
    data
+   datasets

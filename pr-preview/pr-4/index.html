@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="1. Installing junifer-eeg" href="installation.html">
+        <link rel="prefetch" href="_static/junifer_eeg_logo.svg" as="image">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>junifer-eeg documentation</title>
@@ -11,6 +12,10 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=90a024e9" />
     <link rel="stylesheet" type="text/css" href="_static/css/version_selector.css?v=e2de63ed" />
@@ -185,6 +190,9 @@
     <div class="sidebar-container">
       
       <div class="sidebar-sticky"><div class="sidebar-scroll"><a class="sidebar-brand" href="#">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/junifer_eeg_logo.svg" alt="Logo"/>
+  </div>
   
   <span class="sidebar-brand-text">junifer-eeg documentation</span>
   
@@ -200,16 +208,22 @@
 <li class="toctree-l1"><a class="reference internal" href="understanding.html">2. Understanding junifer-eeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuring.html">3. Configuring a pipeline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="builtin.html">4. Built-in components</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api/index.html">5. API Reference</a><input aria-label="Toggle navigation of 5. API Reference" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/datatypes.html">5.1. Data types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/datareaders.html">5.2. DataReaders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/preprocessing.html">5.3. Pre-processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/markers.html">5.4. Markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/data.html">5.5. Data</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="auto_examples/index.html">5. Examples</a><input aria-label="Toggle navigation of 5. Examples" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/run_tueg_autoreject.html">5.1. Preprocess a TUEG recording with autoreject.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/run_tueg_spectral.html">5.2. Compute the spectral markers of TUEG recordings.</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="credits.html">6. Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whats_new.html">7. What’s new</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api/index.html">6. API Reference</a><input aria-label="Toggle navigation of 6. API Reference" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/datatypes.html">6.1. Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/datareaders.html">6.2. DataReaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/preprocessing.html">6.3. Pre-processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/markers.html">6.4. Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html">6.5. Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/datasets.html">6.6. Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">7. Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whats_new.html">8. What’s new</a></li>
 </ul>
 
 </div>
@@ -255,7 +269,9 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="welcome-to-junifer-eeg-s-documentation">
+          <a class="reference internal image-reference" href="_images/junifer_eeg_logo.svg"><img alt="junifer-eeg logo" src="_images/junifer_eeg_logo.svg" style="width: 300px;" />
+</a>
+<section id="welcome-to-junifer-eeg-s-documentation">
 <h1>Welcome to junifer-eeg’s documentation!<a class="headerlink" href="#welcome-to-junifer-eeg-s-documentation" title="Link to this heading">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">junifer-eeg</span></code> is a <a class="reference external" href="https://juaml.github.io/junifer">junifer</a> extension for EEG data. It reimplements the
 feature extraction of <a class="reference external" href="https://github.com/nice-tools/nice">NICE</a> (the EEG markers of consciousness) as junifer
@@ -288,23 +304,25 @@ at Forschungszentrum Juelich, Germany.</p>
 <li class="toctree-l2"><a class="reference internal" href="builtin.html#datareader">4.1. DataReader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="builtin.html#preprocessors">4.2. Preprocessors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="builtin.html#markers">4.3. Markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="builtin.html#rois">4.4. ROIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html#montages">4.4. Montages</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api/index.html">5. API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/datatypes.html">5.1. Data types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/datareaders.html">5.2. DataReaders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/preprocessing.html">5.3. Pre-processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/markers.html">5.4. Markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/data.html">5.5. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">5. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">6. API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/datatypes.html">6.1. Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/datareaders.html">6.2. DataReaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/preprocessing.html">6.3. Pre-processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/markers.html">6.4. Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html">6.5. Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/datasets.html">6.6. Datasets</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="credits.html">6. Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="credits.html#citing">6.1. Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">7. Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="credits.html#citing">7.1. Citing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="whats_new.html">7. What’s new</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#id1">7.1. 0.0.0 - 2025-12-11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whats_new.html">8. What’s new</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="whats_new.html#id1">8.1. 0.0.0 - 2025-12-11</a></li>
 </ul>
 </li>
 </ul>
@@ -358,12 +376,13 @@ at Forschungszentrum Juelich, Germany.</p>
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=1a2086f1"></script>
+</div><script src="_static/documentation_options.js?v=5642a12a"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="_static/js/custom.js?v=9868c0c7"></script>
     </body>
 </html>

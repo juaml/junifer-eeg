@@ -3,14 +3,19 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="5.1. Data types" href="datatypes.html"><link rel="prev" title="4. Built-in components" href="../builtin.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="6.1. Data types" href="datatypes.html"><link rel="prev" title="5.2. Compute the spectral markers of TUEG recordings." href="../auto_examples/run_tueg_spectral.html">
+        <link rel="prefetch" href="../_static/junifer_eeg_logo.svg" as="image">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
-        <title>5. API Reference - junifer-eeg documentation</title>
+        <title>6. API Reference - junifer-eeg documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=90a024e9" />
     <link rel="stylesheet" type="text/css" href="../_static/css/version_selector.css?v=e2de63ed" />
@@ -185,6 +190,9 @@
     <div class="sidebar-container">
       
       <div class="sidebar-sticky"><div class="sidebar-scroll"><a class="sidebar-brand" href="../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../_static/junifer_eeg_logo.svg" alt="Logo"/>
+  </div>
   
   <span class="sidebar-brand-text">junifer-eeg documentation</span>
   
@@ -200,16 +208,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../understanding.html">2. Understanding junifer-eeg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuring.html">3. Configuring a pipeline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../builtin.html">4. Built-in components</a></li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">5. API Reference</a><input aria-label="Toggle navigation of 5. API Reference" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="datatypes.html">5.1. Data types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="datareaders.html">5.2. DataReaders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">5.3. Pre-processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="markers.html">5.4. Markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data.html">5.5. Data</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../auto_examples/index.html">5. Examples</a><input aria-label="Toggle navigation of 5. Examples" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/run_tueg_autoreject.html">5.1. Preprocess a TUEG recording with autoreject.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/run_tueg_spectral.html">5.2. Compute the spectral markers of TUEG recordings.</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../credits.html">6. Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">7. What’s new</a></li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">6. API Reference</a><input aria-label="Toggle navigation of 6. API Reference" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="datatypes.html">6.1. Data types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datareaders.html">6.2. DataReaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">6.3. Pre-processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markers.html">6.4. Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">6.5. Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html">6.6. Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">7. Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">8. What’s new</a></li>
 </ul>
 
 </div>
@@ -256,16 +270,16 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="api-reference">
-<h1><span class="section-number">5. </span>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h1>
+<h1><span class="section-number">6. </span>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="datatypes.html">5.1. Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datareaders.html">5.2. DataReaders</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="datatypes.html">6.1. Data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datareaders.html">6.2. DataReaders</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="datareaders.html#junifer_eeg.datareader.EEGDataReader"><code class="docutils literal notranslate"><span class="pre">EEGDataReader</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">5.3. Pre-processing</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">6.3. Pre-processing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="preprocessing.html#junifer_eeg.preprocess.EEGAdaptiveRejection"><code class="docutils literal notranslate"><span class="pre">EEGAdaptiveRejection</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="preprocessing.html#junifer_eeg.preprocess.EEGAutoReject"><code class="docutils literal notranslate"><span class="pre">EEGAutoReject</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="preprocessing.html#junifer_eeg.preprocess.EEGAverageReference"><code class="docutils literal notranslate"><span class="pre">EEGAverageReference</span></code></a></li>
@@ -284,7 +298,7 @@
 <li class="toctree-l2"><a class="reference internal" href="preprocessing.html#junifer_eeg.preprocess.RenameRule"><code class="docutils literal notranslate"><span class="pre">RenameRule</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="markers.html">5.4. Markers</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="markers.html">6.4. Markers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="markers.html#junifer_eeg.markers.AggregationStep"><code class="docutils literal notranslate"><span class="pre">AggregationStep</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="markers.html#junifer_eeg.markers.Contrast"><code class="docutils literal notranslate"><span class="pre">Contrast</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="markers.html#junifer_eeg.markers.Decoder"><code class="docutils literal notranslate"><span class="pre">Decoder</span></code></a></li>
@@ -339,12 +353,16 @@
 <li class="toctree-l2"><a class="reference internal" href="markers.html#junifer_eeg.markers.TopographyMixin"><code class="docutils literal notranslate"><span class="pre">TopographyMixin</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="markers.html#junifer_eeg.markers.Window"><code class="docutils literal notranslate"><span class="pre">Window</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="markers.html#junifer_eeg.markers.get_aggregation_function"><code class="docutils literal notranslate"><span class="pre">get_aggregation_function()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="markers.html#module-junifer_eeg.markers.symbolic">5.4.1. Symbolic transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markers.html#module-junifer_eeg.markers.symbolic">6.4.1. Symbolic transformation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">5.5. Data</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="data.html">6.5. Data</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data.html#junifer_eeg.data.EEGROIRegistry"><code class="docutils literal notranslate"><span class="pre">EEGROIRegistry</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="data.html#junifer_eeg.data.get_roi_channels"><code class="docutils literal notranslate"><span class="pre">get_roi_channels()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">6.6. Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#junifer_eeg.datasets.fetch_tueg"><code class="docutils literal notranslate"><span class="pre">fetch_tueg()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -361,18 +379,18 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">5.1. </span>Data types</div>
+                <div class="title"><span class="section-number">6.1. </span>Data types</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../builtin.html">
+          <a class="prev-page" href="../auto_examples/run_tueg_spectral.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">4. </span>Built-in components</div>
+                <div class="title"><span class="section-number">5.2. </span>Compute the spectral markers of TUEG recordings.</div>
                 
               </div>
             </a>
@@ -400,12 +418,13 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=1a2086f1"></script>
+</div><script src="../_static/documentation_options.js?v=5642a12a"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="../_static/js/custom.js?v=9868c0c7"></script>
     </body>
 </html>
