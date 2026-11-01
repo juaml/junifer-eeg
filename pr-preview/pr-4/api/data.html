@@ -277,7 +277,12 @@
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">junifer_eeg.data.</span></span><span class="sig-name descname"><span class="pre">EEGROIRegistry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#junifer_eeg.data.EEGROIRegistry" title="Link to this definition">¶</a></dt>
 <dd><p>Class for the registry of EEG ROIs.</p>
 <p>An ROI is a list of channel names, defined for a montage. The built-in
-ROIs are read from the <code class="docutils literal notranslate"><span class="pre">data/rois/&lt;montage&gt;.yaml</span></code> files.</p>
+ROIs are read from the <code class="docutils literal notranslate"><span class="pre">data/rois/*.yaml</span></code> files, each with the
+<code class="docutils literal notranslate"><span class="pre">system</span></code> that uses the montages, the <code class="docutils literal notranslate"><span class="pre">montages</span></code> the ROIs are defined
+for, and the <code class="docutils literal notranslate"><span class="pre">rois</span></code>. An ROI has all the positions of its region (e.g.,
+the 10-05 positions, for the montages of the 10-20 system), and the
+channel selections keep the ones in the data (see
+<a class="reference internal" href="#junifer_eeg.data.get_roi_channels" title="junifer_eeg.data.get_roi_channels"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_roi_channels()</span></code></a>).</p>
 <p>Initialize the class.</p>
 <dl class="field-list simple">
 </dl>
@@ -379,7 +384,7 @@ ROIs are read from the <code class="docutils literal notranslate"><span class="p
 
 <dl class="py function">
 <dt class="sig sig-object py" id="junifer_eeg.data.get_roi_channels">
-<span class="sig-prename descclassname"><span class="pre">junifer_eeg.data.</span></span><span class="sig-name descname"><span class="pre">get_roi_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#junifer_eeg.data.get_roi_channels" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">junifer_eeg.data.</span></span><span class="sig-name descname"><span class="pre">get_roi_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#junifer_eeg.data.get_roi_channels" title="Link to this definition">¶</a></dt>
 <dd><p>Get the channel names of a channel selection.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -389,11 +394,20 @@ channel names.</p>
 </dd>
 <dt><strong>target_data</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt><dd><p>The corresponding item of the data object, with the <code class="docutils literal notranslate"><span class="pre">montage</span></code>.</p>
 </dd>
+<dt><strong>ch_names</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The channels in the data. If not None, an ROI keeps the channels in
+the data, as it has all the positions of its region (default None).</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></dt><dd><p>The channel names.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a></dt><dd><p>If no channel of the ROI is in the data.</p>
 </dd>
 </dl>
 </dd>
@@ -477,7 +491,7 @@ channel names.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=54809dcc"></script>
+</div><script src="../_static/documentation_options.js?v=f0f819d5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

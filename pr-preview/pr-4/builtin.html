@@ -437,24 +437,69 @@ components in junifer.</p>
 <section id="montages">
 <h2><span class="section-number">4.4. </span>Montages<a class="headerlink" href="#montages" title="Link to this heading">¶</a></h2>
 <p>The montages with ROIs (named channel selections) defined, for the <code class="docutils literal notranslate"><span class="pre">picks</span></code>
-of the aggregation steps:</p>
-<div class="table-wrapper docutils container">
+of the aggregation steps. The montage is the name of the MNE montage with the
+channel positions (the <code class="docutils literal notranslate"><span class="pre">montage</span></code> of the <code class="docutils literal notranslate"><span class="pre">EEG</span></code> data type). An ROI has all
+the positions of its region, and the <code class="docutils literal notranslate"><span class="pre">picks</span></code> keep the ones in the data: the
+ROIs of a montage are used for any cap with its positions (e.g., the 10-20
+caps of 19 or 64 channels).</p>
+<div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 30.0%" />
+<col style="width: 45.0%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Montage</p></th>
+<th class="head"><p>System</p></th>
 <th class="head"><p>ROIs</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-256</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">nonscalp</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-256</span></code>, <code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-257</span></code></p></td>
+<td><p>EGI HydroCel Geodesic Sensor Net, 256 channels (257 with the vertex
+reference)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">nonscalp</span></code>, <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code>, <code class="docutils literal notranslate"><span class="pre">Pz</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>,
+<code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code>, and the 10-20 positions <code class="docutils literal notranslate"><span class="pre">Fp1</span></code>, <code class="docutils literal notranslate"><span class="pre">Fp2</span></code>, <code class="docutils literal notranslate"><span class="pre">F3</span></code>,
+<code class="docutils literal notranslate"><span class="pre">F4</span></code>, <code class="docutils literal notranslate"><span class="pre">C3</span></code>, <code class="docutils literal notranslate"><span class="pre">C4</span></code>, <code class="docutils literal notranslate"><span class="pre">P3</span></code>, <code class="docutils literal notranslate"><span class="pre">P4</span></code>, <code class="docutils literal notranslate"><span class="pre">T5</span></code>, <code class="docutils literal notranslate"><span class="pre">T6</span></code>, <code class="docutils literal notranslate"><span class="pre">Oz</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-128</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">nonscalp</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-128</span></code>, <code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-129</span></code></p></td>
+<td><p>EGI HydroCel Geodesic Sensor Net, 128 channels (129 with the vertex
+reference)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">nonscalp</span></code>, <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code>, <code class="docutils literal notranslate"><span class="pre">Pz</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>,
+<code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-64_1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-65_1.0</span></code></p></td>
+<td><p>EGI HydroCel Geodesic Sensor Net, 64 channels (65 with the vertex
+reference)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">nonscalp</span></code>, <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code>, <code class="docutils literal notranslate"><span class="pre">Pz</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>,
+<code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">biosemi128</span></code></p></td>
+<td><p>BioSemi ActiveTwo, 128 channels</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code>, <code class="docutils literal notranslate"><span class="pre">Pz</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">colin27_1005</span></code>, <code class="docutils literal notranslate"><span class="pre">colin27_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">fsaverage_1005</span></code>,
+<code class="docutils literal notranslate"><span class="pre">fsaverage_1010</span></code>, <code class="docutils literal notranslate"><span class="pre">fsaverage_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">spherical_1010</span></code>,
+<code class="docutils literal notranslate"><span class="pre">spherical_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">standard_1005</span></code>, <code class="docutils literal notranslate"><span class="pre">standard_1020</span></code>,
+<code class="docutils literal notranslate"><span class="pre">easycap-M1</span></code>, <code class="docutils literal notranslate"><span class="pre">biosemi16</span></code>, <code class="docutils literal notranslate"><span class="pre">biosemi32</span></code>, <code class="docutils literal notranslate"><span class="pre">biosemi64</span></code>,
+<code class="docutils literal notranslate"><span class="pre">brainproducts-RNP-BA-128</span></code></p></td>
+<td><p>10-20 system, and its 10-10 and 10-05 extensions (e.g., ANT Neuro
+waveguard, Brain Products actiCAP, BioSemi up to 64 channels, Nexstim
+eXimia, g.tec, clinical recordings)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">nonscalp</span></code> (mastoids and earlobes), <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Pz</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code> and <code class="docutils literal notranslate"><span class="pre">Pz</span></code> ROIs are the channels around these positions.
+The <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code> and <code class="docutils literal notranslate"><span class="pre">p3b</span></code> ROIs are the channels where these
+components are measured (in NICE, the contingent negative variation, the
+mismatch negativity, and the P3a and P3b of the Local-Global paradigm). The
+ROIs of the 10-20 system are the 10-05 positions in the region of the ROIs of
+the ANT Neuro (32 channels), Brain Products (32), Nexstim eXimia (60) and
+g.tec (12) caps of NICE.</p>
 <p>Other montages, or other ROIs of a montage, can be registered with
 <a class="reference internal" href="api/data.html#junifer_eeg.data.EEGROIRegistry" title="junifer_eeg.data.EEGROIRegistry"><code class="xref py py-class docutils literal notranslate"><span class="pre">EEGROIRegistry</span></code></a>.</p>
 </section>
@@ -531,7 +576,7 @@ of the aggregation steps:</p>
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=54809dcc"></script>
+</div><script src="_static/documentation_options.js?v=f0f819d5"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
