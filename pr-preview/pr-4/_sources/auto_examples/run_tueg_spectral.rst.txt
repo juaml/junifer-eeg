@@ -74,20 +74,20 @@ Set the logging level to info to see extra information
 
  .. code-block:: none
 
-    2026-11-01 21:34:32 [info     ] ===== Lib Versions =====       [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] numpy: 2.4.6                   [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] scipy: 1.17.1                  [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] datalad: 1.2.3                 [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] pandas: 3.0.6                  [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] nibabel: 5.4.2                 [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] nilearn: 0.14.1                [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] ruamel.yaml: 0.19.1            [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] h5py: 3.16.0                   [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] tqdm: 4.67.1                   [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] templateflow: 25.1.2           [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] junifer_data: 1.6.1            [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] junifer: 0.0.9.dev6            [junifer] pkg=utils
-    2026-11-01 21:34:32 [info     ] ========================       [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] ===== Lib Versions =====       [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] numpy: 2.4.6                   [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] scipy: 1.17.1                  [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] datalad: 1.2.3                 [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] pandas: 3.0.6                  [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] nibabel: 5.4.2                 [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] nilearn: 0.14.1                [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] ruamel.yaml: 0.19.1            [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] h5py: 3.16.0                   [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] tqdm: 4.67.1                   [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] templateflow: 25.1.2           [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] junifer_data: 1.6.1            [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] junifer: 0.0.9.dev6            [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] ========================       [junifer] pkg=utils
 
 
 
@@ -111,10 +111,10 @@ Download the first recording of some subjects
 
  .. code-block:: none
 
-    2026-11-01 21:34:32 [info     ] Downloading https://isip.piconepress.com/projects/nedc/data/tuh_eeg/tuh_eeg/v2.0.2/edf/000/aaaaaaab/s001_2002/02_tcp_le/aaaaaaab_s001_t000.edf [junifer] pkg=utils
-    2026-11-01 21:34:33 [info     ] Downloading https://isip.piconepress.com/projects/nedc/data/tuh_eeg/tuh_eeg/v2.0.2/edf/000/aaaaaaaf/s001_2002/02_tcp_le/aaaaaaaf_s001_t000.edf [junifer] pkg=utils
-    2026-11-01 21:34:33 [info     ] Downloading https://isip.piconepress.com/projects/nedc/data/tuh_eeg/tuh_eeg/v2.0.2/edf/000/aaaaaaag/s001_2002/02_tcp_le/aaaaaaag_s001_t001.edf [junifer] pkg=utils
-    2026-11-01 21:34:33 [info     ] TUEG subject aaaaaaai already downloaded [junifer] pkg=utils
+    2026-11-01 21:37:27 [info     ] Downloading https://isip.piconepress.com/projects/nedc/data/tuh_eeg/tuh_eeg/v2.0.2/edf/000/aaaaaaab/s001_2002/02_tcp_le/aaaaaaab_s001_t000.edf [junifer] pkg=utils
+    2026-11-01 21:37:28 [info     ] Downloading https://isip.piconepress.com/projects/nedc/data/tuh_eeg/tuh_eeg/v2.0.2/edf/000/aaaaaaaf/s001_2002/02_tcp_le/aaaaaaaf_s001_t000.edf [junifer] pkg=utils
+    2026-11-01 21:37:29 [info     ] Downloading https://isip.piconepress.com/projects/nedc/data/tuh_eeg/tuh_eeg/v2.0.2/edf/000/aaaaaaag/s001_2002/02_tcp_le/aaaaaaag_s001_t001.edf [junifer] pkg=utils
+    2026-11-01 21:37:29 [info     ] TUEG subject aaaaaaai already downloaded [junifer] pkg=utils
 
 
 
@@ -285,256 +285,256 @@ Run the pipeline on each subject and collect the features in a single file
 
  .. code-block:: none
 
-    2026-11-01 21:34:33 [info     ] Parameters: {'types': ['EEG'], 'datadir': '/home/runner/junifer_eeg_data/tueg/v2.0.2/edf', 'patterns': {'EEG': {'pattern': '000/{subject}/*/*/{subject}_*.edf', 'montage': 'colin27_1020'}}, 'replacements': ['subject'], 'confounds_format': None, 'partial_pattern_ok': False} [junifer] component=PatternDataGrabber pkg=datagrabber step=datagrabber
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'name': 'PSD', 'aggregations': {'trim_mean80': [{'axis': 'epochs', 'method': 'trim_mean', 'method_params': {'proportiontocut': 0.1}, 'picks': None}, {'axis': 'channels', 'method': 'mean', 'method_params': None, 'picks': None}]}, 'estimator': {'method': 'welch', 'tmin': None, 'tmax': 0.6, 'fmin': 1.0, 'fmax': 45.0, 'method_params': {'n_fft': 4096, 'n_overlap': 100, 'nperseg': 128}}, 'bands': {'delta': [1.0, 4.0], 'theta': [4.0, 8.0], 'alpha': [8.0, 12.0], 'beta': [12.0, 30.0], 'gamma': [30.0, 45.0]}, 'dB': True, 'normalized': True, 'spectral_entropy': True, 'spectral_edges': {'msf': 0.5, 'sef90': 0.9, 'sef95': 0.95}} [junifer] component=PSD pkg=markers step=marker
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'name': 'PSD_topo', 'aggregations': {'trim_mean80': [{'axis': 'epochs', 'method': 'trim_mean', 'method_params': {'proportiontocut': 0.1}, 'picks': None}]}, 'estimator': {'method': 'welch', 'tmin': None, 'tmax': 0.6, 'fmin': 1.0, 'fmax': 45.0, 'method_params': {'n_fft': 4096, 'n_overlap': 100, 'nperseg': 128}}, 'bands': {'delta': [1.0, 4.0], 'theta': [4.0, 8.0], 'alpha': [8.0, 12.0], 'beta': [12.0, 30.0], 'gamma': [30.0, 45.0]}, 'dB': True, 'normalized': True, 'spectral_entropy': True, 'spectral_edges': {'msf': 0.5, 'sef90': 0.9, 'sef95': 0.95}} [junifer] component=PSD_topo pkg=markers step=marker
-    2026-11-01 21:34:33 [info     ] Parameters: {'uri': '/tmp/tmpiozc6mi7/tueg.hdf5', 'single_output': False, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'pattern': '^EEG (\\w+)-(REF|LE)$', 'replacement': '\\1', 'mapping': None, 'montage_case': True} [junifer] component=EEGRenameChannels pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'picks': ['Fp1', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'T3', 'C3', 'Cz', 'C4', 'T4', 'T5', 'P3', 'Pz', 'P4', 'T6', 'O1', 'O2'], 'exclude': None} [junifer] component=EEGPickChannels pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'on_missing': 'raise'} [junifer] component=EEGSetMontage pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': 0.5, 'h_freq': None, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 6}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': None, 'h_freq': 45.0, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 8}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'freqs': [60.0, 120.0], 'method': 'fft'} [junifer] component=EEGNotchFilter pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'sfreq': 250.0} [junifer] component=EEGResample pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'duration': 0.8, 'tmin': -0.2, 'onset': 0.0, 'jitter': [0.55, 0.85], 'baseline': None, 'seed': 42} [junifer] component=EEGFixedLengthEpochs pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'n_interpolate': None, 'consensus': None, 'cv': 10, 'thresh_method': 'bayesian_optimization', 'seed': 42, 'n_jobs': 1, 'min_epochs': 0.3} [junifer] component=EEGAutoReject pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG']} [junifer] component=EEGAverageReference pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Validating Marker Collection   [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] DataGrabber output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Data Reader:        [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Data Reader output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Preprocessor: EEGRenameChannels [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Preprocessor: EEGPickChannels [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Preprocessor: EEGSetMontage [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Preprocessor: EEGFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Preprocessor: EEGFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Preprocessor: EEGNotchFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Preprocessor: EEGResample [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Preprocessor: EEGFixedLengthEpochs [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Preprocessor: EEGAutoReject [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Preprocessor: EEGAverageReference [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Marker: PSD         [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Marker output type: [<StorageType.Vector: 'vector'>] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating storage for PSD     [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating Marker: PSD_topo    [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Marker output type: [<StorageType.ScalarTable: 'scalar_table'>] [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Validating storage for PSD_topo [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Getting element ('aaaaaaab',)  [junifer] pkg=datagrabber step=datagrabber
-    2026-11-01 21:34:33 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
-    2026-11-01 21:34:33 [info     ] Fitting pipeline               [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaab/s001_2002/02_tcp_le/aaaaaaab_s001_t000.edf [junifer] pkg=datareader step=datareader
-    2026-11-01 21:34:33 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
-    2026-11-01 21:34:33 [info     ] Preprocessing data with EEGRenameChannels [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Preprocessing data with EEGPickChannels [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Preprocessing data with EEGSetMontage [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Preprocessing data with EEGNotchFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Preprocessing data with EEGResample [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Preprocessing data with EEGFixedLengthEpochs [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:33 [info     ] Preprocessing data with EEGAutoReject [junifer] pkg=pipeline
-    2026-11-01 21:34:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    Dropped 18 epochs: 31, 60, 64, 65, 77, 97, 105, 107, 114, 115, 116, 118, 119, 125, 136, 212, 227, 232
-    2026-11-01 21:34:35 [info     ] autoreject: 18 bad epochs, 667 channels interpolated in the epochs (n_interpolate 4, consensus 0.5) [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:35 [info     ] Preprocessing data with EEGAverageReference [junifer] pkg=pipeline
-    2026-11-01 21:34:35 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:35 [info     ] Fitting marker PSD             [junifer] pkg=pipeline
-    2026-11-01 21:34:35 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
-    2026-11-01 21:34:36 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpiozc6mi7/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
-    2026-11-01 21:34:36 [info     ] Writing HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:36 [info     ] Wrote HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:36 [info     ] Writing HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:36 [info     ] Wrote HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:36 [info     ] Fitting marker PSD_topo        [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
-    2026-11-01 21:34:36 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpiozc6mi7/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
-    2026-11-01 21:34:36 [info     ] Writing HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:36 [info     ] Wrote HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:36 [info     ] Writing HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:36 [info     ] Wrote HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:36 [info     ] Marker collection fitting done [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Getting element ('aaaaaaaf',)  [junifer] pkg=datagrabber step=datagrabber
-    2026-11-01 21:34:36 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
-    2026-11-01 21:34:36 [info     ] Fitting pipeline               [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaaf/s001_2002/02_tcp_le/aaaaaaaf_s001_t000.edf [junifer] pkg=datareader step=datareader
-    2026-11-01 21:34:36 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
-    2026-11-01 21:34:36 [info     ] Preprocessing data with EEGRenameChannels [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:36 [info     ] Preprocessing data with EEGPickChannels [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:36 [info     ] Preprocessing data with EEGSetMontage [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:36 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:36 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:36 [info     ] Preprocessing data with EEGNotchFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:36 [info     ] Preprocessing data with EEGResample [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:36 [info     ] Preprocessing data with EEGFixedLengthEpochs [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:36 [info     ] Preprocessing data with EEGAutoReject [junifer] pkg=pipeline
-    2026-11-01 21:34:36 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Parameters: {'types': ['EEG'], 'datadir': '/home/runner/junifer_eeg_data/tueg/v2.0.2/edf', 'patterns': {'EEG': {'pattern': '000/{subject}/*/*/{subject}_*.edf', 'montage': 'colin27_1020'}}, 'replacements': ['subject'], 'confounds_format': None, 'partial_pattern_ok': False} [junifer] component=PatternDataGrabber pkg=datagrabber step=datagrabber
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'name': 'PSD', 'aggregations': {'trim_mean80': [{'axis': 'epochs', 'method': 'trim_mean', 'method_params': {'proportiontocut': 0.1}, 'picks': None}, {'axis': 'channels', 'method': 'mean', 'method_params': None, 'picks': None}]}, 'estimator': {'method': 'welch', 'tmin': None, 'tmax': 0.6, 'fmin': 1.0, 'fmax': 45.0, 'method_params': {'n_fft': 4096, 'n_overlap': 100, 'nperseg': 128}}, 'bands': {'delta': [1.0, 4.0], 'theta': [4.0, 8.0], 'alpha': [8.0, 12.0], 'beta': [12.0, 30.0], 'gamma': [30.0, 45.0]}, 'dB': True, 'normalized': True, 'spectral_entropy': True, 'spectral_edges': {'msf': 0.5, 'sef90': 0.9, 'sef95': 0.95}} [junifer] component=PSD pkg=markers step=marker
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'name': 'PSD_topo', 'aggregations': {'trim_mean80': [{'axis': 'epochs', 'method': 'trim_mean', 'method_params': {'proportiontocut': 0.1}, 'picks': None}]}, 'estimator': {'method': 'welch', 'tmin': None, 'tmax': 0.6, 'fmin': 1.0, 'fmax': 45.0, 'method_params': {'n_fft': 4096, 'n_overlap': 100, 'nperseg': 128}}, 'bands': {'delta': [1.0, 4.0], 'theta': [4.0, 8.0], 'alpha': [8.0, 12.0], 'beta': [12.0, 30.0], 'gamma': [30.0, 45.0]}, 'dB': True, 'normalized': True, 'spectral_entropy': True, 'spectral_edges': {'msf': 0.5, 'sef90': 0.9, 'sef95': 0.95}} [junifer] component=PSD_topo pkg=markers step=marker
+    2026-11-01 21:37:29 [info     ] Parameters: {'uri': '/tmp/tmpoo_7t7lg/tueg.hdf5', 'single_output': False, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'pattern': '^EEG (\\w+)-(REF|LE)$', 'replacement': '\\1', 'mapping': None, 'montage_case': True} [junifer] component=EEGRenameChannels pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'picks': ['Fp1', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'T3', 'C3', 'Cz', 'C4', 'T4', 'T5', 'P3', 'Pz', 'P4', 'T6', 'O1', 'O2'], 'exclude': None} [junifer] component=EEGPickChannels pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'on_missing': 'raise'} [junifer] component=EEGSetMontage pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': 0.5, 'h_freq': None, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 6}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': None, 'h_freq': 45.0, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 8}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'freqs': [60.0, 120.0], 'method': 'fft'} [junifer] component=EEGNotchFilter pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'sfreq': 250.0} [junifer] component=EEGResample pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'duration': 0.8, 'tmin': -0.2, 'onset': 0.0, 'jitter': [0.55, 0.85], 'baseline': None, 'seed': 42} [junifer] component=EEGFixedLengthEpochs pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'n_interpolate': None, 'consensus': None, 'cv': 10, 'thresh_method': 'bayesian_optimization', 'seed': 42, 'n_jobs': 1, 'min_epochs': 0.3} [junifer] component=EEGAutoReject pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG']} [junifer] component=EEGAverageReference pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Validating Marker Collection   [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] DataGrabber output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Data Reader:        [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Data Reader output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Preprocessor: EEGRenameChannels [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Preprocessor: EEGPickChannels [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Preprocessor: EEGSetMontage [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Preprocessor: EEGFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Preprocessor: EEGFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Preprocessor: EEGNotchFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Preprocessor: EEGResample [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Preprocessor: EEGFixedLengthEpochs [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Preprocessor: EEGAutoReject [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Preprocessor: EEGAverageReference [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor input type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessor output type: ['EEG'] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Marker: PSD         [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Marker output type: [<StorageType.Vector: 'vector'>] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating storage for PSD     [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating Marker: PSD_topo    [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Marker output type: [<StorageType.ScalarTable: 'scalar_table'>] [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Validating storage for PSD_topo [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Getting element ('aaaaaaab',)  [junifer] pkg=datagrabber step=datagrabber
+    2026-11-01 21:37:29 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
+    2026-11-01 21:37:29 [info     ] Fitting pipeline               [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaab/s001_2002/02_tcp_le/aaaaaaab_s001_t000.edf [junifer] pkg=datareader step=datareader
+    2026-11-01 21:37:29 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
+    2026-11-01 21:37:29 [info     ] Preprocessing data with EEGRenameChannels [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Preprocessing data with EEGPickChannels [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Preprocessing data with EEGSetMontage [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Preprocessing data with EEGNotchFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Preprocessing data with EEGResample [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:29 [info     ] Preprocessing data with EEGFixedLengthEpochs [junifer] pkg=pipeline
+    2026-11-01 21:37:29 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:30 [info     ] Preprocessing data with EEGAutoReject [junifer] pkg=pipeline
+    2026-11-01 21:37:30 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    Dropped 17 epochs: 31, 60, 64, 77, 97, 105, 107, 114, 115, 116, 118, 119, 125, 136, 212, 227, 232
+    2026-11-01 21:37:31 [info     ] autoreject: 17 bad epochs, 665 channels interpolated in the epochs (n_interpolate 4, consensus 0.5) [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:31 [info     ] Preprocessing data with EEGAverageReference [junifer] pkg=pipeline
+    2026-11-01 21:37:31 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:31 [info     ] Fitting marker PSD             [junifer] pkg=pipeline
+    2026-11-01 21:37:31 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
+    2026-11-01 21:37:31 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpoo_7t7lg/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
+    2026-11-01 21:37:31 [info     ] Writing HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:31 [info     ] Wrote HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:31 [info     ] Writing HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:31 [info     ] Wrote HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:31 [info     ] Fitting marker PSD_topo        [junifer] pkg=pipeline
+    2026-11-01 21:37:31 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
+    2026-11-01 21:37:31 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpoo_7t7lg/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
+    2026-11-01 21:37:31 [info     ] Writing HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:31 [info     ] Wrote HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:31 [info     ] Writing HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:31 [info     ] Wrote HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaab_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:31 [info     ] Marker collection fitting done [junifer] pkg=pipeline
+    2026-11-01 21:37:31 [info     ] Getting element ('aaaaaaaf',)  [junifer] pkg=datagrabber step=datagrabber
+    2026-11-01 21:37:31 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
+    2026-11-01 21:37:31 [info     ] Fitting pipeline               [junifer] pkg=pipeline
+    2026-11-01 21:37:31 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaaf/s001_2002/02_tcp_le/aaaaaaaf_s001_t000.edf [junifer] pkg=datareader step=datareader
+    2026-11-01 21:37:31 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
+    2026-11-01 21:37:32 [info     ] Preprocessing data with EEGRenameChannels [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] Preprocessing data with EEGPickChannels [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] Preprocessing data with EEGSetMontage [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] Preprocessing data with EEGNotchFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] Preprocessing data with EEGResample [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] Preprocessing data with EEGFixedLengthEpochs [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] Preprocessing data with EEGAutoReject [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
     Dropped 2 epochs: 0, 9
-    2026-11-01 21:34:37 [info     ] autoreject: 2 bad epochs, 76 channels interpolated in the epochs (n_interpolate 1, consensus 0.7000000000000001) [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:37 [info     ] Preprocessing data with EEGAverageReference [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:37 [info     ] Fitting marker PSD             [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
-    2026-11-01 21:34:37 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpiozc6mi7/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
-    2026-11-01 21:34:37 [info     ] Writing HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:37 [info     ] Wrote HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:37 [info     ] Writing HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:37 [info     ] Wrote HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:37 [info     ] Fitting marker PSD_topo        [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
-    2026-11-01 21:34:37 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpiozc6mi7/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
-    2026-11-01 21:34:37 [info     ] Writing HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:37 [info     ] Wrote HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:37 [info     ] Writing HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:37 [info     ] Wrote HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:37 [info     ] Marker collection fitting done [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Getting element ('aaaaaaag',)  [junifer] pkg=datagrabber step=datagrabber
-    2026-11-01 21:34:37 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
-    2026-11-01 21:34:37 [info     ] Fitting pipeline               [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaag/s001_2002/02_tcp_le/aaaaaaag_s001_t001.edf [junifer] pkg=datareader step=datareader
-    2026-11-01 21:34:37 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
-    2026-11-01 21:34:37 [info     ] Preprocessing data with EEGRenameChannels [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:37 [info     ] Preprocessing data with EEGPickChannels [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:37 [info     ] Preprocessing data with EEGSetMontage [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:37 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:37 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:37 [info     ] Preprocessing data with EEGNotchFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:37 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:38 [info     ] Preprocessing data with EEGResample [junifer] pkg=pipeline
-    2026-11-01 21:34:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:38 [info     ] Preprocessing data with EEGFixedLengthEpochs [junifer] pkg=pipeline
-    2026-11-01 21:34:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:38 [info     ] Preprocessing data with EEGAutoReject [junifer] pkg=pipeline
-    2026-11-01 21:34:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] autoreject: 2 bad epochs, 76 channels interpolated in the epochs (n_interpolate 1, consensus 0.7000000000000001) [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] Preprocessing data with EEGAverageReference [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:32 [info     ] Fitting marker PSD             [junifer] pkg=pipeline
+    2026-11-01 21:37:32 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
+    2026-11-01 21:37:33 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpoo_7t7lg/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
+    2026-11-01 21:37:33 [info     ] Writing HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:33 [info     ] Wrote HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:33 [info     ] Writing HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:33 [info     ] Wrote HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:33 [info     ] Fitting marker PSD_topo        [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
+    2026-11-01 21:37:33 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpoo_7t7lg/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
+    2026-11-01 21:37:33 [info     ] Writing HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:33 [info     ] Wrote HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:33 [info     ] Writing HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:33 [info     ] Wrote HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaaf_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:33 [info     ] Marker collection fitting done [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Getting element ('aaaaaaag',)  [junifer] pkg=datagrabber step=datagrabber
+    2026-11-01 21:37:33 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
+    2026-11-01 21:37:33 [info     ] Fitting pipeline               [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaag/s001_2002/02_tcp_le/aaaaaaag_s001_t001.edf [junifer] pkg=datareader step=datareader
+    2026-11-01 21:37:33 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
+    2026-11-01 21:37:33 [info     ] Preprocessing data with EEGRenameChannels [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] Preprocessing data with EEGPickChannels [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] Preprocessing data with EEGSetMontage [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] Preprocessing data with EEGNotchFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] Preprocessing data with EEGResample [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] Preprocessing data with EEGFixedLengthEpochs [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] Preprocessing data with EEGAutoReject [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
     /home/runner/work/junifer-eeg/junifer-eeg/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3824: RuntimeWarning: Mean of empty slice
       return _methods._mean(a, axis=axis, dtype=dtype,
     /home/runner/work/junifer-eeg/junifer-eeg/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
       ret = ret.dtype.type(ret / rcount)
     Dropped 1 epoch: 4
-    2026-11-01 21:34:39 [info     ] autoreject: 1 bad epochs, 256 channels interpolated in the epochs (n_interpolate 4, consensus 1.0) [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:39 [info     ] Preprocessing data with EEGAverageReference [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:39 [info     ] Fitting marker PSD             [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
-    2026-11-01 21:34:39 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpiozc6mi7/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
-    2026-11-01 21:34:39 [info     ] Writing HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:39 [info     ] Wrote HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:39 [info     ] Writing HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:39 [info     ] Wrote HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:39 [info     ] Fitting marker PSD_topo        [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
-    2026-11-01 21:34:39 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpiozc6mi7/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
-    2026-11-01 21:34:39 [info     ] Writing HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:39 [info     ] Wrote HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:39 [info     ] Writing HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:39 [info     ] Wrote HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:39 [info     ] Marker collection fitting done [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Getting element ('aaaaaaai',)  [junifer] pkg=datagrabber step=datagrabber
-    2026-11-01 21:34:39 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
-    2026-11-01 21:34:39 [info     ] Fitting pipeline               [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaai/s001_2002/02_tcp_le/aaaaaaai_s001_t000.edf [junifer] pkg=datareader step=datareader
-    2026-11-01 21:34:39 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
-    2026-11-01 21:34:39 [info     ] Preprocessing data with EEGRenameChannels [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:39 [info     ] Preprocessing data with EEGPickChannels [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:39 [info     ] Preprocessing data with EEGSetMontage [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:39 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:39 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:39 [info     ] Preprocessing data with EEGNotchFilter [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:39 [info     ] Preprocessing data with EEGResample [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:39 [info     ] Preprocessing data with EEGFixedLengthEpochs [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:39 [info     ] Preprocessing data with EEGAutoReject [junifer] pkg=pipeline
-    2026-11-01 21:34:39 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] autoreject: 1 bad epochs, 256 channels interpolated in the epochs (n_interpolate 4, consensus 1.0) [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] Preprocessing data with EEGAverageReference [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:33 [info     ] Fitting marker PSD             [junifer] pkg=pipeline
+    2026-11-01 21:37:33 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
+    2026-11-01 21:37:34 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpoo_7t7lg/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
+    2026-11-01 21:37:34 [info     ] Writing HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:34 [info     ] Wrote HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:34 [info     ] Writing HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:34 [info     ] Wrote HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:34 [info     ] Fitting marker PSD_topo        [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
+    2026-11-01 21:37:34 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpoo_7t7lg/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
+    2026-11-01 21:37:34 [info     ] Writing HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:34 [info     ] Wrote HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:34 [info     ] Writing HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:34 [info     ] Wrote HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaag_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:34 [info     ] Marker collection fitting done [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Getting element ('aaaaaaai',)  [junifer] pkg=datagrabber step=datagrabber
+    2026-11-01 21:37:34 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
+    2026-11-01 21:37:34 [info     ] Fitting pipeline               [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaai/s001_2002/02_tcp_le/aaaaaaai_s001_t000.edf [junifer] pkg=datareader step=datareader
+    2026-11-01 21:37:34 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
+    2026-11-01 21:37:34 [info     ] Preprocessing data with EEGRenameChannels [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:34 [info     ] Preprocessing data with EEGPickChannels [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:34 [info     ] Preprocessing data with EEGSetMontage [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:34 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:34 [info     ] Preprocessing data with EEGFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:34 [info     ] Preprocessing data with EEGNotchFilter [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:34 [info     ] Preprocessing data with EEGResample [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:34 [info     ] Preprocessing data with EEGFixedLengthEpochs [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:34 [info     ] Preprocessing data with EEGAutoReject [junifer] pkg=pipeline
+    2026-11-01 21:37:34 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
     /home/runner/work/junifer-eeg/junifer-eeg/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3824: RuntimeWarning: Mean of empty slice
       return _methods._mean(a, axis=axis, dtype=dtype,
     /home/runner/work/junifer-eeg/junifer-eeg/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
       ret = ret.dtype.type(ret / rcount)
-    Dropped 27 epochs: 6, 9, 15, 16, 18, 24, 34, 35, 43, 47, 49, 52, 67, 70, 82, 84, 85, 102, 104, 106, 107, 108, 109, 113, 114, 121, 127
-    2026-11-01 21:34:41 [info     ] autoreject: 27 bad epochs, 296 channels interpolated in the epochs (n_interpolate 4, consensus 0.4) [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:41 [info     ] Preprocessing data with EEGAverageReference [junifer] pkg=pipeline
-    2026-11-01 21:34:41 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-01 21:34:41 [info     ] Fitting marker PSD             [junifer] pkg=pipeline
-    2026-11-01 21:34:41 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
-    2026-11-01 21:34:41 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpiozc6mi7/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
-    2026-11-01 21:34:41 [info     ] Writing HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Wrote HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Writing HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Wrote HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpiozc6mi7/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Fitting marker PSD_topo        [junifer] pkg=pipeline
-    2026-11-01 21:34:41 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
-    2026-11-01 21:34:41 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpiozc6mi7/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
-    2026-11-01 21:34:41 [info     ] Writing HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Wrote HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Writing HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Wrote HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpiozc6mi7/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Marker collection fitting done [junifer] pkg=pipeline
-    2026-11-01 21:34:41 [info     ] Collecting data using HDF5FeatureStorage [junifer] pkg=api
-    2026-11-01 21:34:41 [info     ] Parameters: {'uri': '/tmp/tmpiozc6mi7/tueg.hdf5', 'single_output': False, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Parameters: {'uri': '/tmp/tmpiozc6mi7/tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Collecting metadata from /tmp/tmpiozc6mi7/*_tueg.hdf5 [junifer] pkg=storage step=storage
-    file-metadata: 0it [00:00, ?it/s]2026-11-01 21:34:41 [info     ] Parameters: {'uri': '/tmp/tmpiozc6mi7/element_aaaaaaai_tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Parameters: {'uri': '/tmp/tmpiozc6mi7/element_aaaaaaab_tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Parameters: {'uri': '/tmp/tmpiozc6mi7/element_aaaaaaaf_tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Parameters: {'uri': '/tmp/tmpiozc6mi7/element_aaaaaaag_tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
-    file-metadata: 4it [00:00, 228.78it/s]
-    2026-11-01 21:34:41 [info     ] Writing metadata to HDF5 file ... [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Collecting data from /tmp/tmpiozc6mi7/*_tueg.hdf5 [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Will collect 2 features.       [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Collecting 4 files for feature MD5: 4785431744c732624c88315f78d86cdf. [junifer] pkg=storage step=storage
-    2026-11-01 21:34:41 [info     ] Collecting 4 files for feature MD5: ee9b4fb07bc3399298675325a8aa31df. [junifer] pkg=storage step=storage
+    Dropped 27 epochs: 6, 9, 15, 16, 18, 24, 34, 35, 38, 47, 49, 52, 67, 70, 82, 84, 85, 102, 104, 106, 107, 108, 109, 113, 114, 121, 127
+    2026-11-01 21:37:35 [info     ] autoreject: 27 bad epochs, 297 channels interpolated in the epochs (n_interpolate 4, consensus 0.4) [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:35 [info     ] Preprocessing data with EEGAverageReference [junifer] pkg=pipeline
+    2026-11-01 21:37:35 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-01 21:37:35 [info     ] Fitting marker PSD             [junifer] pkg=pipeline
+    2026-11-01 21:37:35 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
+    2026-11-01 21:37:35 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpoo_7t7lg/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
+    2026-11-01 21:37:35 [info     ] Writing HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Wrote HDF5 metadata for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Writing HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Wrote HDF5 data for 4785431744c732624c88315f78d86cdf to: /tmp/tmpoo_7t7lg/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Fitting marker PSD_topo        [junifer] pkg=pipeline
+    2026-11-01 21:37:35 [info     ] Computing DataType.EEG         [junifer] pkg=markers step=marker
+    2026-11-01 21:37:35 [info     ] Storing in <HDF5FeatureStorage @ /tmp/tmpoo_7t7lg/tueg.hdf5 (multiple output)> [junifer] pkg=markers step=marker
+    2026-11-01 21:37:35 [info     ] Writing HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Wrote HDF5 metadata for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Writing HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Wrote HDF5 data for ee9b4fb07bc3399298675325a8aa31df to: /tmp/tmpoo_7t7lg/element_aaaaaaai_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Marker collection fitting done [junifer] pkg=pipeline
+    2026-11-01 21:37:35 [info     ] Collecting data using HDF5FeatureStorage [junifer] pkg=api
+    2026-11-01 21:37:35 [info     ] Parameters: {'uri': '/tmp/tmpoo_7t7lg/tueg.hdf5', 'single_output': False, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Parameters: {'uri': '/tmp/tmpoo_7t7lg/tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Collecting metadata from /tmp/tmpoo_7t7lg/*_tueg.hdf5 [junifer] pkg=storage step=storage
+    file-metadata: 0it [00:00, ?it/s]2026-11-01 21:37:35 [info     ] Parameters: {'uri': '/tmp/tmpoo_7t7lg/element_aaaaaaai_tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Parameters: {'uri': '/tmp/tmpoo_7t7lg/element_aaaaaaab_tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Parameters: {'uri': '/tmp/tmpoo_7t7lg/element_aaaaaaaf_tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Parameters: {'uri': '/tmp/tmpoo_7t7lg/element_aaaaaaag_tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
+    file-metadata: 4it [00:00, 299.08it/s]
+    2026-11-01 21:37:35 [info     ] Writing metadata to HDF5 file ... [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Collecting data from /tmp/tmpoo_7t7lg/*_tueg.hdf5 [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Will collect 2 features.       [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Collecting 4 files for feature MD5: 4785431744c732624c88315f78d86cdf. [junifer] pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Collecting 4 files for feature MD5: ee9b4fb07bc3399298675325a8aa31df. [junifer] pkg=storage step=storage
     feature:   0%|          | 0/2 [00:00<?, ?it/s]
-    file-data:   0%|          | 0/4 [00:00<?, ?it/s]    file-data: 100%|██████████| 4/4 [00:00<00:00, 146.87it/s]
+    file-data:   0%|          | 0/4 [00:00<?, ?it/s]    file-data: 100%|██████████| 4/4 [00:00<00:00, 220.27it/s]
 
-    file-data:   0%|          | 0/4 [00:00<?, ?it/s]    file-data: 100%|██████████| 4/4 [00:00<00:00, 77.09it/s]
-    feature: 100%|██████████| 2/2 [00:00<00:00, 20.56it/s]
-    2026-11-01 21:34:41 [info     ] Collect done                   [junifer] pkg=api
+    file-data:   0%|          | 0/4 [00:00<?, ?it/s]    file-data: 100%|██████████| 4/4 [00:00<00:00, 114.69it/s]
+    feature: 100%|██████████| 2/2 [00:00<00:00, 30.95it/s]
+    2026-11-01 21:37:35 [info     ] Collect done                   [junifer] pkg=api
 
 
 
@@ -559,11 +559,11 @@ Read the scalars: a row for each subject
 
  .. code-block:: none
 
-    2026-11-01 21:34:41 [info     ] Parameters: {'uri': '/tmp/tmpiozc6mi7/tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
+    2026-11-01 21:37:35 [info     ] Parameters: {'uri': '/tmp/tmpoo_7t7lg/tueg.hdf5', 'single_output': True, 'overwrite': 'update', 'compression': 7, 'force_float32': True, 'chunk_size': 100} [junifer] component=HDF5FeatureStorage pkg=storage step=storage
                    delta  deltan       theta  ...   msf      sef90      sef95
     subject                                   ...                            
-    aaaaaaai  -98.660004    0.34  -99.870003  ...  6.53  16.639999  22.139999
-    aaaaaaab  -94.059998    0.51  -97.199997  ...  4.19  12.000000  16.320000
+    aaaaaaai  -98.669998    0.34  -99.870003  ...  6.54  16.670000  22.160000
+    aaaaaaab  -94.040001    0.51  -97.199997  ...  4.18  11.990000  16.320000
     aaaaaaaf -102.839996    0.19 -100.650002  ...  8.31  18.440001  24.280001
     aaaaaaag -102.860001    0.22 -102.209999  ...  8.62  20.750000  26.840000
 
@@ -647,14 +647,14 @@ and subject
  .. code-block:: none
 
 
-    <matplotlib.colorbar.Colorbar object at 0x7dcf310bc830>
+    <matplotlib.colorbar.Colorbar object at 0x7729cc4b8980>
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 9.977 seconds)
+   **Total running time of the script:** (0 minutes 8.752 seconds)
 
 
 .. _sphx_glr_download_auto_examples_run_tueg_spectral.py:

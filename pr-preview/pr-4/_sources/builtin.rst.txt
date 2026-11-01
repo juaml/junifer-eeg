@@ -134,42 +134,15 @@ the positions of its region, and the ``picks`` keep the ones in the data: the
 ROIs of a montage are used for any cap with its positions (e.g., the 10-20
 caps of 19 or 64 channels).
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 30 45
+Each montage has a page with its ROIs plotted:
 
-   * - Montage
-     - System
-     - ROIs
-   * - ``GSN-HydroCel-256``, ``GSN-HydroCel-257``
-     - EGI HydroCel Geodesic Sensor Net, 256 channels (257 with the vertex
-       reference)
-     - ``scalp``, ``nonscalp``, ``Fz``, ``Cz``, ``Pz``, ``cnv``, ``mmn``,
-       ``p3a``, ``p3b``, and the 10-20 positions ``Fp1``, ``Fp2``, ``F3``,
-       ``F4``, ``C3``, ``C4``, ``P3``, ``P4``, ``T5``, ``T6``, ``Oz``
-   * - ``GSN-HydroCel-128``, ``GSN-HydroCel-129``
-     - EGI HydroCel Geodesic Sensor Net, 128 channels (129 with the vertex
-       reference)
-     - ``scalp``, ``nonscalp``, ``Fz``, ``Cz``, ``Pz``, ``cnv``, ``mmn``,
-       ``p3a``, ``p3b``
-   * - ``GSN-HydroCel-64_1.0``, ``GSN-HydroCel-65_1.0``
-     - EGI HydroCel Geodesic Sensor Net, 64 channels (65 with the vertex
-       reference)
-     - ``scalp``, ``nonscalp``, ``Fz``, ``Cz``, ``Pz``, ``cnv``, ``mmn``,
-       ``p3a``, ``p3b``
-   * - ``biosemi128``
-     - BioSemi ActiveTwo, 128 channels
-     - ``scalp``, ``Fz``, ``Cz``, ``Pz``, ``cnv``, ``mmn``, ``p3a``, ``p3b``
-   * - ``colin27_1005``, ``colin27_1020``, ``fsaverage_1005``,
-       ``fsaverage_1010``, ``fsaverage_1020``, ``spherical_1010``,
-       ``spherical_1020``, ``standard_1005``, ``standard_1020``,
-       ``easycap-M1``, ``biosemi16``, ``biosemi32``, ``biosemi64``,
-       ``brainproducts-RNP-BA-128``
-     - 10-20 system, and its 10-10 and 10-05 extensions (e.g., ANT Neuro
-       waveguard, Brain Products actiCAP, BioSemi up to 64 channels, Nexstim
-       eXimia, g.tec, clinical recordings)
-     - ``scalp``, ``nonscalp`` (mastoids and earlobes), ``Fz``, ``Cz``,
-       ``Pz``, ``cnv``, ``mmn``, ``p3a``, ``p3b``
+.. include:: montages/table.inc
+
+.. toctree::
+   :hidden:
+   :glob:
+
+   montages/*
 
 The ``Fz``, ``Cz`` and ``Pz`` ROIs are the channels around these positions.
 The ``cnv``, ``mmn``, ``p3a`` and ``p3b`` ROIs are the channels where these
