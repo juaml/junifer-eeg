@@ -2,7 +2,8 @@
 # Ported from nice-extensions (nice_ext.equipments.biosemi):
 # Copyright (C) 2017-2018 Federico Raimondo
 system: BioSemi ActiveTwo, 128 channels
-montages: [biosemi128]
+montages:
+  biosemi128: BioSemi ActiveTwo, 128 channels (A1 to D32)
 rois:
   scalp: [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15,
       A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29,

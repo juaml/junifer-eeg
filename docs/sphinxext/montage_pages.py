@@ -110,7 +110,7 @@ def generate(outdir: Path) -> None:
     table = [
         ".. list-table::",
         "   :header-rows: 1",
-        "   :widths: 30 35 35",
+        "   :widths: 25 45 30",
         "",
         "   * - Montage",
         "     - System",
@@ -123,11 +123,10 @@ def generate(outdir: Path) -> None:
             content["montages"],
             content["rois"],
         )
-        info = _make_info(montages)
+        info = _make_info(list(montages))
         _plot_rois(info, rois, outdir / "images" / f"{fname.stem}.png")
         # The name of the system, and the details in parentheses
-        title, _, details = system.partition(" (")
-        details = f" ({details}" if details else ""
+        title = system.partition(" (")[0]
         lines = [
             f".. _montage_{fname.stem}:",
             "",
@@ -136,14 +135,19 @@ def generate(outdir: Path) -> None:
             "",
             f"System: {system}.",
             "",
-            f"Montages: {_literal(montages)}.",
+            f"ROIs: {_literal(list(rois))}.",
+            "",
+            "Montages (the MNE montage with the positions):",
             "",
         ]
+        lines += [f"* ``{name}``: {desc}" for name, desc in montages.items()]
+        lines.append("")
         if notes:
             lines += [" ".join(notes), ""]
         lines += [
             "The channels of each ROI (highlighted), on the positions of "
-            f"``{montages[0]}``. The ``picks`` keep the channels of the ROI "
+            f"``{next(iter(montages))}``. The ``picks`` keep the channels of "
+            "the ROI "
             "that are in the data.",
             "",
             f".. image:: images/{fname.stem}.png",
@@ -156,11 +160,13 @@ def generate(outdir: Path) -> None:
         for name, ch_names in rois.items():
             lines += [f"``{name}``", f"    {_literal(ch_names)}", ""]
         (outdir / f"{fname.stem}.rst").write_text("\n".join(lines))
-        table += [
-            f"   * - {_literal(montages)}",
-            f"     - :ref:`{title} <montage_{fname.stem}>`{details}",
-            f"     - {_literal(list(rois))}",
-        ]
+        # A row for each montage, with the ROIs of the system
+        for name, desc in montages.items():
+            table += [
+                f"   * - ``{name}``",
+                f"     - {desc[0].upper()}{desc[1:]}",
+                f"     - :ref:`{title} <montage_{fname.stem}>`",
+            ]
     (outdir / "table.inc").write_text("\n".join(table) + "\n")
 
 

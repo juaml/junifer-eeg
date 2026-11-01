@@ -3,18 +3,31 @@
 # brainvision, eximia and gtec):
 # Copyright (C) 2017-2018 Federico Raimondo
 #
-# Each ROI is the 10-05 positions in the region (the convex hull, on the
-# topomap) of the union of the ROIs of the ANT 32, BrainVision 32, eximia
-# 60 and g.tec 12 caps (the indices of the ANT 63 and 124 ROIs do not
-# match their channels). The picks keep the channels in the data.
+# The Fz, Cz and Pz ROIs are the 10-05 positions in the region (the
+# convex hull, on the topomap) of the union of the ROIs of the ANT 32,
+# BrainVision 32, eximia 60 and g.tec 12 caps (the indices of the ANT 63
+# and 124 ROIs do not match their channels). As in these caps, the cnv,
+# mmn and p3a ROIs are Fz and Cz, and the p3b ROI is Cz and Pz. The picks
+# keep the channels in the data.
 system: 10-20 system, and its 10-10 and 10-05 extensions (e.g., ANT Neuro
     waveguard, Brain Products actiCAP, EasyCap, BioSemi ActiveTwo up to 64
     channels, Compumedics Neuroscan Quik-Cap, g.tec g.GAMMAcap, Nexstim eXimia,
     and the clinical 10-20 systems, as Natus, Nihon Kohden or Micromed)
-montages: [colin27_1005, colin27_1020, standard_1005, standard_1020,
-    fsaverage_1005, fsaverage_1010, fsaverage_1020, spherical_1010,
-    spherical_1020, biosemi16, biosemi32, biosemi64, easycap-M1,
-    brainproducts-RNP-BA-128]
+montages:
+  colin27_1005: 10-05 positions, on the Colin27 template head
+  colin27_1020: 10-20 and 10-10 positions, on the Colin27 template head
+  standard_1005: deprecated MNE name of colin27_1005
+  standard_1020: deprecated MNE name of colin27_1020
+  fsaverage_1005: 10-05 positions, on the fsaverage head
+  fsaverage_1010: 10-10 positions, on the fsaverage head
+  fsaverage_1020: 10-20 positions, on the fsaverage head
+  spherical_1010: 10-10 positions, on a spherical head
+  spherical_1020: 10-20 positions, on a spherical head
+  biosemi16: BioSemi ActiveTwo, 16 channels
+  biosemi32: BioSemi ActiveTwo, 32 channels
+  biosemi64: BioSemi ActiveTwo, 64 channels
+  easycap-M1: EasyCap M1 (e.g., Brain Products actiCAP), 10-10 positions
+  brainproducts-RNP-BA-128: Brain Products R-Net, 128 channels
 rois:
   scalp: [Fp1, Fpz, Fp2, AF9, AF7, AF5, AF3, AF1, AFz, AF2, AF4, AF6, AF8,
       AF10, F9, F7, F5, F3, F1, Fz, F2, F4, F6, F8, F10, FT9, FT7, FC5, FC3,
@@ -55,20 +68,20 @@ rois:
       PPO1h, PPO2h, CP3h, CP1h, CP2h, CP4h, P3h, P1h, P2h, P4h, CPP1, CPPz,
       CPP2, PPO1, PPOz, PPO2]
   cnv: [F3, F1, Fz, F2, F4, FC3, FC1, FCz, FC2, FC4, C3, C1, Cz, C2, C4, CP1,
-      CPz, CP2, FFC3h, FFC1h, FFC2h, FFC4h, FCC3h, FCC1h, FCC2h, FCC4h, CCP3h,
-      CCP1h, CCP2h, CCP4h, F3h, F1h, F2h, F4h, FC3h, FC1h, FC2h, FC4h, C3h,
-      C1h, C2h, C4h, CP1h, CP2h, FFC3, FFC1, FFCz, FFC2, FFC4, FCC3, FCC1,
-      FCCz, FCC2, FCC4, CCP1, CCPz, CCP2]
+      CPz, CP2, FFC1h, FFC2h, FCC3h, FCC1h, FCC2h, FCC4h, CCP3h, CCP1h, CCP2h,
+      CCP4h, F3h, F1h, F2h, F4h, FC3h, FC1h, FC2h, FC4h, C3h, C1h, C2h, C4h,
+      CP1h, CP2h, FFC1, FFCz, FFC2, FCC3, FCC1, FCCz, FCC2, FCC4, CCP1, CCPz,
+      CCP2]
   mmn: [F3, F1, Fz, F2, F4, FC3, FC1, FCz, FC2, FC4, C3, C1, Cz, C2, C4, CP1,
-      CPz, CP2, FFC3h, FFC1h, FFC2h, FFC4h, FCC3h, FCC1h, FCC2h, FCC4h, CCP3h,
-      CCP1h, CCP2h, CCP4h, F3h, F1h, F2h, F4h, FC3h, FC1h, FC2h, FC4h, C3h,
-      C1h, C2h, C4h, CP1h, CP2h, FFC3, FFC1, FFCz, FFC2, FFC4, FCC3, FCC1,
-      FCCz, FCC2, FCC4, CCP1, CCPz, CCP2]
+      CPz, CP2, FFC1h, FFC2h, FCC3h, FCC1h, FCC2h, FCC4h, CCP3h, CCP1h, CCP2h,
+      CCP4h, F3h, F1h, F2h, F4h, FC3h, FC1h, FC2h, FC4h, C3h, C1h, C2h, C4h,
+      CP1h, CP2h, FFC1, FFCz, FFC2, FCC3, FCC1, FCCz, FCC2, FCC4, CCP1, CCPz,
+      CCP2]
   p3a: [F3, F1, Fz, F2, F4, FC3, FC1, FCz, FC2, FC4, C3, C1, Cz, C2, C4, CP1,
-      CPz, CP2, FFC3h, FFC1h, FFC2h, FFC4h, FCC3h, FCC1h, FCC2h, FCC4h, CCP3h,
-      CCP1h, CCP2h, CCP4h, F3h, F1h, F2h, F4h, FC3h, FC1h, FC2h, FC4h, C3h,
-      C1h, C2h, C4h, CP1h, CP2h, FFC3, FFC1, FFCz, FFC2, FFC4, FCC3, FCC1,
-      FCCz, FCC2, FCC4, CCP1, CCPz, CCP2]
+      CPz, CP2, FFC1h, FFC2h, FCC3h, FCC1h, FCC2h, FCC4h, CCP3h, CCP1h, CCP2h,
+      CCP4h, F3h, F1h, F2h, F4h, FC3h, FC1h, FC2h, FC4h, C3h, C1h, C2h, C4h,
+      CP1h, CP2h, FFC1, FFCz, FFC2, FCC3, FCC1, FCCz, FCC2, FCC4, CCP1, CCPz,
+      CCP2]
   p3b: [FC3, FC1, FCz, FC2, FC4, C3, C1, Cz, C2, C4, CP3, CP1, CPz, CP2, CP4,
       P3, P1, Pz, P2, P4, POz, FCC3h, FCC1h, FCC2h, FCC4h, CCP3h, CCP1h, CCP2h,
       CCP4h, CPP3h, CPP1h, CPP2h, CPP4h, PPO1h, PPO2h, FC3h, FC1h, FC2h, FC4h,
