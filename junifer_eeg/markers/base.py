@@ -269,10 +269,11 @@ def _get_channel_indices(
     Raises
     ------
     ValueError
-        If some channels are not in the data.
+        If some channels of the list are not in the data, or no channel of
+        the ROI.
 
     """
-    names = get_roi_channels(picks, input)
+    names = get_roi_channels(picks, input, ch_names)
     missing = [x for x in names if x not in ch_names]
     if missing:
         raise_error(f"Channels of {picks} not in the data: {missing}")

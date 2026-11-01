@@ -26,7 +26,12 @@ class EEGROIRegistry(BasePipelineDataRegistry):
     """Class for the registry of EEG ROIs.
 
     An ROI is a list of channel names, defined for a montage. The built-in
-    ROIs are read from the ``data/rois/<montage>.yaml`` files.
+    ROIs are read from the ``data/rois/*.yaml`` files, each with the
+    ``system`` that uses the montages, the ``montages`` the ROIs are defined
+    for, and the ``rois``. An ROI has all the positions of its region (e.g.,
+    the 10-05 positions, for the montages of the 10-20 system), and the
+    channel selections keep the ones in the data (see
+    :func:`.get_roi_channels`).
 
     """
 
@@ -36,9 +41,10 @@ class EEGROIRegistry(BasePipelineDataRegistry):
         yaml = YAML(typ="safe")
         for fname in sorted(_ROIS_DIR.glob("*.yaml")):
             with fname.open() as f:
-                rois = yaml.load(f)
-            for name, ch_names in rois.items():
-                self._registry[f"{fname.stem}/{name}"] = list(ch_names)
+                content = yaml.load(f)
+            for montage in content["montages"]:
+                for name, ch_names in content["rois"].items():
+                    self._registry[f"{montage}/{name}"] = list(ch_names)
 
     def register(
         self,
@@ -150,6 +156,7 @@ class EEGROIRegistry(BasePipelineDataRegistry):
 def get_roi_channels(
     picks: str | list[str],
     target_data: dict[str, Any],
+    ch_names: list[str] | None = None,
 ) -> list[str]:
     """Get the channel names of a channel selection.
 
@@ -160,13 +167,29 @@ def get_roi_channels(
         channel names.
     target_data : dict
         The corresponding item of the data object, with the ``montage``.
+    ch_names : list of str or None, optional
+        The channels in the data. If not None, an ROI keeps the channels in
+        the data, as it has all the positions of its region (default None).
 
     Returns
     -------
     list of str
         The channel names.
 
+    Raises
+    ------
+    ValueError
+        If no channel of the ROI is in the data.
+
     """
-    if isinstance(picks, str):
-        return get_data(kind="eeg_roi", names=picks, target_data=target_data)
-    return list(picks)
+    if not isinstance(picks, str):
+        return list(picks)
+    names = get_data(kind="eeg_roi", names=picks, target_data=target_data)
+    montage = target_data["montage"]
+    if ch_names is not None:
+        names = [x for x in names if x in ch_names]
+        if len(names) == 0:
+            raise_error(
+                f"No channel of the ROI {picks} ({montage}) in the data"
+            )
+    return names

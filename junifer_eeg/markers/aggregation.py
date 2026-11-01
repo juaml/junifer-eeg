@@ -35,8 +35,9 @@ class AggregationStep(BaseModel):
         The parameters of the aggregation function (default None).
     picks : str or list of str or None, optional
         The channels to aggregate (only for ``channels`` and ``channels_y``),
-        as an ROI name for the montage of the data or a list of channel names.
-        If None, all the channels are aggregated (default None).
+        as an ROI name for the montage of the data (its channels in the data)
+        or a list of channel names. If None, all the channels are aggregated
+        (default None).
 
     """
 
