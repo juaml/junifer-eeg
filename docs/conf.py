@@ -8,6 +8,7 @@
 
 import datetime
 import os
+import sys
 from pathlib import Path
 
 from setuptools_scm import get_version
@@ -34,6 +35,9 @@ copyright = f"{datetime.date.today().year}, {author}"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+# The local extensions
+sys.path.insert(0, str(Path(__file__).parent / "sphinxext"))
+
 extensions = [
     # Built-in extensions:
     "sphinx.ext.autodoc",  # include documentation from docstrings
@@ -48,6 +52,8 @@ extensions = [
     "myst_parser",  # include the Markdown changelog
     "enum_tools.autoenum",  # enum support
     "sphinx_gallery.gen_gallery",  # the examples
+    # Local extensions:
+    "montage_pages",  # the pages of the built-in montages
 ]
 
 # Add any paths that contain templates here, relative to this directory.
