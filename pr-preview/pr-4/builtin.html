@@ -449,13 +449,14 @@ channel positions (the <code class="docutils literal notranslate"><span class="p
 the positions of its region, and the <code class="docutils literal notranslate"><span class="pre">picks</span></code> keep the ones in the data: the
 ROIs of a montage are used for any cap with its positions (e.g., the 10-20
 caps of 19 or 64 channels).</p>
-<p>Each montage has a page with its ROIs plotted:</p>
+<p>Each montage links to the page of its ROIs, plotted, which can be shared by
+several montages (e.g., the 10-20 system):</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
+<col style="width: 25.0%" />
+<col style="width: 45.0%" />
 <col style="width: 30.0%" />
-<col style="width: 35.0%" />
-<col style="width: 35.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Montage</p></th>
@@ -464,25 +465,89 @@ caps of 19 or 64 channels).</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">colin27_1005</span></code>, <code class="docutils literal notranslate"><span class="pre">colin27_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">standard_1005</span></code>, <code class="docutils literal notranslate"><span class="pre">standard_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">fsaverage_1005</span></code>, <code class="docutils literal notranslate"><span class="pre">fsaverage_1010</span></code>, <code class="docutils literal notranslate"><span class="pre">fsaverage_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">spherical_1010</span></code>, <code class="docutils literal notranslate"><span class="pre">spherical_1020</span></code>, <code class="docutils literal notranslate"><span class="pre">biosemi16</span></code>, <code class="docutils literal notranslate"><span class="pre">biosemi32</span></code>, <code class="docutils literal notranslate"><span class="pre">biosemi64</span></code>, <code class="docutils literal notranslate"><span class="pre">easycap-M1</span></code>, <code class="docutils literal notranslate"><span class="pre">brainproducts-RNP-BA-128</span></code></p></td>
-<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a> (e.g., ANT Neuro waveguard, Brain Products actiCAP, EasyCap, BioSemi ActiveTwo up to 64 channels, Compumedics Neuroscan Quik-Cap, g.tec g.GAMMAcap, Nexstim eXimia, and the clinical 10-20 systems, as Natus, Nihon Kohden or Micromed)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">nonscalp</span></code>, <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code>, <code class="docutils literal notranslate"><span class="pre">Pz</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">colin27_1005</span></code></p></td>
+<td><p>10-05 positions, on the Colin27 template head</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-128</span></code>, <code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-129</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">colin27_1020</span></code></p></td>
+<td><p>10-20 and 10-10 positions, on the Colin27 template head</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">standard_1005</span></code></p></td>
+<td><p>Deprecated MNE name of colin27_1005</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">standard_1020</span></code></p></td>
+<td><p>Deprecated MNE name of colin27_1020</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fsaverage_1005</span></code></p></td>
+<td><p>10-05 positions, on the fsaverage head</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fsaverage_1010</span></code></p></td>
+<td><p>10-10 positions, on the fsaverage head</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fsaverage_1020</span></code></p></td>
+<td><p>10-20 positions, on the fsaverage head</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">spherical_1010</span></code></p></td>
+<td><p>10-10 positions, on a spherical head</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">spherical_1020</span></code></p></td>
+<td><p>10-20 positions, on a spherical head</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">biosemi16</span></code></p></td>
+<td><p>BioSemi ActiveTwo, 16 channels</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">biosemi32</span></code></p></td>
+<td><p>BioSemi ActiveTwo, 32 channels</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">biosemi64</span></code></p></td>
+<td><p>BioSemi ActiveTwo, 64 channels</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">easycap-M1</span></code></p></td>
+<td><p>EasyCap M1 (e.g., Brain Products actiCAP), 10-10 positions</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">brainproducts-RNP-BA-128</span></code></p></td>
+<td><p>Brain Products R-Net, 128 channels</p></td>
+<td><p><a class="reference internal" href="montages/10-05.html#montage-10-05"><span class="std std-ref">10-20 system, and its 10-10 and 10-05 extensions</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-128</span></code></p></td>
+<td><p>EGI HydroCel Geodesic Sensor Net, 128 channels</p></td>
 <td><p><a class="reference internal" href="montages/GSN-HydroCel-128.html#montage-gsn-hydrocel-128"><span class="std std-ref">EGI HydroCel Geodesic Sensor Net, 128 channels</span></a></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">nonscalp</span></code>, <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code>, <code class="docutils literal notranslate"><span class="pre">Pz</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-256</span></code>, <code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-257</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-129</span></code></p></td>
+<td><p>EGI HydroCel Geodesic Sensor Net, 128 channels and the vertex reference (Cz)</p></td>
+<td><p><a class="reference internal" href="montages/GSN-HydroCel-128.html#montage-gsn-hydrocel-128"><span class="std std-ref">EGI HydroCel Geodesic Sensor Net, 128 channels</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-256</span></code></p></td>
+<td><p>EGI HydroCel Geodesic Sensor Net, 256 channels</p></td>
 <td><p><a class="reference internal" href="montages/GSN-HydroCel-256.html#montage-gsn-hydrocel-256"><span class="std std-ref">EGI HydroCel Geodesic Sensor Net, 256 channels</span></a></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">nonscalp</span></code>, <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code>, <code class="docutils literal notranslate"><span class="pre">Pz</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code>, <code class="docutils literal notranslate"><span class="pre">Fp1</span></code>, <code class="docutils literal notranslate"><span class="pre">Fp2</span></code>, <code class="docutils literal notranslate"><span class="pre">F3</span></code>, <code class="docutils literal notranslate"><span class="pre">F4</span></code>, <code class="docutils literal notranslate"><span class="pre">C3</span></code>, <code class="docutils literal notranslate"><span class="pre">C4</span></code>, <code class="docutils literal notranslate"><span class="pre">P3</span></code>, <code class="docutils literal notranslate"><span class="pre">P4</span></code>, <code class="docutils literal notranslate"><span class="pre">T5</span></code>, <code class="docutils literal notranslate"><span class="pre">T6</span></code>, <code class="docutils literal notranslate"><span class="pre">Oz</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-64_1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-65_1.0</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-257</span></code></p></td>
+<td><p>EGI HydroCel Geodesic Sensor Net, 256 channels and the vertex reference (Cz)</p></td>
+<td><p><a class="reference internal" href="montages/GSN-HydroCel-256.html#montage-gsn-hydrocel-256"><span class="std std-ref">EGI HydroCel Geodesic Sensor Net, 256 channels</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-64_1.0</span></code></p></td>
+<td><p>EGI HydroCel Geodesic Sensor Net, 64 channels</p></td>
 <td><p><a class="reference internal" href="montages/GSN-HydroCel-64.html#montage-gsn-hydrocel-64"><span class="std std-ref">EGI HydroCel Geodesic Sensor Net, 64 channels</span></a></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">nonscalp</span></code>, <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code>, <code class="docutils literal notranslate"><span class="pre">Pz</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">GSN-HydroCel-65_1.0</span></code></p></td>
+<td><p>EGI HydroCel Geodesic Sensor Net, 64 channels and the vertex reference (Cz)</p></td>
+<td><p><a class="reference internal" href="montages/GSN-HydroCel-64.html#montage-gsn-hydrocel-64"><span class="std std-ref">EGI HydroCel Geodesic Sensor Net, 64 channels</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">biosemi128</span></code></p></td>
+<td><p>BioSemi ActiveTwo, 128 channels (A1 to D32)</p></td>
 <td><p><a class="reference internal" href="montages/biosemi128.html#montage-biosemi128"><span class="std std-ref">BioSemi ActiveTwo, 128 channels</span></a></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">scalp</span></code>, <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code>, <code class="docutils literal notranslate"><span class="pre">Pz</span></code>, <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code>, <code class="docutils literal notranslate"><span class="pre">p3b</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -492,10 +557,12 @@ caps of 19 or 64 channels).</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code> and <code class="docutils literal notranslate"><span class="pre">Pz</span></code> ROIs are the channels around these positions.
 The <code class="docutils literal notranslate"><span class="pre">cnv</span></code>, <code class="docutils literal notranslate"><span class="pre">mmn</span></code>, <code class="docutils literal notranslate"><span class="pre">p3a</span></code> and <code class="docutils literal notranslate"><span class="pre">p3b</span></code> ROIs are the channels where these
 components are measured (in NICE, the contingent negative variation, the
-mismatch negativity, and the P3a and P3b of the Local-Global paradigm). The
-ROIs of the 10-20 system are the 10-05 positions in the region of the ROIs of
-the ANT Neuro (32 channels), Brain Products (32), Nexstim eXimia (60) and
-g.tec (12) caps of NICE.</p>
+mismatch negativity, and the P3a and P3b of the Local-Global paradigm): the
+<code class="docutils literal notranslate"><span class="pre">mmn</span></code> and <code class="docutils literal notranslate"><span class="pre">p3a</span></code> ROIs are <code class="docutils literal notranslate"><span class="pre">Fz</span></code> and <code class="docutils literal notranslate"><span class="pre">Cz</span></code>, the <code class="docutils literal notranslate"><span class="pre">p3b</span></code> ROI is <code class="docutils literal notranslate"><span class="pre">Cz</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Pz</span></code>, and the <code class="docutils literal notranslate"><span class="pre">cnv</span></code> ROI is <code class="docutils literal notranslate"><span class="pre">Fz</span></code> and <code class="docutils literal notranslate"><span class="pre">Cz</span></code> (only <code class="docutils literal notranslate"><span class="pre">Fz</span></code> for the EGI
+nets, as in NICE). The <code class="docutils literal notranslate"><span class="pre">Fz</span></code>, <code class="docutils literal notranslate"><span class="pre">Cz</span></code> and <code class="docutils literal notranslate"><span class="pre">Pz</span></code> ROIs of the 10-20 system are
+the 10-05 positions in the region of the ROIs of the ANT Neuro (32 channels),
+Brain Products (32), Nexstim eXimia (60) and g.tec (12) caps of NICE.</p>
 <p>Other montages, or other ROIs of a montage, can be registered with
 <a class="reference internal" href="api/data.html#junifer_eeg.data.EEGROIRegistry" title="junifer_eeg.data.EEGROIRegistry"><code class="xref py py-class docutils literal notranslate"><span class="pre">EEGROIRegistry</span></code></a>.</p>
 </section>
@@ -572,7 +639,7 @@ g.tec (12) caps of NICE.</p>
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=637817a6"></script>
+</div><script src="_static/documentation_options.js?v=a8f1876b"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>

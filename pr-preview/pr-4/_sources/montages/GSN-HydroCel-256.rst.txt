@@ -5,7 +5,12 @@ EGI HydroCel Geodesic Sensor Net, 256 channels
 
 System: EGI HydroCel Geodesic Sensor Net, 256 channels.
 
-Montages: ``GSN-HydroCel-256``, ``GSN-HydroCel-257``.
+ROIs: ``scalp``, ``nonscalp``, ``Fz``, ``Cz``, ``Pz``, ``cnv``, ``mmn``, ``p3a``, ``p3b``, ``Fp1``, ``Fp2``, ``F3``, ``F4``, ``C3``, ``C4``, ``P3``, ``P4``, ``T5``, ``T6``, ``Oz``.
+
+Montages (the MNE montage with the positions):
+
+* ``GSN-HydroCel-256``: EGI HydroCel Geodesic Sensor Net, 256 channels
+* ``GSN-HydroCel-257``: EGI HydroCel Geodesic Sensor Net, 256 channels and the vertex reference (Cz)
 
 The channels of each ROI (highlighted), on the positions of ``GSN-HydroCel-256``. The ``picks`` keep the channels of the ROI that are in the data.
 

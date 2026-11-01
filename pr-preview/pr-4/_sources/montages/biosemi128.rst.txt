@@ -5,7 +5,11 @@ BioSemi ActiveTwo, 128 channels
 
 System: BioSemi ActiveTwo, 128 channels.
 
-Montages: ``biosemi128``.
+ROIs: ``scalp``, ``Fz``, ``Cz``, ``Pz``, ``cnv``, ``mmn``, ``p3a``, ``p3b``.
+
+Montages (the MNE montage with the positions):
+
+* ``biosemi128``: BioSemi ActiveTwo, 128 channels (A1 to D32)
 
 The channels of each ROI (highlighted), on the positions of ``biosemi128``. The ``picks`` keep the channels of the ROI that are in the data.
 
