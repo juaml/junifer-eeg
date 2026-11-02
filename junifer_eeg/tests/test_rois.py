@@ -30,8 +30,10 @@ def test_builtin_rois(fname: Path) -> None:
     content = _read(fname)
     assert set(content) == {"system", "montages", "rois"}
     rois = content["rois"]
-    for name in ["scalp", "Fz", "Cz", "Pz", "cnv", "mmn", "p3a", "p3b"]:
+    for name in ["scalp", "fz", "cz", "pz"]:
         assert name in rois
+    # Lowercase, not to be taken for the channel names in the picks
+    assert all(x == x.lower() for x in rois)
     # The channels of all the montages
     ch_names = set()
     for montage in content["montages"]:
@@ -56,12 +58,25 @@ def test_roi_channels() -> None:
     """Test that the ROIs keep the channels in the data."""
     registry = EEGROIRegistry()
     target = {"montage": "colin27_1020"}
-    fz = registry.load("colin27_1020", "Fz")
+    fz = registry.load("colin27_1020", "fz")
     # A 10-20 cap: the ROI has the 10-05 positions
     ch_names = ["Fp1", "Fp2", "F3", "Fz", "F4", "C3", "Cz", "C4"]
-    assert get_roi_channels("Fz", target, ch_names) == ["F3", "Fz", "F4"]
-    assert get_roi_channels("Fz", target) == fz
-    with pytest.raises(ValueError, match="No channel of the ROI Fz"):
-        get_roi_channels("Fz", target, ["O1", "O2"])
-    # The channel lists are kept
+    assert get_roi_channels("fz", target, ch_names) == ["F3", "Fz", "F4"]
+    assert get_roi_channels("fz", target) == fz
+    with pytest.raises(ValueError, match="No channel of the ROI fz"):
+        get_roi_channels("fz", target, ["O1", "O2"])
+    # The channel names are kept
     assert get_roi_channels(["O1", "O2"], target, ["O1"]) == ["O1", "O2"]
+    assert get_roi_channels("Fz", target, ch_names) == ["Fz"]
+
+
+def test_roi_channels_concatenated() -> None:
+    """Test the concatenation of ROIs and channels, without repetitions."""
+    target = {"montage": "colin27_1020"}
+    ch_names = ["Fp1", "Fp2", "F3", "Fz", "F4", "C3", "Cz", "C4", "Pz", "Oz"]
+    assert get_roi_channels(["fz", "cz"], target, ch_names) == [
+        "F3", "Fz", "F4", "C3", "Cz", "C4",
+    ]  # fmt: skip
+    assert get_roi_channels(["fz", "Oz", "Fz"], target, ch_names) == [
+        "F3", "Fz", "F4", "Oz",
+    ]  # fmt: skip

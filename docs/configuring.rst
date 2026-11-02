@@ -197,7 +197,7 @@ channels of each feature:
             condition_b: [LSGS, LSGD]
             tmin: 0.74
             tmax: 0.792
-            picks: mmn
+            picks: [fz, cz]
         aggregations:
           trim_mean80:
             - {axis: epochs, method: trim_mean,

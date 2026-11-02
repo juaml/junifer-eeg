@@ -255,7 +255,7 @@ def _get_channel_indices(
     Parameters
     ----------
     picks : str or list of str
-        The name of an ROI or the list of channel names.
+        The names of the ROIs or channels (see :func:`.get_roi_channels`).
     input : dict
         The ``EEG`` item of the data object, with the ``montage``.
     ch_names : list of str
@@ -269,14 +269,17 @@ def _get_channel_indices(
     Raises
     ------
     ValueError
-        If some channels of the list are not in the data, or no channel of
-        the ROI.
+        If some names are neither ROIs of the montage nor channels in the
+        data, or no channel of an ROI is in the data.
 
     """
     names = get_roi_channels(picks, input, ch_names)
     missing = [x for x in names if x not in ch_names]
     if missing:
-        raise_error(f"Channels of {picks} not in the data: {missing}")
+        raise_error(
+            f"Picks {picks}: {missing} are neither ROIs of the montage "
+            f"{input['montage']} nor channels in the data"
+        )
     return [ch_names.index(x) for x in names]
 
 

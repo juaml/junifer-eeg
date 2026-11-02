@@ -43,9 +43,9 @@ class Contrast(BaseModel):
     tmax : float or None, optional
         The end of the window. If None, until the end (default None).
     picks : str or list of str or None, optional
-        The channels reduced by the ``channels`` aggregation step, as an ROI
-        name or a list of channel names. If None, the picks of the step
-        (default None).
+        The channels reduced by the ``channels`` aggregation step, as names
+        of ROIs or channels (see :class:`.AggregationStep`). If None, the
+        picks of the step (default None).
 
     """
 

@@ -92,9 +92,9 @@ class Window(BaseModel):
         The conditions (event names) of the epochs to use. If None, all the
         epochs are used (default None).
     picks : str or list of str or None, optional
-        The channels reduced by the ``channels`` aggregation step, as an ROI
-        name or a list of channel names. If None, the picks of the step
-        (default None).
+        The channels reduced by the ``channels`` aggregation step, as names
+        of ROIs or channels (see :class:`.AggregationStep`). If None, the
+        picks of the step (default None).
 
     """
 

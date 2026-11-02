@@ -85,7 +85,8 @@ the stored output:
 The ``aggregations`` of a marker set how its axes are reduced. Each
 aggregation has a name and a list of steps, one per axis to reduce, with the
 function (e.g., ``mean``, ``std``, ``trim_mean`` or ``median``) and, for the
-channels, the ``picks`` (an ROI of the montage or a list of channel names). Each aggregation
+channels, the ``picks``: names of ROIs of the montage or of channels,
+concatenated (e.g., ``scalp``, ``[fz, cz]`` or ``[fz, Oz]``). Each aggregation
 is stored as a feature of the marker, named ``<marker name>_<aggregation>``.
 
 The steps are applied **in the order of the list**. The order matters for all

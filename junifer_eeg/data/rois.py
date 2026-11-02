@@ -160,11 +160,15 @@ def get_roi_channels(
 ) -> list[str]:
     """Get the channel names of a channel selection.
 
+    Each name of the selection is an ROI for the montage of ``target_data``
+    or a channel name. The channels of the names are concatenated, without
+    repetitions (e.g., ``[fz, cz]`` for the channels of the ``fz`` and ``cz``
+    ROIs, or ``[fz, Oz]`` for the ``fz`` ROI and the ``Oz`` channel).
+
     Parameters
     ----------
     picks : str or list of str
-        The name of an ROI for the montage of ``target_data``, or the list of
-        channel names.
+        The names of the ROIs or channels.
     target_data : dict
         The corresponding item of the data object, with the ``montage``.
     ch_names : list of str or None, optional
@@ -179,17 +183,26 @@ def get_roi_channels(
     Raises
     ------
     ValueError
-        If no channel of the ROI is in the data.
+        If no channel of an ROI is in the data.
 
     """
-    if not isinstance(picks, str):
-        return list(picks)
-    names = get_data(kind="eeg_roi", names=picks, target_data=target_data)
+    if isinstance(picks, str):
+        picks = [picks]
     montage = target_data["montage"]
-    if ch_names is not None:
-        names = [x for x in names if x in ch_names]
-        if len(names) == 0:
-            raise_error(
-                f"No channel of the ROI {picks} ({montage}) in the data"
+    registry = EEGROIRegistry()
+    names = []
+    for pick in picks:
+        if f"{montage}/{pick}" not in registry.data:
+            channels = [pick]
+        else:
+            channels = get_data(
+                kind="eeg_roi", names=pick, target_data=target_data
             )
+            if ch_names is not None:
+                channels = [x for x in channels if x in ch_names]
+                if len(channels) == 0:
+                    raise_error(
+                        f"No channel of the ROI {pick} ({montage}) in the data"
+                    )
+        names.extend(x for x in channels if x not in names)
     return names

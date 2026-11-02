@@ -11,7 +11,7 @@ from junifer.storage import StorageType
 from scipy.signal import welch
 from scipy.stats import trim_mean
 
-from junifer_eeg.conftest import make_epochs
+from junifer_eeg.conftest import _TEST_ROIS, make_epochs
 from junifer_eeg.markers import (
     EEGKolmogorovComplexityScalar,
     EEGKolmogorovComplexityTopography,
@@ -322,15 +322,38 @@ def test_marker_needs_epochs(epochs: Any) -> None:
         marker.compute(_input(raw))
 
 
-def test_unknown_roi(epochs: Any) -> None:
-    """Test the error with an ROI not defined for the montage."""
+def test_concatenated_picks(epochs: Any) -> None:
+    """Test the picks of ROIs and channels, without repetitions."""
+    marker = EEGKolmogorovComplexityScalar(
+        nbins=32,
+        aggregations={
+            "mean": [
+                {
+                    "axis": "channels",
+                    "method": "mean",
+                    "picks": ["frontal", "Cz", "Fz"],
+                },
+                _MEAN_EPOCHS,
+            ]
+        },
+    )
+    values, _, ch_names = marker.compute_values(_input(epochs))
+    idx = [ch_names.index(x) for x in [*_TEST_ROIS["frontal"], "Cz"]]
+    out = marker.compute(_input(epochs))["mean"]
+    np.testing.assert_allclose(
+        out["data"], values[:, idx].mean(axis=1).mean(axis=0)
+    )
+
+
+def test_unknown_picks(epochs: Any) -> None:
+    """Test the error with picks neither ROIs nor channels."""
     marker = EEGKolmogorovComplexityScalar(
         aggregations={
             "mean": [
-                {"axis": "channels", "method": "mean", "picks": "foo"},
+                {"axis": "channels", "method": "mean", "picks": ["Cz", "foo"]},
                 _MEAN_EPOCHS,
             ]
         }
     )
-    with pytest.raises(ValueError, match="ROI foo not defined"):
+    with pytest.raises(ValueError, match=r"\['foo'\] are neither ROIs"):
         marker.compute(_input(epochs))
