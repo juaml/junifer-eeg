@@ -11,3 +11,4 @@ API Reference
    markers
    data
    datasets
+   testing

@@ -23,7 +23,7 @@ from junifer.storage import HDF5FeatureStorage
 from junifer.utils import configure_logging
 
 import junifer_eeg  # noqa: F401 (registers the components)
-from junifer_eeg.datasets import fetch_tueg
+import junifer_eeg.testing.registry  # noqa: F401 (the testing DataGrabber)
 
 
 ###############################################################################
@@ -31,32 +31,20 @@ from junifer_eeg.datasets import fetch_tueg
 configure_logging(level="INFO")
 
 ###############################################################################
-# Download the first recording of some subjects
+# Define the datagrabber: :class:`.TUEGTestingDataGrabber` downloads the first
+# recording of each subject (as ``with: junifer_eeg.testing.registry`` in a
+# YAML file)
 subjects = ["aaaaaaab", "aaaaaaaf", "aaaaaaag", "aaaaaaai"]
-datadir = fetch_tueg(subjects)
+datagrabber = {"kind": "TUEGTestingDataGrabber", "subjects": subjects}
 
 ###############################################################################
-# Define the datagrabber and the preprocessing: the channels are renamed to
-# the 10-20 names (``EEG FP1-REF`` to ``Fp1``), and the 19 channels of the
-# 10-20 system are kept. See
-# :ref:`sphx_glr_auto_examples_run_tueg_autoreject.py`
+# Define the preprocessing: the channels are renamed to the 10-20 names
+# (``EEG FP1-REF`` to ``Fp1``), and the 19 channels of the 10-20 system are
+# kept. See :ref:`sphx_glr_auto_examples_run_tueg_autoreject.py`
 channels_1020 = [
     "Fp1", "Fp2", "F7", "F3", "Fz", "F4", "F8", "T3", "C3", "Cz", "C4", "T4",
     "T5", "P3", "Pz", "P4", "T6", "O1", "O2",
 ]  # fmt: skip
-
-datagrabber = {
-    "kind": "PatternDataGrabber",
-    "datadir": str(datadir),
-    "types": ["EEG"],
-    "patterns": {
-        "EEG": {
-            "pattern": "000/{subject}/*/*/{subject}_*.edf",
-            "montage": "colin27_1020",
-        }
-    },
-    "replacements": ["subject"],
-}
 
 datareader = {"kind": "EEGDataReader"}
 
