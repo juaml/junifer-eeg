@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "junifer_eeg"
 description = "Junifer EEG extension"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = {text = "AGPL-3.0-only"}
 authors = [
     { name = "Synchon Mandal", email = "s.mandal@fz-juelich.de" },
@@ -25,7 +25,6 @@ classifiers = [
     "License :: OSI Approved",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
@@ -35,10 +34,18 @@ classifiers = [
     "Topic :: Utilities",
 ]
 dependencies = [
-    "click>=8.1.3,<8.2",
-    "datalad>=1.0.0,<1.3.0",
-    "lazy_loader==0.4",
-    "structlog>=25.0.0,<26.0.0",
+    # The DataReader of the YAML in `junifer run` (juaml/junifer#538)
+    "junifer>=0.0.9.dev6",
+    "mne>=1.8.0",
+    "mffpy>=0.10.0",
+    "scikit-learn>=1.3.0",
+    "autoreject>=0.4.3",
+    "mne-connectivity>=0.7.0",
+    "numpy>=1.26.0",
+    "scipy>=1.10.0",
+    "pydantic>=2.11.4",
+    "lazy_loader>=0.4,<0.7",
+    "structlog>=25.0.0,<27.0.0",
 ]
 dynamic = ["version"]
 
@@ -47,29 +54,60 @@ Source = "https://github.com/juaml/junifer-eeg"
 
 [project.optional-dependencies]
 dev = [
+    "pytest",
+    "pytest-cov",
     "tox",
     "pre-commit",
     "ruff",
     "towncrier",
+]
+docs = [
+    "sphinx>=7.3.0,<9.0.0",
+    "furo>=2024.4.27,<2026.0.0",
+    "numpydoc>=1.6.0,<1.12.0",
+    "sphinx-copybutton>=0.5.1,<0.5.3",
+    "autodoc_pydantic>=2.0.0",
+    "myst-parser>=3.0.0",
+    # enum-tools fails with Sphinx 9 (see juaml/junifer#519)
+    "enum-tools[sphinx]>=0.13.0,<0.14.0",
+    "sphinx-polyversion>=2.0.0",
+    "sphinx-gallery>=0.17.0,<0.23.0",
+    "beautifulsoup4>=4.12.0",
+    "setuptools-scm>=8",
 ]
 
 ################
 # Tool configs #
 ################
 
-[tool.setuptools]
-packages = ["junifer_eeg"]
+[tool.setuptools.packages.find]
+include = ["junifer_eeg*"]
+
+[tool.setuptools.package-data]
+junifer_eeg = ["data/rois/*.yaml"]
 
 [tool.setuptools_scm]
 version_scheme = "only-version"
 local_scheme = "no-local-version"
 write_to = "junifer_eeg/_version.py"
 
+[tool.codespell]
+skip = "*/auto_examples/*,*.html,.git/,*.pyc,*/_build/*,uv.lock"
+count = ""
+quiet-level = 3
+ignore-words = "ignore_words.txt"
+interactive = 0
+builtin = "clear,rare,informal,names,usage,code"
+
 [tool.ruff]
 line-length = 79
 extend-exclude = [
     "__init__.py",
     "_version.py",
+    "docs",
+    "examples",
+    # Kept as close as possible to the original NICE code
+    "junifer_eeg/tests/_nice_reference.py",
 ]
 
 [tool.ruff.lint]
@@ -115,9 +153,12 @@ ignore = [
 [tool.ruff.lint.isort]
 lines-after-imports = 2
 known-first-party = ["junifer_eeg"]
-known-third-party =[
-    "click",
-    "datalad",
+known-third-party = [
+    "junifer",
+    "mne",
+    "numpy",
+    "scipy",
+    "pydantic",
     "structlog",
     "pytest",
 ]
@@ -127,6 +168,9 @@ minversion = "7.0"
 testpaths = "junifer_eeg"
 log_cli_level = "INFO"
 xfail_strict = true
+markers = [
+    "external: tests that download data (e.g., the TUEG recordings)",
+]
 addopts = [
     "-ra",
     "--strict-config",
