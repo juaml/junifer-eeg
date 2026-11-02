@@ -80,19 +80,19 @@ Set the logging level to info to see extra information
 
  .. code-block:: none
 
-    2026-11-02 10:05:37 [info     ] ===== Lib Versions =====       [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] numpy: 2.4.6                   [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] scipy: 1.17.1                  [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] datalad: 1.2.3                 [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] pandas: 3.0.6                  [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] nibabel: 5.4.2                 [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] nilearn: 0.14.1                [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] ruamel.yaml: 0.19.1            [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] tqdm: 4.67.1                   [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] templateflow: 25.1.2           [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] junifer_data: 1.6.1            [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] junifer: 0.0.9.dev6            [junifer] pkg=utils
-    2026-11-02 10:05:37 [info     ] ========================       [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] ===== Lib Versions =====       [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] numpy: 2.4.6                   [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] scipy: 1.17.1                  [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] datalad: 1.2.3                 [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] pandas: 3.0.6                  [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] nibabel: 5.4.2                 [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] nilearn: 0.14.1                [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] ruamel.yaml: 0.19.1            [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] tqdm: 4.67.1                   [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] templateflow: 25.1.2           [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] junifer_data: 1.6.1            [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] junifer: 0.0.9.dev6            [junifer] pkg=utils
+    2026-11-02 10:08:53 [info     ] ========================       [junifer] pkg=utils
 
 
 
@@ -128,8 +128,8 @@ the corpus: ``<group>/<subject>/<session>/<montage>/<recording>.edf``
 
  .. code-block:: none
 
-    2026-11-02 10:05:37 [info     ] Downloading https://isip.piconepress.com/projects/nedc/data/tuh_eeg/tuh_eeg/v2.0.2/edf/000/aaaaaaai/s001_2002/02_tcp_le/aaaaaaai_s001_t000.edf [junifer] pkg=utils
-    2026-11-02 10:05:38 [info     ] Parameters: {'types': ['EEG'], 'datadir': '/home/runner/junifer_eeg_data/tueg/v2.0.2/edf', 'patterns': {'EEG': {'pattern': '000/{subject}/*/*/{subject}_*.edf', 'montage': 'colin27_1020'}}, 'replacements': ['subject'], 'confounds_format': None, 'partial_pattern_ok': False} [junifer] component=PatternDataGrabber pkg=datagrabber step=datagrabber
+    2026-11-02 10:08:54 [info     ] Downloading https://isip.piconepress.com/projects/nedc/data/tuh_eeg/tuh_eeg/v2.0.2/edf/000/aaaaaaai/s001_2002/02_tcp_le/aaaaaaai_s001_t000.edf [junifer] pkg=utils
+    2026-11-02 10:08:55 [info     ] Parameters: {'types': ['EEG'], 'datadir': '/home/runner/junifer_eeg_data/tueg/v2.0.2/edf', 'patterns': {'EEG': {'pattern': '000/{subject}/*/*/{subject}_*.edf', 'montage': 'colin27_1020'}}, 'replacements': ['subject'], 'confounds_format': None, 'partial_pattern_ok': False} [junifer] component=PatternDataGrabber pkg=datagrabber step=datagrabber
 
 
 
@@ -157,10 +157,10 @@ channels (e.g., the ECG)
 
  .. code-block:: none
 
-    2026-11-02 10:05:38 [info     ] Getting element ('aaaaaaai',)  [junifer] pkg=datagrabber step=datagrabber
-    2026-11-02 10:05:38 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
-    2026-11-02 10:05:38 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaai/s001_2002/02_tcp_le/aaaaaaai_s001_t000.edf [junifer] pkg=datareader step=datareader
-    2026-11-02 10:05:38 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
+    2026-11-02 10:08:55 [info     ] Getting element ('aaaaaaai',)  [junifer] pkg=datagrabber step=datagrabber
+    2026-11-02 10:08:55 [info     ] Resolving path from pattern for DataType.EEG [junifer] pkg=datagrabber step=datagrabber
+    2026-11-02 10:08:55 [info     ] Reading EEG from /home/runner/junifer_eeg_data/tueg/v2.0.2/edf/000/aaaaaaai/s001_2002/02_tcp_le/aaaaaaai_s001_t000.edf [junifer] pkg=datareader step=datareader
+    2026-11-02 10:08:55 [info     ] EEG is of format edf           [junifer] pkg=datareader step=datareader
     ['EEG FP1-LE', 'EEG FP2-LE', 'EEG F3-LE', 'EEG F4-LE', 'EEG C3-LE', 'EEG C4-LE', 'EEG A1-LE', 'EEG A2-LE', 'EEG P3-LE', 'EEG P4-LE', 'EEG O1-LE', 'EEG O2-LE', 'EEG F7-LE', 'EEG F8-LE', 'EEG T3-LE', 'EEG T4-LE', 'EEG T5-LE', 'EEG T6-LE', 'EEG FZ-LE', 'EEG CZ-LE', 'EEG PZ-LE', 'EEG OZ-LE', 'EEG PG1-LE', 'EEG PG2-LE', 'EEG EKG-LE', 'EEG SP2-LE', 'EEG SP1-LE', 'EEG RLC-LE', 'EEG LUC-LE', 'EEG 30-LE', 'EEG T1-LE', 'EEG T2-LE', 'PHOTIC PH']
 
 
@@ -194,12 +194,12 @@ Rename the channels to the names of the montage (``EEG FP1-REF`` to
 
  .. code-block:: none
 
-    2026-11-02 10:05:38 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'pattern': '^EEG (\\w+)-(REF|LE)$', 'replacement': '\\1', 'mapping': None, 'montage_case': True} [junifer] component=EEGRenameChannels pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'picks': ['Fp1', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'T3', 'C3', 'Cz', 'C4', 'T4', 'T5', 'P3', 'Pz', 'P4', 'T6', 'O1', 'O2'], 'exclude': None} [junifer] component=EEGPickChannels pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'on_missing': 'raise'} [junifer] component=EEGSetMontage pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'pattern': '^EEG (\\w+)-(REF|LE)$', 'replacement': '\\1', 'mapping': None, 'montage_case': True} [junifer] component=EEGRenameChannels pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'picks': ['Fp1', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'T3', 'C3', 'Cz', 'C4', 'T4', 'T5', 'P3', 'Pz', 'P4', 'T6', 'O1', 'O2'], 'exclude': None} [junifer] component=EEGPickChannels pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'on_missing': 'raise'} [junifer] component=EEGSetMontage pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
     ['Fp1', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'T3', 'C3', 'Cz', 'C4', 'T4', 'T5', 'P3', 'Pz', 'P4', 'T6', 'O1', 'O2']
 
 
@@ -251,16 +251,16 @@ pseudo-epochs of 800 ms, as in the ICM resting state
 
  .. code-block:: none
 
-    2026-11-02 10:05:38 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': 0.5, 'h_freq': None, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 6}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': None, 'h_freq': 45.0, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 8}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'freqs': [60.0, 120.0], 'method': 'fft'} [junifer] component=EEGNotchFilter pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'sfreq': 250.0} [junifer] component=EEGResample pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'duration': 0.8, 'tmin': -0.2, 'onset': 0.0, 'jitter': [0.55, 0.85], 'baseline': None, 'seed': 42} [junifer] component=EEGFixedLengthEpochs pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': 0.5, 'h_freq': None, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 6}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'l_freq': None, 'h_freq': 45.0, 'method': 'iir', 'iir_params': {'ftype': 'butter', 'order': 8}, 'phase': 'zero'} [junifer] component=EEGFilter pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'freqs': [60.0, 120.0], 'method': 'fft'} [junifer] component=EEGNotchFilter pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'sfreq': 250.0} [junifer] component=EEGResample pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'duration': 0.8, 'tmin': -0.2, 'onset': 0.0, 'jitter': [0.55, 0.85], 'baseline': None, 'seed': 42} [junifer] component=EEGFixedLengthEpochs pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
     <Epochs | 130 events (all good), -0.2 – 0.6 s (baseline off), ~3.8 MiB, data loaded,
      '1': 130>
 
@@ -289,14 +289,14 @@ interpolated, and the epochs with too many bad channels are dropped
 
  .. code-block:: none
 
-    2026-11-02 10:05:38 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'n_interpolate': None, 'consensus': None, 'cv': 10, 'thresh_method': 'bayesian_optimization', 'seed': 42, 'n_jobs': 1, 'min_epochs': 0.3} [junifer] component=EEGAutoReject pkg=preprocess step=preprocessing
-    2026-11-02 10:05:38 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Parameters: {'on': ['EEG'], 'required_data_types': ['EEG'], 'n_interpolate': None, 'consensus': None, 'cv': 10, 'thresh_method': 'bayesian_optimization', 'seed': 42, 'n_jobs': 1, 'min_epochs': 0.3} [junifer] component=EEGAutoReject pkg=preprocess step=preprocessing
+    2026-11-02 10:08:55 [info     ] Preprocessing DataType.EEG     [junifer] pkg=preprocess step=preprocessing
     /home/runner/work/junifer-eeg/junifer-eeg/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3824: RuntimeWarning: Mean of empty slice
       return _methods._mean(a, axis=axis, dtype=dtype,
     /home/runner/work/junifer-eeg/junifer-eeg/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
       ret = ret.dtype.type(ret / rcount)
-    Dropped 27 epochs: 6, 9, 15, 16, 18, 24, 34, 35, 38, 47, 49, 52, 67, 70, 82, 84, 85, 102, 104, 106, 107, 108, 109, 113, 114, 121, 127
-    2026-11-02 10:05:39 [info     ] autoreject: 27 bad epochs, 297 channels interpolated in the epochs (n_interpolate 4, consensus 0.4) [junifer] pkg=preprocess step=preprocessing
+    Dropped 27 epochs: 6, 9, 15, 16, 18, 24, 34, 35, 43, 47, 49, 52, 67, 70, 82, 84, 85, 102, 104, 106, 107, 108, 109, 113, 114, 121, 127
+    2026-11-02 10:08:57 [info     ] autoreject: 27 bad epochs, 296 channels interpolated in the epochs (n_interpolate 4, consensus 0.4) [junifer] pkg=preprocess step=preprocessing
     <Epochs | 103 events (all good), -0.2 – 0.6 s (baseline off), ~3.0 MiB, data loaded,
      '1': 103>
 
@@ -338,7 +338,7 @@ before and after autoreject
  .. code-block:: none
 
 
-    <matplotlib.legend.Legend object at 0x734c344f5550>
+    <matplotlib.legend.Legend object at 0x7874cc6d1550>
 
 
 
@@ -382,7 +382,7 @@ Plot the PSD of the epochs, before and after autoreject
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.092 seconds)
+   **Total running time of the script:** (0 minutes 4.490 seconds)
 
 
 .. _sphx_glr_download_auto_examples_run_tueg_autoreject.py:
