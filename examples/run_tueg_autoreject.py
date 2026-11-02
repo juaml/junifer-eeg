@@ -15,11 +15,9 @@ License: AGPL
 
 import matplotlib.pyplot as plt
 import numpy as np
-from junifer.datagrabber import PatternDataGrabber
 from junifer.utils import configure_logging
 
 from junifer_eeg.datareader import EEGDataReader
-from junifer_eeg.datasets import fetch_tueg
 from junifer_eeg.preprocess import (
     EEGAutoReject,
     EEGFilter,
@@ -30,6 +28,7 @@ from junifer_eeg.preprocess import (
     EEGResample,
     EEGSetMontage,
 )
+from junifer_eeg.testing.datagrabbers import TUEGTestingDataGrabber
 
 
 ###############################################################################
@@ -37,21 +36,9 @@ from junifer_eeg.preprocess import (
 configure_logging(level="INFO")
 
 ###############################################################################
-# Download the first recording of a subject. The recordings keep the layout of
-# the corpus: ``<group>/<subject>/<session>/<montage>/<recording>.edf``
-datadir = fetch_tueg(["aaaaaaai"])
-
-datagrabber = PatternDataGrabber(
-    datadir=datadir,
-    types=["EEG"],
-    patterns={
-        "EEG": {
-            "pattern": "000/{subject}/*/*/{subject}_*.edf",
-            "montage": "colin27_1020",
-        }
-    },
-    replacements=["subject"],
-)
+# Define the datagrabber: :class:`.TUEGTestingDataGrabber` downloads the first
+# recording of each subject, with the ``colin27_1020`` montage
+datagrabber = TUEGTestingDataGrabber(subjects=["aaaaaaai"])
 
 ###############################################################################
 # Read the recording. The EEG channels are named as ``EEG FP1-REF`` (or

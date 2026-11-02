@@ -168,6 +168,9 @@ minversion = "7.0"
 testpaths = "junifer_eeg"
 log_cli_level = "INFO"
 xfail_strict = true
+markers = [
+    "external: tests that download data (e.g., the TUEG recordings)",
+]
 addopts = [
     "-ra",
     "--strict-config",
