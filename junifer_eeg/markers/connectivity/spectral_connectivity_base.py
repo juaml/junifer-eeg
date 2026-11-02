@@ -1,4 +1,4 @@
-"""Provide the spectral connectivity (PLV and wPLI) markers."""
+"""Provide base class for the spectral connectivity markers."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -9,25 +9,16 @@
 from typing import Any, ClassVar, Literal
 
 import numpy as np
-from junifer.api.decorators import register_marker
 from junifer.typing import Dependencies
 from junifer.utils import raise_error
 from mne_connectivity import spectral_connectivity_epochs
 
 from ..aggregation import Axis
-from ..base import EEGBaseMarker, ScalarMixin, TopographyMixin
+from ..base import EEGBaseMarker
 from ..utils import get_epochs, get_picks, time_mask
 
 
-__all__ = [
-    "EEGPhaseLockingValue",
-    "EEGPhaseLockingValueScalar",
-    "EEGPhaseLockingValueTopography",
-    "EEGSpectralConnectivity",
-    "EEGWeightedPhaseLagIndex",
-    "EEGWeightedPhaseLagIndexScalar",
-    "EEGWeightedPhaseLagIndexTopography",
-]
+__all__ = ["EEGSpectralConnectivity"]
 
 
 class EEGSpectralConnectivity(EEGBaseMarker):
@@ -134,68 +125,3 @@ class EEGSpectralConnectivity(EEGBaseMarker):
         values = values + values.transpose(1, 0, 2)
         ch_names = [epochs.ch_names[x] for x in picks]
         return values, list(self.bands), ch_names
-
-
-class EEGPhaseLockingValue(EEGSpectralConnectivity):
-    """Base class for the phase locking value (PLV) markers.
-
-    The PLV is the consistency across epochs of the phase difference of each
-    pair of channels. See :class:`.EEGSpectralConnectivity`. Port of
-    ``nice_sandbox.markers.PhaseLockingValue``.
-
-    """
-
-    _METHOD: ClassVar[str] = "plv"
-
-
-class EEGWeightedPhaseLagIndex(EEGSpectralConnectivity):
-    """Base class for the weighted phase lag index (wPLI) markers.
-
-    The wPLI is the consistency across epochs of the sign of the phase
-    difference of each pair of channels, weighted by the magnitude of the
-    imaginary part of the cross-spectrum, so it ignores the zero-lag
-    interactions (e.g., volume conduction). See
-    :class:`.EEGSpectralConnectivity`. Port of
-    ``nice_sandbox.markers.WeightedPhaseLagIndex``.
-
-    """
-
-    _METHOD: ClassVar[str] = "wpli"
-
-
-@register_marker
-class EEGPhaseLockingValueScalar(ScalarMixin, EEGPhaseLockingValue):
-    """Class for the PLV markers, reduced to scalars.
-
-    See :class:`.EEGPhaseLockingValue` and :class:`.ScalarMixin`.
-
-    """
-
-
-@register_marker
-class EEGPhaseLockingValueTopography(TopographyMixin, EEGPhaseLockingValue):
-    """Class for the PLV markers, reduced to topographies.
-
-    See :class:`.EEGPhaseLockingValue` and :class:`.TopographyMixin`.
-
-    """
-
-
-@register_marker
-class EEGWeightedPhaseLagIndexScalar(ScalarMixin, EEGWeightedPhaseLagIndex):
-    """Class for the wPLI markers, reduced to scalars.
-
-    See :class:`.EEGWeightedPhaseLagIndex` and :class:`.ScalarMixin`.
-
-    """
-
-
-@register_marker
-class EEGWeightedPhaseLagIndexTopography(
-    TopographyMixin, EEGWeightedPhaseLagIndex
-):
-    """Class for the wPLI markers, reduced to topographies.
-
-    See :class:`.EEGWeightedPhaseLagIndex` and :class:`.TopographyMixin`.
-
-    """

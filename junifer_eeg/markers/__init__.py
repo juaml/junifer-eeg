@@ -4,7 +4,10 @@
 # License: AGPL
 
 from .aggregation import AggregationStep, get_aggregation_function
-from .base import EEGBaseMarker, ScalarMixin, TimeseriesMixin, TopographyMixin
+from .base import EEGBaseMarker
+from .scalar_mixin import ScalarMixin
+from .timeseries_mixin import TimeseriesMixin
+from .topography_mixin import TopographyMixin
 from .connectivity import (
     EEGPhaseLockingValue,
     EEGPhaseLockingValueScalar,

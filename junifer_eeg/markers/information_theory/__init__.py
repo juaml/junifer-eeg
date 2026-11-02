@@ -3,18 +3,14 @@
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
 
-from .kolmogorov_complexity import (
-    EEGKolmogorovComplexity,
-    EEGKolmogorovComplexityScalar,
-    EEGKolmogorovComplexityTimeseries,
-    EEGKolmogorovComplexityTopography,
-)
-from .permutation_entropy import (
-    EEGPermutationEntropy,
-    EEGPermutationEntropyScalar,
-    EEGPermutationEntropyTimeseries,
-    EEGPermutationEntropyTopography,
-)
+from .kolmogorov_complexity_base import EEGKolmogorovComplexity
+from .kolmogorov_complexity_scalar import EEGKolmogorovComplexityScalar
+from .kolmogorov_complexity_timeseries import EEGKolmogorovComplexityTimeseries
+from .kolmogorov_complexity_topography import EEGKolmogorovComplexityTopography
+from .permutation_entropy_base import EEGPermutationEntropy
+from .permutation_entropy_scalar import EEGPermutationEntropyScalar
+from .permutation_entropy_timeseries import EEGPermutationEntropyTimeseries
+from .permutation_entropy_topography import EEGPermutationEntropyTopography
 
 
 __all__ = [

@@ -4,17 +4,20 @@
 # License: AGPL
 
 from .base import EEGBasePreprocessor
-from .channels import (
-    EEGAverageReference,
-    EEGInterpolateBads,
-    EEGPickChannels,
-    EEGRenameChannels,
-    EEGSetMontage,
-)
+from .average_reference import EEGAverageReference
+from .interpolate_bads import EEGInterpolateBads
+from .pick_channels import EEGPickChannels
+from .rename_channels import EEGRenameChannels
+from .set_montage import EEGSetMontage
 from .autorejection import EEGAutoReject
-from .epochs import EEGEventEpochs, EEGFixedLengthEpochs
-from .events import EEGDropEvents, EEGRenameEvents, RenameRule
-from .filtering import EEGFilter, EEGNotchFilter, EEGResample
+from .event_epochs import EEGEventEpochs
+from .fixed_length_epochs import EEGFixedLengthEpochs
+from .drop_events import EEGDropEvents
+from .rename_events import EEGRenameEvents
+from .rename_rule import RenameRule
+from .filter import EEGFilter
+from .notch_filter import EEGNotchFilter
+from .resample import EEGResample
 from .rejection import EEGAdaptiveRejection
 
 

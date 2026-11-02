@@ -1,4 +1,4 @@
-"""Provide the window decoding markers."""
+"""Provide base class for the window decoding markers."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -11,10 +11,8 @@ from typing import Any, ClassVar
 
 import mne
 import numpy as np
-from junifer.api.decorators import register_marker
 from junifer.typing import Dependencies
 from junifer.utils import raise_error
-from pydantic import BaseModel, ConfigDict
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.feature_selection import SelectPercentile, f_classif
 from sklearn.metrics import roc_auc_score
@@ -24,42 +22,12 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
 from ..aggregation import Axis
-from ..base import EEGBaseMarker, ScalarMixin
+from ..base import EEGBaseMarker
 from ..utils import get_epochs, get_picks, time_mask
+from .decoder import Decoder
 
 
-__all__ = [
-    "Decoder",
-    "EEGWindowDecoding",
-    "EEGWindowDecodingScalar",
-]
-
-
-class Decoder(BaseModel):
-    """A classification of the epochs of two sets of conditions.
-
-    Parameters
-    ----------
-    name : str
-        The name of the decoder (the feature).
-    condition_a : list of str
-        The conditions (event names) of the epochs of the positive class.
-    condition_b : list of str
-        The conditions (event names) of the epochs of the negative class.
-    tmin : float or None, optional
-        The start of the window. If None, from the start (default None).
-    tmax : float or None, optional
-        The end of the window. If None, until the end (default None).
-
-    """
-
-    model_config = ConfigDict(extra="forbid")
-
-    name: str
-    condition_a: list[str]
-    condition_b: list[str]
-    tmin: float | None = None
-    tmax: float | None = None
+__all__ = ["EEGWindowDecoding"]
 
 
 class EEGWindowDecoding(EEGBaseMarker):
@@ -231,12 +199,3 @@ class EEGWindowDecoding(EEGBaseMarker):
                 )
             )
         return np.array(scores)[:, np.newaxis]
-
-
-@register_marker
-class EEGWindowDecodingScalar(ScalarMixin, EEGWindowDecoding):
-    """Class for the window decoding markers, reduced to scalars.
-
-    See :class:`.EEGWindowDecoding` and :class:`.ScalarMixin`.
-
-    """

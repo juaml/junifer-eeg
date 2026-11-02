@@ -1,4 +1,4 @@
-"""Provide the estimator of the symbolic mutual information (SMI)."""
+"""Provide class for estimating the (w)SMI of epochs."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -10,41 +10,24 @@
 import json
 import math
 from functools import lru_cache
-from typing import ClassVar, Literal
+from typing import ClassVar
 
 import mne
 import numpy as np
 import structlog
 from junifer.typing import Dependencies
 from junifer.utils.singleton import Singleton
-from pydantic import BaseModel, ConfigDict
 
 from ..symbolic import symbol_weights, symbolize
 from ..utils import DataRef, get_picks, lowpass_epochs, time_mask
+from ._smi_estimator_params import SMIEstimatorParams
 
 
-__all__ = ["SMIEstimator", "SMIEstimatorParams"]
+__all__ = ["SMIEstimator"]
+
 
 _log = structlog.get_logger("junifer")
 logger = _log.bind(pkg="markers", step="marker")
-
-
-class SMIEstimatorParams(BaseModel):
-    """Parameters of the (w)SMI estimation.
-
-    See :class:`.EEGSymbolicMutualInformation` for the parameters.
-
-    """
-
-    model_config = ConfigDict(extra="forbid")
-
-    tmin: float | None = None
-    tmax: float | None = None
-    kernel: int = 3
-    tau: int = 8
-    method: Literal["weighted", "smi"] = "weighted"
-    csd: bool = True
-    filter_freq: float | None = None
 
 
 class SMIEstimator(metaclass=Singleton):

@@ -3,7 +3,9 @@
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
 
-from .window_decoding import Decoder, EEGWindowDecoding, EEGWindowDecodingScalar
+from .decoder import Decoder
+from .window_decoding_base import EEGWindowDecoding
+from .window_decoding_scalar import EEGWindowDecodingScalar
 
 
 __all__ = ["Decoder", "EEGWindowDecoding", "EEGWindowDecodingScalar"]

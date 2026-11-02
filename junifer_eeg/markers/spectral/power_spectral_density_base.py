@@ -1,4 +1,4 @@
-"""Provide the power spectral density (PSD) markers."""
+"""Provide base class for the spectral markers."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -10,22 +10,17 @@
 from typing import Any, ClassVar
 
 import numpy as np
-from junifer.api.decorators import register_marker
 from junifer.typing import Dependencies
 from junifer.utils import raise_error
 
 from ..aggregation import entropy
-from ..base import EEGBaseMarker, ScalarMixin, TimeseriesMixin, TopographyMixin
+from ..base import EEGBaseMarker
 from ..utils import get_epochs
-from ._psd_estimator import PSDEstimator, PSDEstimatorParams
+from ._psd_estimator import PSDEstimator
+from ._psd_estimator_params import PSDEstimatorParams
 
 
-__all__ = [
-    "EEGPowerSpectralDensity",
-    "EEGPowerSpectralDensityScalar",
-    "EEGPowerSpectralDensityTimeseries",
-    "EEGPowerSpectralDensityTopography",
-]
+__all__ = ["EEGPowerSpectralDensity"]
 
 
 class EEGPowerSpectralDensity(EEGBaseMarker):
@@ -154,34 +149,3 @@ class EEGPowerSpectralDensity(EEGBaseMarker):
                 values.append(freqs[idx])
                 features.append(edge)
         return np.stack(values, axis=-1), features, ch_names
-
-
-@register_marker
-class EEGPowerSpectralDensityScalar(ScalarMixin, EEGPowerSpectralDensity):
-    """Class for the spectral markers, reduced to scalars.
-
-    See :class:`.EEGPowerSpectralDensity` and :class:`.ScalarMixin`.
-
-    """
-
-
-@register_marker
-class EEGPowerSpectralDensityTopography(
-    TopographyMixin, EEGPowerSpectralDensity
-):
-    """Class for the spectral markers, reduced to topographies.
-
-    See :class:`.EEGPowerSpectralDensity` and :class:`.TopographyMixin`.
-
-    """
-
-
-@register_marker
-class EEGPowerSpectralDensityTimeseries(
-    TimeseriesMixin, EEGPowerSpectralDensity
-):
-    """Class for the spectral markers, reduced to one value per epoch.
-
-    See :class:`.EEGPowerSpectralDensity` and :class:`.TimeseriesMixin`.
-
-    """

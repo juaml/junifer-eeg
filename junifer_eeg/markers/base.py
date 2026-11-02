@@ -1,4 +1,4 @@
-"""Provide the base classes for EEG markers."""
+"""Provide base class for EEG markers."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -10,20 +10,14 @@ import numpy as np
 from junifer.datagrabber import DataType
 from junifer.markers import BaseMarker
 from junifer.storage import StorageType
-from junifer.typing import Dependencies, MarkerInOutMappings
+from junifer.typing import Dependencies
 from junifer.utils import raise_error
 
 from ..data import get_roi_channels
-from ..datatypes import EEG
 from .aggregation import AggregationStep, Axis, get_aggregation_function
 
 
-__all__ = [
-    "EEGBaseMarker",
-    "ScalarMixin",
-    "TimeseriesMixin",
-    "TopographyMixin",
-]
+__all__ = ["EEGBaseMarker"]
 
 
 class EEGBaseMarker(BaseMarker):
@@ -281,70 +275,3 @@ def _get_channel_indices(
             f"{input['montage']} nor channels in the data"
         )
     return [ch_names.index(x) for x in names]
-
-
-class ScalarMixin:
-    """Mixin for markers reduced to one value for each feature.
-
-    Each aggregation reduces all the axes of the marker, and is stored as a
-    vector with one column for each feature.
-
-    """
-
-    _KEPT_AXES: ClassVar[tuple[Axis, ...]] = ()
-    _STORAGE_TYPE: ClassVar[StorageType] = StorageType.Vector
-    _MARKER_INOUT_MAPPINGS: ClassVar[MarkerInOutMappings] = {
-        EEG: {"scalar": StorageType.Vector},
-    }
-
-    def _format_output(
-        self, data: np.ndarray, features: list[str], ch_names: list[str]
-    ) -> dict[str, Any]:
-        return {"data": data, "col_names": features}
-
-
-class TopographyMixin:
-    """Mixin for markers reduced to one value for each channel and feature.
-
-    Each aggregation reduces all the axes of the marker but the channels, and
-    is stored as a scalar table with one row for each channel and one column
-    for each feature.
-
-    """
-
-    _KEPT_AXES: ClassVar[tuple[Axis, ...]] = ("channels",)
-    _STORAGE_TYPE: ClassVar[StorageType] = StorageType.ScalarTable
-    _MARKER_INOUT_MAPPINGS: ClassVar[MarkerInOutMappings] = {
-        EEG: {"topography": StorageType.ScalarTable},
-    }
-
-    def _format_output(
-        self, data: np.ndarray, features: list[str], ch_names: list[str]
-    ) -> dict[str, Any]:
-        return {
-            "data": data,
-            "col_names": features,
-            "row_names": ch_names,
-            "row_header_col_name": "channel",
-        }
-
-
-class TimeseriesMixin:
-    """Mixin for markers reduced to one value for each epoch and feature.
-
-    Each aggregation reduces all the axes of the marker but the epochs, and
-    is stored as a timeseries with one row for each epoch and one column for
-    each feature.
-
-    """
-
-    _KEPT_AXES: ClassVar[tuple[Axis, ...]] = ("epochs",)
-    _STORAGE_TYPE: ClassVar[StorageType] = StorageType.Timeseries
-    _MARKER_INOUT_MAPPINGS: ClassVar[MarkerInOutMappings] = {
-        EEG: {"timeseries": StorageType.Timeseries},
-    }
-
-    def _format_output(
-        self, data: np.ndarray, features: list[str], ch_names: list[str]
-    ) -> dict[str, Any]:
-        return {"data": data, "col_names": features}

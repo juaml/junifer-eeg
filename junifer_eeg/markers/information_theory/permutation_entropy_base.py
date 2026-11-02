@@ -1,4 +1,4 @@
-"""Provide the permutation entropy (PE) markers."""
+"""Provide base class for the permutation entropy (PE) markers."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -11,19 +11,13 @@ import math
 from typing import Any
 
 import numpy as np
-from junifer.api.decorators import register_marker
 
-from ..base import EEGBaseMarker, ScalarMixin, TimeseriesMixin, TopographyMixin
+from ..base import EEGBaseMarker
 from ..symbolic import symbolize
 from ..utils import get_epochs, get_picks, lowpass_epochs, time_mask
 
 
-__all__ = [
-    "EEGPermutationEntropy",
-    "EEGPermutationEntropyScalar",
-    "EEGPermutationEntropyTimeseries",
-    "EEGPermutationEntropyTopography",
-]
+__all__ = ["EEGPermutationEntropy"]
 
 
 class EEGPermutationEntropy(EEGBaseMarker):
@@ -108,30 +102,3 @@ class EEGPermutationEntropy(EEGBaseMarker):
         pe /= np.log(n_symbols)
         ch_names = [epochs.ch_names[x] for x in picks]
         return pe[..., np.newaxis], ["pe"], ch_names
-
-
-@register_marker
-class EEGPermutationEntropyScalar(ScalarMixin, EEGPermutationEntropy):
-    """Class for the PE markers, reduced to scalars.
-
-    See :class:`.EEGPermutationEntropy` and :class:`.ScalarMixin`.
-
-    """
-
-
-@register_marker
-class EEGPermutationEntropyTopography(TopographyMixin, EEGPermutationEntropy):
-    """Class for the PE markers, reduced to topographies.
-
-    See :class:`.EEGPermutationEntropy` and :class:`.TopographyMixin`.
-
-    """
-
-
-@register_marker
-class EEGPermutationEntropyTimeseries(TimeseriesMixin, EEGPermutationEntropy):
-    """Class for the PE markers, reduced to one value per epoch.
-
-    See :class:`.EEGPermutationEntropy` and :class:`.TimeseriesMixin`.
-
-    """

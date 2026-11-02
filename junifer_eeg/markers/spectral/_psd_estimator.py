@@ -1,4 +1,4 @@
-"""Provide the estimator of the power spectral density (PSD)."""
+"""Provide class for estimating the PSD of epochs."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -9,7 +9,7 @@
 
 import json
 from functools import lru_cache
-from typing import Any, ClassVar, Literal
+from typing import ClassVar
 
 import mne
 import numpy as np
@@ -17,49 +17,17 @@ import structlog
 from junifer.typing import Dependencies
 from junifer.utils import raise_error
 from junifer.utils.singleton import Singleton
-from pydantic import BaseModel, ConfigDict
 from scipy.signal import welch
 
 from ..utils import DataRef, get_picks, time_mask
+from ._psd_estimator_params import PSDEstimatorParams
 
 
-__all__ = ["PSDEstimator", "PSDEstimatorParams"]
+__all__ = ["PSDEstimator"]
+
 
 _log = structlog.get_logger("junifer")
 logger = _log.bind(pkg="markers", step="marker")
-
-
-class PSDEstimatorParams(BaseModel):
-    """Parameters of the PSD estimation.
-
-    Parameters
-    ----------
-    method : {"welch"}, optional
-        The method (default "welch").
-    tmin : float or None, optional
-        The start of the epochs to use. If None, from the start
-        (default None).
-    tmax : float or None, optional
-        The end of the epochs to use. If None, until the end (default None).
-    fmin : float, optional
-        The minimum frequency (default 0.0).
-    fmax : float or None, optional
-        The maximum frequency. If None, the Nyquist frequency (default None).
-    method_params : dict or None, optional
-        The parameters of the method. For ``welch``: ``n_fft`` (default
-        256), ``nperseg`` (default 256) and ``n_overlap`` (default 0). The
-        segments are zero-padded to ``n_fft``, as in MNE (default None).
-
-    """
-
-    model_config = ConfigDict(extra="forbid")
-
-    method: Literal["welch"] = "welch"
-    tmin: float | None = None
-    tmax: float | None = None
-    fmin: float = 0.0
-    fmax: float | None = None
-    method_params: dict[str, Any] | None = None
 
 
 class PSDEstimator(metaclass=Singleton):

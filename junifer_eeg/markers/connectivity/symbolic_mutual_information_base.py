@@ -1,4 +1,4 @@
-"""Provide the symbolic mutual information (SMI) markers."""
+"""Provide base class for the (weighted) symbolic mutual information."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -10,20 +10,15 @@
 from typing import Any, ClassVar, Literal
 
 import numpy as np
-from junifer.api.decorators import register_marker
 
 from ..aggregation import Axis
-from ..base import EEGBaseMarker, ScalarMixin, TimeseriesMixin, TopographyMixin
+from ..base import EEGBaseMarker
 from ..utils import get_epochs
-from ._smi_estimator import SMIEstimator, SMIEstimatorParams
+from ._smi_estimator import SMIEstimator
+from ._smi_estimator_params import SMIEstimatorParams
 
 
-__all__ = [
-    "EEGSymbolicMutualInformation",
-    "EEGSymbolicMutualInformationScalar",
-    "EEGSymbolicMutualInformationTimeseries",
-    "EEGSymbolicMutualInformationTopography",
-]
+__all__ = ["EEGSymbolicMutualInformation"]
 
 
 class EEGSymbolicMutualInformation(EEGBaseMarker):
@@ -110,36 +105,3 @@ class EEGSymbolicMutualInformation(EEGBaseMarker):
         out, ch_names = SMIEstimator().compute(epochs, params)
         feature = "wsmi" if self.method == "weighted" else "smi"
         return out[..., np.newaxis], [feature], ch_names
-
-
-@register_marker
-class EEGSymbolicMutualInformationScalar(
-    ScalarMixin, EEGSymbolicMutualInformation
-):
-    """Class for the wSMI markers, reduced to scalars.
-
-    See :class:`.EEGSymbolicMutualInformation` and :class:`.ScalarMixin`.
-
-    """
-
-
-@register_marker
-class EEGSymbolicMutualInformationTopography(
-    TopographyMixin, EEGSymbolicMutualInformation
-):
-    """Class for the wSMI markers, reduced to topographies.
-
-    See :class:`.EEGSymbolicMutualInformation` and :class:`.TopographyMixin`.
-
-    """
-
-
-@register_marker
-class EEGSymbolicMutualInformationTimeseries(
-    TimeseriesMixin, EEGSymbolicMutualInformation
-):
-    """Class for the wSMI markers, reduced to one value per epoch.
-
-    See :class:`.EEGSymbolicMutualInformation` and :class:`.TimeseriesMixin`.
-
-    """

@@ -1,4 +1,4 @@
-"""Provide the Kolmogorov complexity (KC) markers."""
+"""Provide base class for the Kolmogorov complexity (KC) markers."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -11,19 +11,13 @@ import zlib
 from typing import Any
 
 import numpy as np
-from junifer.api.decorators import register_marker
 from junifer.utils import raise_error
 
-from ..base import EEGBaseMarker, ScalarMixin, TimeseriesMixin, TopographyMixin
+from ..base import EEGBaseMarker
 from ..utils import get_epochs, get_picks, time_mask
 
 
-__all__ = [
-    "EEGKolmogorovComplexity",
-    "EEGKolmogorovComplexityScalar",
-    "EEGKolmogorovComplexityTimeseries",
-    "EEGKolmogorovComplexityTopography",
-]
+__all__ = ["EEGKolmogorovComplexity"]
 
 
 class EEGKolmogorovComplexity(EEGBaseMarker):
@@ -125,34 +119,3 @@ def _discretize(data: np.ndarray, nbins: int) -> np.ndarray:
     bins = np.trunc((data - lower) / bin_size)
     bins = np.clip(bins, 0, nbins - 1).astype(np.uint8)
     return bins + ord("A")
-
-
-@register_marker
-class EEGKolmogorovComplexityScalar(ScalarMixin, EEGKolmogorovComplexity):
-    """Class for the KC markers, reduced to scalars.
-
-    See :class:`.EEGKolmogorovComplexity` and :class:`.ScalarMixin`.
-
-    """
-
-
-@register_marker
-class EEGKolmogorovComplexityTopography(
-    TopographyMixin, EEGKolmogorovComplexity
-):
-    """Class for the KC markers, reduced to topographies.
-
-    See :class:`.EEGKolmogorovComplexity` and :class:`.TopographyMixin`.
-
-    """
-
-
-@register_marker
-class EEGKolmogorovComplexityTimeseries(
-    TimeseriesMixin, EEGKolmogorovComplexity
-):
-    """Class for the KC markers, reduced to one value per epoch.
-
-    See :class:`.EEGKolmogorovComplexity` and :class:`.TimeseriesMixin`.
-
-    """

@@ -1,4 +1,4 @@
-"""Provide the contingent negative variation (CNV) markers."""
+"""Provide base class for the contingent negative variation (CNV)."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -10,20 +10,14 @@
 from typing import Any
 
 import numpy as np
-from junifer.api.decorators import register_marker
 from mne.defaults import DEFAULTS
 from scipy import linalg
 
-from ..base import EEGBaseMarker, ScalarMixin, TimeseriesMixin, TopographyMixin
+from ..base import EEGBaseMarker
 from ..utils import get_epochs, get_picks, time_mask
 
 
-__all__ = [
-    "EEGContingentNegativeVariation",
-    "EEGContingentNegativeVariationScalar",
-    "EEGContingentNegativeVariationTimeseries",
-    "EEGContingentNegativeVariationTopography",
-]
+__all__ = ["EEGContingentNegativeVariation"]
 
 
 class EEGContingentNegativeVariation(EEGBaseMarker):
@@ -94,38 +88,3 @@ class EEGContingentNegativeVariation(EEGBaseMarker):
         slopes = betas[1].reshape(n_epochs, n_channels)
         ch_names = [epochs.ch_names[x] for x in picks]
         return slopes[..., np.newaxis], ["cnv"], ch_names
-
-
-@register_marker
-class EEGContingentNegativeVariationScalar(
-    ScalarMixin, EEGContingentNegativeVariation
-):
-    """Class for the CNV markers, reduced to scalars.
-
-    See :class:`.EEGContingentNegativeVariation` and :class:`.ScalarMixin`.
-
-    """
-
-
-@register_marker
-class EEGContingentNegativeVariationTopography(
-    TopographyMixin, EEGContingentNegativeVariation
-):
-    """Class for the CNV markers, reduced to topographies.
-
-    See :class:`.EEGContingentNegativeVariation` and
-    :class:`.TopographyMixin`.
-
-    """
-
-
-@register_marker
-class EEGContingentNegativeVariationTimeseries(
-    TimeseriesMixin, EEGContingentNegativeVariation
-):
-    """Class for the CNV markers, reduced to one value per epoch.
-
-    See :class:`.EEGContingentNegativeVariation` and
-    :class:`.TimeseriesMixin`.
-
-    """
