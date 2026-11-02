@@ -7,7 +7,7 @@ EGI HydroCel Geodesic Sensor Net, 128 channels
 
 System: EGI HydroCel Geodesic Sensor Net, 128 channels.
 
-ROIs: ``scalp``, ``nonscalp``, ``Fz``, ``Cz``, ``Pz``, ``cnv``, ``mmn``, ``p3a``, ``p3b``.
+ROIs: ``scalp``, ``nonscalp``, ``fz``, ``cz``, ``pz``.
 
 Montages (the MNE montage with the positions):
 
@@ -36,51 +36,23 @@ Channels
 
 ``E125``, ``E126``, ``E127``.
 
-.. _montage_GSN-HydroCel-128_Fz:
+.. _montage_GSN-HydroCel-128_fz:
 
-``Fz``
+``fz``
 ~~~~~~
 
 ``E4``, ``E5``, ``E11``, ``E12``, ``E16``, ``E19``.
 
-.. _montage_GSN-HydroCel-128_Cz:
+.. _montage_GSN-HydroCel-128_cz:
 
-``Cz``
+``cz``
 ~~~~~~
 
 ``E7``, ``E31``, ``E55``, ``E80``, ``E106``.
 
-.. _montage_GSN-HydroCel-128_Pz:
+.. _montage_GSN-HydroCel-128_pz:
 
-``Pz``
+``pz``
 ~~~~~~
 
 ``E61``, ``E62``, ``E72``, ``E78``.
-
-.. _montage_GSN-HydroCel-128_cnv:
-
-``cnv``
-~~~~~~~
-
-``E4``, ``E5``, ``E11``, ``E12``, ``E16``, ``E19``.
-
-.. _montage_GSN-HydroCel-128_mmn:
-
-``mmn``
-~~~~~~~
-
-``E4``, ``E5``, ``E11``, ``E12``, ``E16``, ``E19``, ``E7``, ``E31``, ``E55``, ``E80``, ``E106``.
-
-.. _montage_GSN-HydroCel-128_p3a:
-
-``p3a``
-~~~~~~~
-
-``E4``, ``E5``, ``E11``, ``E12``, ``E16``, ``E19``, ``E7``, ``E31``, ``E55``, ``E80``, ``E106``.
-
-.. _montage_GSN-HydroCel-128_p3b:
-
-``p3b``
-~~~~~~~
-
-``E7``, ``E31``, ``E55``, ``E80``, ``E106``, ``E61``, ``E62``, ``E72``, ``E78``.

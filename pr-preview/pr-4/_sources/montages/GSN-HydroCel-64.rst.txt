@@ -7,7 +7,7 @@ EGI HydroCel Geodesic Sensor Net, 64 channels
 
 System: EGI HydroCel Geodesic Sensor Net, 64 channels.
 
-ROIs: ``scalp``, ``nonscalp``, ``Fz``, ``Cz``, ``Pz``, ``cnv``, ``mmn``, ``p3a``, ``p3b``.
+ROIs: ``scalp``, ``nonscalp``, ``fz``, ``cz``, ``pz``.
 
 Montages (the MNE montage with the positions):
 
@@ -36,51 +36,23 @@ Channels
 
 ``E61``, ``E62``, ``E63``, ``E64``.
 
-.. _montage_GSN-HydroCel-64_Fz:
+.. _montage_GSN-HydroCel-64_fz:
 
-``Fz``
+``fz``
 ~~~~~~
 
 ``E3``, ``E6``, ``E8``, ``E9``.
 
-.. _montage_GSN-HydroCel-64_Cz:
+.. _montage_GSN-HydroCel-64_cz:
 
-``Cz``
+``cz``
 ~~~~~~
 
 ``E4``, ``E7``, ``E16``, ``E21``, ``E41``, ``E51``, ``E54``.
 
-.. _montage_GSN-HydroCel-64_Pz:
+.. _montage_GSN-HydroCel-64_pz:
 
-``Pz``
+``pz``
 ~~~~~~
 
 ``E34``, ``E33``, ``E36``, ``E38``.
-
-.. _montage_GSN-HydroCel-64_cnv:
-
-``cnv``
-~~~~~~~
-
-``E3``, ``E6``, ``E8``, ``E9``.
-
-.. _montage_GSN-HydroCel-64_mmn:
-
-``mmn``
-~~~~~~~
-
-``E3``, ``E6``, ``E8``, ``E9``, ``E4``, ``E7``, ``E16``, ``E21``, ``E41``, ``E51``, ``E54``.
-
-.. _montage_GSN-HydroCel-64_p3a:
-
-``p3a``
-~~~~~~~
-
-``E3``, ``E6``, ``E8``, ``E9``, ``E4``, ``E7``, ``E16``, ``E21``, ``E41``, ``E51``, ``E54``.
-
-.. _montage_GSN-HydroCel-64_p3b:
-
-``p3b``
-~~~~~~~
-
-``E4``, ``E7``, ``E16``, ``E21``, ``E41``, ``E51``, ``E54``, ``E34``, ``E33``, ``E36``, ``E38``.

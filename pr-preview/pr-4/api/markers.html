@@ -286,9 +286,9 @@
 <dt><strong>method_params</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The parameters of the aggregation function (default None).</p>
 </dd>
 <dt><strong>picks</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The channels to aggregate (only for <code class="docutils literal notranslate"><span class="pre">channels</span></code> and <code class="docutils literal notranslate"><span class="pre">channels_y</span></code>),
-as an ROI name for the montage of the data (its channels in the data)
-or a list of channel names. If None, all the channels are aggregated
-(default None).</p>
+as names of ROIs for the montage of the data (their channels in the
+data) or of channels, concatenated (e.g., <code class="docutils literal notranslate"><span class="pre">[fz,</span> <span class="pre">cz]</span></code>). If None, all
+the channels are aggregated (default None).</p>
 </dd>
 </dl>
 </dd>
@@ -316,9 +316,9 @@ validated to form a valid model.</p>
 </dd>
 <dt><strong>tmax</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The end of the window. If None, until the end (default None).</p>
 </dd>
-<dt><strong>picks</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The channels reduced by the <code class="docutils literal notranslate"><span class="pre">channels</span></code> aggregation step, as an ROI
-name or a list of channel names. If None, the picks of the step
-(default None).</p>
+<dt><strong>picks</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The channels reduced by the <code class="docutils literal notranslate"><span class="pre">channels</span></code> aggregation step, as names
+of ROIs or channels (see <a class="reference internal" href="#junifer_eeg.markers.AggregationStep" title="junifer_eeg.markers.AggregationStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">AggregationStep</span></code></a>). If None, the
+picks of the step (default None).</p>
 </dd>
 </dl>
 </dd>
@@ -1671,9 +1671,9 @@ for each feature.</p>
 <dt><strong>conditions</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The conditions (event names) of the epochs to use. If None, all the
 epochs are used (default None).</p>
 </dd>
-<dt><strong>picks</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The channels reduced by the <code class="docutils literal notranslate"><span class="pre">channels</span></code> aggregation step, as an ROI
-name or a list of channel names. If None, the picks of the step
-(default None).</p>
+<dt><strong>picks</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a>, optional</span></dt><dd><p>The channels reduced by the <code class="docutils literal notranslate"><span class="pre">channels</span></code> aggregation step, as names
+of ROIs or channels (see <a class="reference internal" href="#junifer_eeg.markers.AggregationStep" title="junifer_eeg.markers.AggregationStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">AggregationStep</span></code></a>). If None, the
+picks of the step (default None).</p>
 </dd>
 </dl>
 </dd>
@@ -1942,7 +1942,7 @@ starting at it, <code class="docutils literal notranslate"><span class="pre">tau
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=7713aec3"></script>
+</div><script src="../_static/documentation_options.js?v=d36b2ada"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

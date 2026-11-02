@@ -386,11 +386,14 @@ channel selections keep the ones in the data (see
 <dt class="sig sig-object py" id="junifer_eeg.data.get_roi_channels">
 <span class="sig-prename descclassname"><span class="pre">junifer_eeg.data.</span></span><span class="sig-name descname"><span class="pre">get_roi_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#junifer_eeg.data.get_roi_channels" title="Link to this definition">¶</a></dt>
 <dd><p>Get the channel names of a channel selection.</p>
+<p>Each name of the selection is an ROI for the montage of <code class="docutils literal notranslate"><span class="pre">target_data</span></code>
+or a channel name. The channels of the names are concatenated, without
+repetitions (e.g., <code class="docutils literal notranslate"><span class="pre">[fz,</span> <span class="pre">cz]</span></code> for the channels of the <code class="docutils literal notranslate"><span class="pre">fz</span></code> and <code class="docutils literal notranslate"><span class="pre">cz</span></code>
+ROIs, or <code class="docutils literal notranslate"><span class="pre">[fz,</span> <span class="pre">Oz]</span></code> for the <code class="docutils literal notranslate"><span class="pre">fz</span></code> ROI and the <code class="docutils literal notranslate"><span class="pre">Oz</span></code> channel).</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>picks</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The name of an ROI for the montage of <code class="docutils literal notranslate"><span class="pre">target_data</span></code>, or the list of
-channel names.</p>
+<dt><strong>picks</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>The names of the ROIs or channels.</p>
 </dd>
 <dt><strong>target_data</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt><dd><p>The corresponding item of the data object, with the <code class="docutils literal notranslate"><span class="pre">montage</span></code>.</p>
 </dd>
@@ -407,7 +410,7 @@ the data, as it has all the positions of its region (default None).</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a></dt><dd><p>If no channel of the ROI is in the data.</p>
+<dt><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a></dt><dd><p>If no channel of an ROI is in the data.</p>
 </dd>
 </dl>
 </dd>
@@ -491,7 +494,7 @@ the data, as it has all the positions of its region (default None).</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=7713aec3"></script>
+</div><script src="../_static/documentation_options.js?v=d36b2ada"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

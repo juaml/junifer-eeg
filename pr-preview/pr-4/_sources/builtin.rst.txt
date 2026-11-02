@@ -139,15 +139,15 @@ several montages (e.g., the 10-20 system):
 
 .. include:: montages/table.inc
 
-The ``Fz``, ``Cz`` and ``Pz`` ROIs are the channels around these positions.
-The ``cnv``, ``mmn``, ``p3a`` and ``p3b`` ROIs are the channels where these
-components are measured (in NICE, the contingent negative variation, the
-mismatch negativity, and the P3a and P3b of the Local-Global paradigm): the
-``mmn`` and ``p3a`` ROIs are ``Fz`` and ``Cz``, the ``p3b`` ROI is ``Cz`` and
-``Pz``, and the ``cnv`` ROI is ``Fz`` and ``Cz`` (only ``Fz`` for the EGI
-nets, as in NICE). The ``Fz``, ``Cz`` and ``Pz`` ROIs of the 10-20 system are
-the 10-05 positions in the region of the ROIs of the ANT Neuro (32 channels),
-Brain Products (32), Nexstim eXimia (60) and g.tec (12) caps of NICE.
+The ``fz``, ``cz`` and ``pz`` ROIs are the channels around these positions
+(lowercase, not to be taken for the channels ``Fz``, ``Cz`` and ``Pz``). The
+``picks`` concatenate ROIs and channels, so the components of NICE are
+measured on the combinations of these ROIs: ``[fz, cz]`` for the mismatch
+negativity (MMN), the P3a and the contingent negative variation (CNV), and
+``[cz, pz]`` for the P3b (NICE used only ``fz`` for the CNV of the EGI nets).
+The ``fz``, ``cz`` and ``pz`` ROIs of the 10-20 system are the 10-05 positions
+in the region of the ROIs of the ANT Neuro (32 channels), Brain Products (32),
+Nexstim eXimia (60) and g.tec (12) caps of NICE.
 
 Other montages, or other ROIs of a montage, can be registered with
 :class:`.EEGROIRegistry`.

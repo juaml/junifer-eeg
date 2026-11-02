@@ -7,7 +7,7 @@ EGI HydroCel Geodesic Sensor Net, 256 channels
 
 System: EGI HydroCel Geodesic Sensor Net, 256 channels.
 
-ROIs: ``scalp``, ``nonscalp``, ``Fz``, ``Cz``, ``Pz``, ``cnv``, ``mmn``, ``p3a``, ``p3b``, ``Fp1``, ``Fp2``, ``F3``, ``F4``, ``C3``, ``C4``, ``P3``, ``P4``, ``T5``, ``T6``, ``Oz``.
+ROIs: ``scalp``, ``nonscalp``, ``fz``, ``cz``, ``pz``, ``fp1``, ``fp2``, ``f3``, ``f4``, ``c3``, ``c4``, ``p3``, ``p4``, ``t5``, ``t6``, ``oz``.
 
 Montages (the MNE montage with the positions):
 
@@ -36,128 +36,100 @@ Channels
 
 ``E225``, ``E226``, ``E227``, ``E228``, ``E229``, ``E230``, ``E231``, ``E232``, ``E233``, ``E234``, ``E235``, ``E236``, ``E237``, ``E238``, ``E239``, ``E240``, ``E241``, ``E242``, ``E243``, ``E244``, ``E245``, ``E246``, ``E247``, ``E248``, ``E249``, ``E250``, ``E251``, ``E252``, ``E253``, ``E254``, ``E255``, ``E256``.
 
-.. _montage_GSN-HydroCel-256_Fz:
+.. _montage_GSN-HydroCel-256_fz:
 
-``Fz``
+``fz``
 ~~~~~~
 
 ``E6``, ``E7``, ``E14``, ``E15``, ``E16``, ``E22``, ``E23``.
 
-.. _montage_GSN-HydroCel-256_Cz:
+.. _montage_GSN-HydroCel-256_cz:
 
-``Cz``
+``cz``
 ~~~~~~
 
 ``E9``, ``E45``, ``E81``, ``E132``, ``E186``.
 
-.. _montage_GSN-HydroCel-256_Pz:
+.. _montage_GSN-HydroCel-256_pz:
 
-``Pz``
+``pz``
 ~~~~~~
 
 ``E100``, ``E101``, ``E110``, ``E119``, ``E128``, ``E129``.
 
-.. _montage_GSN-HydroCel-256_cnv:
+.. _montage_GSN-HydroCel-256_fp1:
 
-``cnv``
-~~~~~~~
-
-``E6``, ``E7``, ``E14``, ``E15``, ``E16``, ``E22``, ``E23``.
-
-.. _montage_GSN-HydroCel-256_mmn:
-
-``mmn``
-~~~~~~~
-
-``E6``, ``E7``, ``E9``, ``E14``, ``E15``, ``E16``, ``E22``, ``E23``, ``E45``, ``E81``, ``E132``, ``E186``.
-
-.. _montage_GSN-HydroCel-256_p3a:
-
-``p3a``
-~~~~~~~
-
-``E6``, ``E7``, ``E9``, ``E14``, ``E15``, ``E16``, ``E22``, ``E23``, ``E45``, ``E81``, ``E132``, ``E186``.
-
-.. _montage_GSN-HydroCel-256_p3b:
-
-``p3b``
-~~~~~~~
-
-``E9``, ``E45``, ``E81``, ``E100``, ``E101``, ``E110``, ``E119``, ``E128``, ``E129``, ``E132``, ``E186``.
-
-.. _montage_GSN-HydroCel-256_Fp1:
-
-``Fp1``
+``fp1``
 ~~~~~~~
 
 ``E26``, ``E27``, ``E32``, ``E33``, ``E34``, ``E37``, ``E38``.
 
-.. _montage_GSN-HydroCel-256_Fp2:
+.. _montage_GSN-HydroCel-256_fp2:
 
-``Fp2``
+``fp2``
 ~~~~~~~
 
 ``E11``, ``E12``, ``E18``, ``E19``, ``E20``, ``E25``, ``E26``.
 
-.. _montage_GSN-HydroCel-256_F3:
+.. _montage_GSN-HydroCel-256_f3:
 
-``F3``
+``f3``
 ~~~~~~
 
 ``E30``, ``E36``, ``E40``, ``E41``, ``E42``, ``E49``, ``E50``.
 
-.. _montage_GSN-HydroCel-256_F4:
+.. _montage_GSN-HydroCel-256_f4:
 
-``F4``
+``f4``
 ~~~~~~
 
 ``E205``, ``E206``, ``E213``, ``E214``, ``E215``, ``E223``, ``E224``.
 
-.. _montage_GSN-HydroCel-256_C3:
+.. _montage_GSN-HydroCel-256_c3:
 
-``C3``
+``c3``
 ~~~~~~
 
 ``E51``, ``E52``, ``E58``, ``E59``, ``E60``, ``E65``, ``E66``.
 
-.. _montage_GSN-HydroCel-256_C4:
+.. _montage_GSN-HydroCel-256_c4:
 
-``C4``
+``c4``
 ~~~~~~
 
 ``E155``, ``E164``, ``E182``, ``E183``, ``E184``, ``E195``, ``E196``.
 
-.. _montage_GSN-HydroCel-256_P3:
+.. _montage_GSN-HydroCel-256_p3:
 
-``P3``
+``p3``
 ~~~~~~
 
 ``E76``, ``E77``, ``E85``, ``E86``, ``E87``, ``E97``, ``E98``.
 
-.. _montage_GSN-HydroCel-256_P4:
+.. _montage_GSN-HydroCel-256_p4:
 
-``P4``
+``p4``
 ~~~~~~
 
 ``E152``, ``E153``, ``E161``, ``E162``, ``E163``, ``E171``, ``E172``.
 
-.. _montage_GSN-HydroCel-256_T5:
+.. _montage_GSN-HydroCel-256_t5:
 
-``T5``
+``t5``
 ~~~~~~
 
 ``E83``, ``E84``, ``E85``, ``E94``, ``E95``, ``E96``, ``E104``, ``E105``, ``E106``.
 
-.. _montage_GSN-HydroCel-256_T6:
+.. _montage_GSN-HydroCel-256_t6:
 
-``T6``
+``t6``
 ~~~~~~
 
 ``E169``, ``E170``, ``E171``, ``E177``, ``E178``, ``E179``, ``E189``, ``E190``, ``E191``.
 
-.. _montage_GSN-HydroCel-256_Oz:
+.. _montage_GSN-HydroCel-256_oz:
 
-``Oz``
+``oz``
 ~~~~~~
 
 ``E125``, ``E136``, ``E137``, ``E138``, ``E148``.
