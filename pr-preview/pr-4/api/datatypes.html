@@ -181,7 +181,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -265,7 +265,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
@@ -273,6 +273,37 @@
           <section id="module-junifer_eeg.datatypes">
 <span id="data-types"></span><h1><span class="section-number">6.1. </span>Data types<a class="headerlink" href="#module-junifer_eeg.datatypes" title="Link to this heading">¶</a></h1>
 <p>Provide the EEG data type.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="junifer_eeg.datatypes.get_eeg_companions">
+<span class="sig-prename descclassname"><span class="pre">junifer_eeg.datatypes.</span></span><span class="sig-name descname"><span class="pre">get_eeg_companions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#junifer_eeg.datatypes.get_eeg_companions" title="Link to this definition">¶</a></dt>
+<dd><p>Get the other files needed to read an EEG recording.</p>
+<p>The files that MNE reads with the recording: the data and marker files
+of a BrainVision header (<code class="docutils literal notranslate"><span class="pre">.vhdr</span></code>), the data file of an EEGLAB dataset
+(<code class="docutils literal notranslate"><span class="pre">.fdt</span></code>, if not in the <code class="docutils literal notranslate"><span class="pre">.set</span></code>) and the next files of a split FIF
+file. The recordings in a directory (e.g., EGI <code class="docutils literal notranslate"><span class="pre">.mff</span></code>) have no
+companions, as the directory is got.</p>
+<p>The DataLad DataGrabbers call it once the recording is got, which also
+installs its sub-dataset (e.g., one sub-dataset per subject), and then
+get the companions. So the recording can be read (e.g., the BrainVision
+header) and the links of the other files of its sub-dataset are there,
+but not their content: the files are found with <code class="docutils literal notranslate"><span class="pre">os.path.lexists</span></code>,
+not <code class="docutils literal notranslate"><span class="pre">exists</span></code>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>path</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a></span></dt><dd><p>The path of the recording, got (with its content).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a></dt><dd><p>The other files.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
         </article>
@@ -318,13 +349,32 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">6.1. Data types</a><ul>
+<li><a class="reference internal" href="#junifer_eeg.datatypes.get_eeg_companions"><code class="docutils literal notranslate"><span class="pre">get_eeg_companions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=6a50e373"></script>
+</div><script src="../_static/documentation_options.js?v=ce28676a"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
