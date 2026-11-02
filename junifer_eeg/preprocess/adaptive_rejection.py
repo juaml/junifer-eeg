@@ -1,4 +1,4 @@
-"""Provide preprocessors for rejecting bad EEG channels and epochs."""
+"""Provide class for the adaptive rejection of bad EEG channels and epochs."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -18,9 +18,10 @@ from scipy.signal import butter, filtfilt
 from scipy.stats import zscore
 
 from .base import EEGBasePreprocessor
+from .utils import check_min_epochs
 
 
-__all__ = ["EEGAdaptiveRejection", "check_min_epochs"]
+__all__ = ["EEGAdaptiveRejection"]
 
 _log = structlog.get_logger("junifer")
 logger = _log.bind(pkg="preprocess", step="preprocessing")
@@ -142,39 +143,6 @@ class EEGAdaptiveRejection(EEGBasePreprocessor):
     def _check_min_epochs(self, inst: mne.BaseEpochs, n_epochs: int) -> None:
         """Check the number of epochs remaining."""
         check_min_epochs(inst, n_epochs, self.min_epochs)
-
-
-def check_min_epochs(
-    inst: mne.BaseEpochs, n_epochs: int, min_epochs: float | int | None
-) -> None:
-    """Check the number of epochs remaining after a rejection.
-
-    Parameters
-    ----------
-    inst : mne.BaseEpochs
-        The epochs remaining.
-    n_epochs : int
-        The number of epochs before the rejection.
-    min_epochs : float or int or None
-        The minimum number (int) or proportion (float) of epochs remaining.
-        If None, it is not checked.
-
-    Raises
-    ------
-    RuntimeError
-        If fewer than ``min_epochs`` epochs remain.
-
-    """
-    if min_epochs is None:
-        return
-    if isinstance(min_epochs, float):
-        min_epochs = int(n_epochs * min_epochs)
-    if len(inst) < min_epochs:
-        raise_error(
-            f"Cannot clean data: only {len(inst)} out of {n_epochs} "
-            f"epochs remain (minimum {min_epochs}).",
-            klass=RuntimeError,
-        )
 
 
 def _picks_excluding(inst: mne.BaseEpochs, exclude: set[str]) -> np.ndarray:

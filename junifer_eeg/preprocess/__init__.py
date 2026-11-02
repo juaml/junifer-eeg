@@ -9,7 +9,7 @@ from .interpolate_bads import EEGInterpolateBads
 from .pick_channels import EEGPickChannels
 from .rename_channels import EEGRenameChannels
 from .set_montage import EEGSetMontage
-from .autorejection import EEGAutoReject
+from .auto_reject import EEGAutoReject
 from .event_epochs import EEGEventEpochs
 from .fixed_length_epochs import EEGFixedLengthEpochs
 from .drop_events import EEGDropEvents
@@ -18,7 +18,7 @@ from .rename_rule import RenameRule
 from .filter import EEGFilter
 from .notch_filter import EEGNotchFilter
 from .resample import EEGResample
-from .rejection import EEGAdaptiveRejection
+from .adaptive_rejection import EEGAdaptiveRejection
 
 
 __all__ = [

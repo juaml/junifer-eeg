@@ -1,4 +1,4 @@
-"""Provide the preprocessor for rejecting bad epochs with autoreject."""
+"""Provide class for rejecting bad EEG epochs with autoreject."""
 
 # Authors: Federico Raimondo <f.raimondo@fz-juelich.de>
 # License: AGPL
@@ -16,7 +16,7 @@ from junifer.api.decorators import register_preprocessor
 from junifer.typing import Dependencies
 
 from .base import EEGBasePreprocessor
-from .rejection import check_min_epochs
+from .utils import check_min_epochs
 
 
 __all__ = ["EEGAutoReject"]
